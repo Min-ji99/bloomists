@@ -60,14 +60,19 @@
     <UnityVersion>2020.1.17f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Elf\ElfGirl\GirlWalk.cs" />
+    <Compile Include="Assets\start\Scripts\ImageTracking.cs" />
     <Compile Include="Assets\Elf\ElfGirl\Button.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\RadialConveyor.cs" />
+    <Compile Include="Assets\Elf\ElfGlasses\GlassWalk.cs" />
     <Compile Include="Assets\Elf\ElfBoy\DownLever.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\Roller.cs" />
     <Compile Include="Assets\start\Scripts\Lever.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\LinearConveyor.cs" />
+    <Compile Include="Assets\start\Scripts\ARTapToPlaceObject.cs" />
     <Compile Include="Assets\Elf\ElfGirl\ClickToMove.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\ExtrudedConveyor.cs" />
+    <Compile Include="Assets\Deco\book\Book.cs" />
     <Compile Include="Assets\AlignedGames\Polygonal Foliage Asset Package\Scripts\Utility\FlyCameraBehaviour.cs" />
     <Compile Include="Assets\step03\Scripts\Push_Button.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\ExtrudeConveyorWizard.cs" />
