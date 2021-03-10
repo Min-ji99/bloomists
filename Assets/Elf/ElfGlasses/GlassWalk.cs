@@ -6,12 +6,14 @@ public class GlassWalk : MonoBehaviour
 {
     public List<Transform> waypoints = new List<Transform>();
     private Transform targetWaypoint;
-    private int targetWayPointIndex=0;
+    private int targetWayPointIndex = 0;
     private float minDistance = 0.1f;
     private int lastWaypointIndex;
 
     private float movementSpeed = 1.0f;
     private float rotationSpeed = 2.0f;
+
+    private bool elfMove = true;
 
     void Start()
     {
@@ -27,30 +29,38 @@ public class GlassWalk : MonoBehaviour
         Vector3 directionToTarget = targetWaypoint.position - transform.position;
         Quaternion rotationToTarget = Quaternion.LookRotation(directionToTarget);
 
+
         transform.rotation = rotationToTarget;
 
         float distance = Vector3.Distance(transform.position, targetWaypoint.position);
         CheckDistanceToWaypoint(distance);
 
-        transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position,movementStep);
+        transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, movementStep);
 
-        
-    } 
+
+    }
 
     void CheckDistanceToWaypoint(float currentDistance)
     {
-        if(currentDistance <= minDistance)
+        if (currentDistance <= minDistance && elfMove == true)
         {
             targetWayPointIndex++;
-            UpdateTargetWaypoint();
+            if (targetWayPointIndex == 5)
+            {
+                elfMove = false;
+            }
+            //UpdateTargetWaypoint();
+            Debug.Log("증가 " + targetWayPointIndex);
         }
-    }
-
-    void UpdateTargetWaypoint()
-    {
-        if (targetWayPointIndex > lastWaypointIndex)
+        else if (currentDistance <= minDistance && elfMove == false)
         {
-            targetWayPointIndex = 0;
+            targetWayPointIndex--;
+            Debug.Log("감소 " + targetWayPointIndex);
+            if (targetWayPointIndex == 0)
+            {
+                elfMove = true;
+            }
+
         }
         targetWaypoint = waypoints[targetWayPointIndex];
     }

@@ -46,7 +46,7 @@ public class GirlWalk : MonoBehaviour
         if(currentDistance <= minDistance && elfMove == true)
         {
             targetWayPointIndex++;
-            if(targetWayPointIndex == 5)
+            if(targetWayPointIndex == 7)
             {
                 elfMove = false;
             }
