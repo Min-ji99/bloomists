@@ -50,12 +50,12 @@ public class GlassWalk : MonoBehaviour
                 elfMove = false;
             }
             //UpdateTargetWaypoint();
-            Debug.Log("증가 " + targetWayPointIndex);
+           // Debug.Log("증가 " + targetWayPointIndex);
         }
         else if (currentDistance <= minDistance && elfMove == false)
         {
             targetWayPointIndex--;
-            Debug.Log("감소 " + targetWayPointIndex);
+          //  Debug.Log("감소 " + targetWayPointIndex);
             if (targetWayPointIndex == 0)
             {
                 elfMove = true;

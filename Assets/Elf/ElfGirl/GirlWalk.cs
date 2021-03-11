@@ -46,17 +46,17 @@ public class GirlWalk : MonoBehaviour
         if(currentDistance <= minDistance && elfMove == true)
         {
             targetWayPointIndex++;
-            if(targetWayPointIndex == 7)
+            if(targetWayPointIndex == 6)
             {
                 elfMove = false;
             }
             //UpdateTargetWaypoint();
-            Debug.Log("증가 " + targetWayPointIndex);
+            //Debug.Log("증가 " + targetWayPointIndex);
         }
         else if(currentDistance <= minDistance && elfMove == false)
         {
             targetWayPointIndex--;
-            Debug.Log("감소 " + targetWayPointIndex);
+            //Debug.Log("감소 " + targetWayPointIndex);
             if(targetWayPointIndex ==0)
             {
                 elfMove = true;
