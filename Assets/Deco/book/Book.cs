@@ -9,6 +9,7 @@ public class Book : MonoBehaviour
     bool isMove = false;
     private Vector3 touchpos;
     private Animator animator;
+    public bool state = false;
 
     // Use this for initialization 
     void Start()
@@ -42,11 +43,13 @@ public class Book : MonoBehaviour
                     isMove = true;
                     animator.SetBool("Click", true);
                     //Invoke("touchClick", 5.0f);
+                    state = true;
                 }
                 else
                 {
                     isMove = false;
                     animator.SetBool("Click", false);
+                    state = false;
                 }
 
                 Debug.Log(hit.collider.gameObject.name);

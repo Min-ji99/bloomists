@@ -58,8 +58,10 @@
     <Compile Include="Assets\Elf\ElfGirl\Button.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\RadialConveyor.cs" />
     <Compile Include="Assets\Elf\ElfGlasses\GlassWalk.cs" />
+    <Compile Include="Assets\Intro.cs" />
     <Compile Include="Assets\Elf\ElfBoy\BoyWalk.cs" />
     <Compile Include="Assets\Elf\ElfBoy\DownLever.cs" />
+    <Compile Include="Assets\step02\watertank.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\Roller.cs" />
     <Compile Include="Assets\step03\Scripts\snowtank02.cs" />
     <Compile Include="Assets\start\Scripts\Lever.cs" />
@@ -67,6 +69,7 @@
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\LinearConveyor.cs" />
     <Compile Include="Assets\start\Scripts\ARTapToPlaceObject.cs" />
     <Compile Include="Assets\step03\Scripts\snowtank.cs" />
+    <Compile Include="Assets\Deco\Question\QuestionMark.cs" />
     <Compile Include="Assets\final\final_machine.cs" />
     <Compile Include="Assets\Elf\ElfGirl\ClickToMove.cs" />
     <Compile Include="Assets\start\Scripts\Seed.cs" />
@@ -75,7 +78,6 @@
     <Compile Include="Assets\AlignedGames\Polygonal Foliage Asset Package\Scripts\Utility\FlyCameraBehaviour.cs" />
     <Compile Include="Assets\step03\Scripts\Push_Button.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\ExtrudeConveyorWizard.cs" />
-    <Compile Include="Assets\step02\watertank.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\conveyor\ModularConveyorTools\Shaders\Conveyor.shader" />
