@@ -36,6 +36,6 @@ public class Seed : MonoBehaviour
 
     void Play()
     {
-        GameObject.Find("GameObject (1)").transform.Find("seed").gameObject.SetActive(true);
+        GameObject.Find("S_P").transform.Find("seed").gameObject.SetActive(true);
     }
 }
