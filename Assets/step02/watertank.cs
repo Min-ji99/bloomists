@@ -7,6 +7,9 @@ public class watertank : MonoBehaviour
     bool isMove = false;
     private Vector3 touchpos;
     private Animator animator;
+    public ParticleSystem water;
+
+    
 
     // Use this for initialization 
     void Start()
@@ -39,6 +42,7 @@ public class watertank : MonoBehaviour
                 {
                     isMove = true;
                     animator.SetBool("water", true);
+                    water.Play();
                     //Invoke("touchClick", 5.0f);
                 }
                 else
@@ -54,4 +58,10 @@ public class watertank : MonoBehaviour
         }
 
     }
+
+    //void Particle()
+    //{
+    //    water.Play();
+
+    //}
 }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -56,8 +56,10 @@
     <Compile Include="Assets\Elf\ElfGirl\GirlWalk.cs" />
     <Compile Include="Assets\start\Scripts\ImageTracking.cs" />
     <Compile Include="Assets\Elf\ElfGirl\Button.cs" />
+    <Compile Include="Assets\seed_plant\Plant02.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\RadialConveyor.cs" />
     <Compile Include="Assets\Elf\ElfGlasses\GlassWalk.cs" />
+    <Compile Include="Assets\Elf\ElfBoy\TankBoy.cs" />
     <Compile Include="Assets\Intro.cs" />
     <Compile Include="Assets\Elf\ElfBoy\BoyWalk.cs" />
     <Compile Include="Assets\Elf\ElfBoy\DownLever.cs" />
@@ -67,15 +69,19 @@
     <Compile Include="Assets\start\Scripts\Lever.cs" />
     <Compile Include="Assets\step03\Scripts\snow_start.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\LinearConveyor.cs" />
+    <Compile Include="Assets\seed_plant\RemoveIce.cs" />
+    <Compile Include="Assets\seed_plant\AfterIce.cs" />
     <Compile Include="Assets\start\Scripts\ARTapToPlace.cs" />
     <Compile Include="Assets\step03\Scripts\snowtank.cs" />
     <Compile Include="Assets\Deco\Question\QuestionMark.cs" />
+    <Compile Include="Assets\seed_plant\Plant01.cs" />
     <Compile Include="Assets\final\final_machine.cs" />
     <Compile Include="Assets\Elf\ElfGirl\ClickToMove.cs" />
     <Compile Include="Assets\start\Scripts\Seed.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\ExtrudedConveyor.cs" />
     <Compile Include="Assets\Deco\book\Book.cs" />
     <Compile Include="Assets\AlignedGames\Polygonal Foliage Asset Package\Scripts\Utility\FlyCameraBehaviour.cs" />
+    <Compile Include="Assets\seed_plant\Ice.cs" />
     <Compile Include="Assets\step03\Scripts\Push_Button.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\ExtrudeConveyorWizard.cs" />
   </ItemGroup>
