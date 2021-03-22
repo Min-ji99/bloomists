@@ -52,7 +52,7 @@ public class snow_start : MonoBehaviour
                     state = false;
                 }
 
-                Debug.Log(hit.collider.gameObject.name);
+               // Debug.Log(hit.collider.gameObject.name);
 
             }
 

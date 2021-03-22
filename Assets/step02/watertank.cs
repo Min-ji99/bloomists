@@ -42,7 +42,8 @@ public class watertank : MonoBehaviour
                 {
                     isMove = true;
                     animator.SetBool("water", true);
-                    water.Play();
+
+                    Invoke("Particle", 10.0f);
                     //Invoke("touchClick", 5.0f);
                 }
                 else
@@ -59,9 +60,9 @@ public class watertank : MonoBehaviour
 
     }
 
-    //void Particle()
-    //{
-    //    water.Play();
-
-    //}
+    void Particle()
+    {
+            water.Play();
+        
+    }
 }

@@ -7,6 +7,8 @@ public class AfterIce : MonoBehaviour
     
     private Animator animator;
 
+    public bool state_p2=false;
+
     RemoveIce rIce;
 
     // Use this for initialization 
@@ -30,7 +32,7 @@ public class AfterIce : MonoBehaviour
         {
 
             animator.SetBool("Click", true);
-            //Invoke("touchClick", 5.0f);
+            state_p2 = true;
 
 
         }

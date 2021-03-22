@@ -27,7 +27,7 @@ public class QuestionMark : MonoBehaviour
 
         if (books.state==true)
         {
-                Invoke("Play", 17f);
+                Invoke("Play", 1f);
            
                
         }

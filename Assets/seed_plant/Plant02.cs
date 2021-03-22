@@ -5,18 +5,28 @@ using UnityEngine;
 public class Plant02 : MonoBehaviour
 {
     public GameObject Plant;
-    public GameObject potion;
+    //public GameObject potion;
+   // private float Dist;
+    public bool state = false;
+    
     //private Animator animator;
 
     Plant01 p1;
-    RemoveIce rIce;
+   // RemoveIce rIce;
+    PotionTank pt;
+    
     
 
     void Start()
     {
         Plant.gameObject.SetActive(false);
         p1 = GameObject.Find("plant01").GetComponent<Plant01>();
-        rIce= GameObject.Find("03_ice").GetComponent<RemoveIce>();
+        //rIce= GameObject.Find("03_ice").GetComponent<RemoveIce>();
+
+        pt = GameObject.Find("04_tank").GetComponent<PotionTank>();
+
+       
+
 
         //animator = GameObject.Find("Plant2").transform.Find("plant02").GetComponent<Animator>();
 
@@ -25,17 +35,25 @@ public class Plant02 : MonoBehaviour
 
     void Update()
     {
-        
-        touchClick();
+        if (state == false)
+        {
+            PlantAppear();
+        }
+        //Dist = Vector3.Distance(Plant.transform.position, potion.transform.position);
+       
     }
 
-    void touchClick()
+  
+
+    void PlantAppear()
     {
 
 
-        if (p1.state == true)
+        if (p1.state == true)   //plant01이 사라졌다면
         {
+            
             Play();
+
             //animator.SetBool("Click", false);
         }
         //if (rIce.state == true)
@@ -43,11 +61,23 @@ public class Plant02 : MonoBehaviour
         //    animator.SetBool("Click", true);
 
         //}
+        if (pt.pstate == true) {
 
+            Invoke("Disappear", 4.0f);
+
+        }
     }
 
     void Play()
     {
         GameObject.Find("Plant2").transform.Find("plant02").gameObject.SetActive(true);
+      
     }
+
+    void Disappear()
+    {
+        Plant.gameObject.SetActive(false);
+        state = true;
+    }
+
 }

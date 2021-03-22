@@ -23,7 +23,7 @@ public class Plant01 : MonoBehaviour
 
     void LateUpdate()
     {
-        print("Dist : " + Dist);
+        //print("Dist : " + Dist);
     }
 
 
