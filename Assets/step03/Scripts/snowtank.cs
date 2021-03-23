@@ -38,8 +38,8 @@ public class snowtank : MonoBehaviour
           
             //isMove = true;
             //animator.SetBool("snow", true);
-            Invoke("Play", 2f);
-            Invoke("Particle", 4f);
+            Invoke("Play", 4f);
+            Invoke("Particle", 6f);
          
            
         }
