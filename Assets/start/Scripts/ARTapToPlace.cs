@@ -14,6 +14,7 @@ public class ARTapToPlace : MonoBehaviour
     private ARRaycastManager arManager;
     private Pose placementPose;
     private bool placementPoseIsValid = false;
+    private bool createFactory = false;
 
     void Start()
     {
@@ -22,11 +23,19 @@ public class ARTapToPlace : MonoBehaviour
 
     void Update()
     {
-        UpdatePlacementPose();
-        UpdatePlacementIndicator();
-        if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if(createFactory == false)
         {
-            PlaceObject();
+            UpdatePlacementPose();
+            UpdatePlacementIndicator();
+            if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                PlaceObject();
+                createFactory = true;
+            }
+        }
+        if (createFactory)
+        {
+            Destroy(placementIndicator);
         }
     }
 
@@ -59,10 +68,11 @@ public class ARTapToPlace : MonoBehaviour
         if (placementPoseIsValid)
         {
             placementPose = hits[0].pose;
-
+            /*
             var cameraForward = Camera.current.transform.forward;
             var cameraBearing = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
             placementPose.rotation = Quaternion.LookRotation(cameraBearing);
+            */
         }
     }
 
