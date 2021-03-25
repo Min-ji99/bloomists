@@ -18,7 +18,7 @@ public class snowtank02 : MonoBehaviour
     // Update is called once per frame 
     void Update()
     {
-        animator.SetBool("Snow02", false);
+        //animator.SetBool("Snow02", false);
         touchClick();
     }
     // 터치 시 오브젝트 확인 함수 
@@ -42,14 +42,14 @@ public class snowtank02 : MonoBehaviour
                 {
                     Invoke("touchClick", 5.0f);
                     isMove = true;
-                    animator.SetBool("Snow02", true);
-                    smoke.Play();
+                    // animator.SetBool("Snow02", true);
+                    Invoke("play", 1.0f);
                     
                 }
                 else
                 {
                     isMove = false;
-                    animator.SetBool("Snow02", false);
+                    //animator.SetBool("Snow02", false);
                 }
 
                 Debug.Log(hit.collider.gameObject.name);
@@ -58,5 +58,9 @@ public class snowtank02 : MonoBehaviour
 
         }
 
+    }
+   void play()
+    {
+        smoke.Play();
     }
 }

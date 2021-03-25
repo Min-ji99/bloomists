@@ -6,7 +6,7 @@ public class Gear : MonoBehaviour
 {
     private Vector3 touchpos;
     private Animator animator;
-    public ParticleSystem snow;
+    //public ParticleSystem snow;
     snow_start snowstart;
 
     public bool pstate = false;
@@ -33,7 +33,8 @@ public class Gear : MonoBehaviour
         if (snowstart.state == true)
         {
 
-            Invoke("Play", 2f);
+            //Invoke("Play", 1f);
+            Play();
 
 
         }
