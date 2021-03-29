@@ -37,6 +37,7 @@ public class Intro : MonoBehaviour
                 GameObject.Find("All").transform.Find("Factory_OBJ").gameObject.SetActive(true);
                 state = true;
                 Debug.Log(hit.collider.gameObject.name);
+                //question.gameObject.SetActive(false);
 
             }
 
