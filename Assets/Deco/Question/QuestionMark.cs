@@ -7,13 +7,14 @@ public class QuestionMark : MonoBehaviour
     public GameObject mark;
     Book books;
     Intro intro;
+    bool stateMark;
 
     void Start()
     {
         mark.gameObject.SetActive(false);
         books = GameObject.Find("book").GetComponent<Book>();
         intro = GameObject.Find("All").GetComponent<Intro>();
-
+        stateMark = true;
     }
 
     void Update()
@@ -33,8 +34,9 @@ public class QuestionMark : MonoBehaviour
         }
         if (intro.state == true)
         {
-            mark.gameObject.SetActive(false);
-
+            //mark.gameObject.SetActive(false);
+            Destroy(mark);
+            stateMark = false;
 
         }
 
@@ -43,6 +45,9 @@ public class QuestionMark : MonoBehaviour
 
     void Play()
     {
-         GameObject.Find("Q").transform.Find("question_mark").gameObject.SetActive(true);
+        if (stateMark)
+        {
+            GameObject.Find("Q").transform.Find("question_mark").gameObject.SetActive(true);
+        }
     }
 }
