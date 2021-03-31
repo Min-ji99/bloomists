@@ -10,6 +10,7 @@ public class Book : MonoBehaviour
     private Vector3 touchpos;
     private Animator animator;
     public bool state = false;
+    public bool stateFactory = false;
 
     // Use this for initialization 
     void Start()
@@ -36,23 +37,28 @@ public class Book : MonoBehaviour
             // 터치한 곳에 ray를 보냄 
             Physics.Raycast(touchray, out hit); // ray가 오브젝트에 부딪힐 경우 
 
-            if (hit.collider.gameObject.name == "Book_cover")
+            if(stateFactory == false)
             {
-                if (isMove == false)
+                if (hit.collider.gameObject.name == "Book_cover")
                 {
-                    isMove = true;
-                    animator.SetBool("Click", true);
-                    //Invoke("touchClick", 5.0f);
-                    state = true;
-                }
-                else
-                {
-                    isMove = false;
-                    animator.SetBool("Click", false);
-                    state = false;
-                }
+                    if (isMove == false)
+                    {
+                        isMove = true;
+                        animator.SetBool("Click", true);
+                        //Invoke("touchClick", 5.0f);
+                        state = true;
+                        stateFactory = true;
+                    }
+                    else
+                    {
+                        isMove = false;
+                        animator.SetBool("Click", false);
+                        state = false;
+                    }
 
-                Debug.Log(hit.collider.gameObject.name);
+                    Debug.Log(hit.collider.gameObject.name);
+                }
+            
 
             }
 
