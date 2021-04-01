@@ -8,6 +8,7 @@ public class AfterIce : MonoBehaviour
     private Animator animator;
 
     public bool state_p2=false;
+    public bool bloom = false;
 
     RemoveIce rIce;
 
@@ -33,8 +34,13 @@ public class AfterIce : MonoBehaviour
 
             animator.SetBool("Click", true);
             state_p2 = true;
+            Invoke("Bloom", 2.0f);
 
 
         }
+    }
+    void Bloom()
+    {
+        bloom = true;
     }
 }

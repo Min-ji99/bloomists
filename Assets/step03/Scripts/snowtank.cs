@@ -12,6 +12,7 @@ public class snowtank : MonoBehaviour
     float timer;
 
     public bool pstate = false;
+    private bool IsDestroy_Ice = false;
    
 
     // Use this for initialization 
@@ -33,15 +34,13 @@ public class snowtank : MonoBehaviour
     void touchClick()
     {
         
-        if (snowstart.state == true)
+        if (snowstart.state == true && IsDestroy_Ice == false)
         {
           
             //isMove = true;
             //animator.SetBool("snow", true);
             Invoke("Play", 2f);
             Invoke("Particle", 4f);
-         
-           
         }
         else
         {
@@ -65,5 +64,7 @@ public class snowtank : MonoBehaviour
     {
         snow.Play();
         pstate = true;
+        Destroy(snow, 5f);
+        IsDestroy_Ice = true;
     }
 }

@@ -53,78 +53,82 @@
     <UnityVersion>2020.1.17f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Canvas Flow\Transition Animators\ScaleAndFadeBackgroundTransitionAnimator.cs" />
+    <Compile Include="Assets\Canvas Flow\Transition Animators\DefaultTransitionAnimator.cs" />
     <Compile Include="Assets\Elf\ElfGirl\GirlWalk.cs" />
     <Compile Include="Assets\start\Scripts\ImageTracking.cs" />
+    <Compile Include="Assets\Canvas Flow\Transition Animators\SlideTransitionAnimator.cs" />
+    <Compile Include="Assets\Canvas Flow\Examples\2. Transitions Example\Canvas Controllers\TEFadeTransitionCanvasController.cs" />
     <Compile Include="Assets\step01\rotate.cs" />
     <Compile Include="Assets\Elf\ElfGirl\Button.cs" />
     <Compile Include="Assets\seed_plant\Scripts\Plant02.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\RadialConveyor.cs" />
     <Compile Include="Assets\Elf\ElfGlasses\GlassWalk.cs" />
+    <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Scripts\FCPassDataFromGameToUI.cs" />
+    <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Canvas Controllers\WSTransformControlCanvasController.cs" />
+    <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Canvas Controllers\WSMenuCanvasController.cs" />
     <Compile Include="Assets\Elf\ElfBoy\TankBoy.cs" />
+    <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Canvas Controllers\FCLoadingCanvasController.cs" />
     <Compile Include="Assets\seed_plant\Scripts\Flower01.cs" />
     <Compile Include="Assets\Intro.cs" />
     <Compile Include="Assets\Elf\ElfBoy\BoyWalk.cs" />
     <Compile Include="Assets\Elf\ElfBoy\DownLever.cs" />
     <Compile Include="Assets\seed_plant\Scripts\Flower2.cs" />
+    <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Canvas Controllers\WSColorControlCanvasController.cs" />
     <Compile Include="Assets\step02\watertank.cs" />
+    <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Canvas Controllers\FCGamePausedCanvasController.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\Roller.cs" />
+    <Compile Include="Assets\Canvas Flow\Examples\2. Transitions Example\Canvas Controllers\TEScaleAndFadeTransitionCanvasController.cs" />
     <Compile Include="Assets\step03\Scripts\snowtank02.cs" />
+    <Compile Include="Assets\Canvas Flow\Examples\2. Transitions Example\Canvas Controllers\TESlideTransitionCanvasController.cs" />
     <Compile Include="Assets\step04\PotionTank.cs" />
     <Compile Include="Assets\start\Scripts\Lever.cs" />
     <Compile Include="Assets\seed_plant\Scripts\Fruit02.cs" />
     <Compile Include="Assets\step03\Scripts\snow_start.cs" />
+    <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Canvas Controllers\FCGameCompleteCanvasController.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\LinearConveyor.cs" />
     <Compile Include="Assets\seed_plant\Scripts\RemoveIce.cs" />
     <Compile Include="Assets\seed_plant\Scripts\AfterIce.cs" />
+    <Compile Include="Assets\Canvas Flow\Examples\Shared\Scripts\LoadExample.cs" />
+    <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Canvas Controllers\FCMenuCanvasController.cs" />
     <Compile Include="Assets\start\Scripts\ARTapToPlace.cs" />
+    <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Scripts\WSCube.cs" />
+    <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Scripts\WSPassDataFromWorldToUI.cs" />
+    <Compile Include="Assets\Canvas Flow\Storyboard Hooks\StoryboardHookUnityEngineUIButton.cs" />
     <Compile Include="Assets\step03\Scripts\snowtank.cs" />
     <Compile Include="Assets\Deco\Question\QuestionMark.cs" />
     <Compile Include="Assets\seed_plant\Scripts\Plant01.cs" />
+    <Compile Include="Assets\Canvas Flow\Examples\2. Transitions Example\Canvas Controllers\TEDefaultTransitionCanvasController.cs" />
     <Compile Include="Assets\final\final_machine.cs" />
     <Compile Include="Assets\Elf\ElfGirl\ClickToMove.cs" />
     <Compile Include="Assets\start\Scripts\Seed.cs" />
+    <Compile Include="Assets\Canvas Flow\Examples\2. Transitions Example\Canvas Controllers\TEMenuCanvasController.cs" />
+    <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Scripts\FCPlayerBooster.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\ExtrudedConveyor.cs" />
     <Compile Include="Assets\step04\Potion2.cs" />
     <Compile Include="Assets\Deco\book\Book.cs" />
+    <Compile Include="Assets\Canvas Flow\Examples\2. Transitions Example\Canvas Controllers\TEScaleTransitionCanvasController.cs" />
     <Compile Include="Assets\AlignedGames\Polygonal Foliage Asset Package\Scripts\Utility\FlyCameraBehaviour.cs" />
     <Compile Include="Assets\step04\Potion3.cs" />
     <Compile Include="Assets\step04\Potion4.cs" />
     <Compile Include="Assets\step03\Scripts\Gear.cs" />
-    <Compile Include="Assets\step04\Potion1.cs" />
-    <Compile Include="Assets\seed_plant\Scripts\Ice.cs" />
-    <Compile Include="Assets\seed_plant\Scripts\Fruit01.cs" />
-    <Compile Include="Assets\step03\Scripts\Push_Button.cs" />
-    <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\ExtrudeConveyorWizard.cs" />
-    <Compile Include="Assets\Canvas Flow\Transition Animators\ScaleAndFadeBackgroundTransitionAnimator.cs" />
-    <Compile Include="Assets\Canvas Flow\Transition Animators\DefaultTransitionAnimator.cs" />
-    <Compile Include="Assets\Canvas Flow\Transition Animators\SlideTransitionAnimator.cs" />
-    <Compile Include="Assets\Canvas Flow\Examples\2. Transitions Example\Canvas Controllers\TEFadeTransitionCanvasController.cs" />
-    <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Scripts\FCPassDataFromGameToUI.cs" />
-    <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Canvas Controllers\WSTransformControlCanvasController.cs" />
-    <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Canvas Controllers\WSMenuCanvasController.cs" />
-    <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Canvas Controllers\FCLoadingCanvasController.cs" />
-    <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Canvas Controllers\WSColorControlCanvasController.cs" />
-    <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Canvas Controllers\FCGamePausedCanvasController.cs" />
-    <Compile Include="Assets\Canvas Flow\Examples\2. Transitions Example\Canvas Controllers\TEScaleAndFadeTransitionCanvasController.cs" />
-    <Compile Include="Assets\Canvas Flow\Examples\2. Transitions Example\Canvas Controllers\TESlideTransitionCanvasController.cs" />
-    <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Canvas Controllers\FCGameCompleteCanvasController.cs" />
-    <Compile Include="Assets\Canvas Flow\Examples\Shared\Scripts\LoadExample.cs" />
-    <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Canvas Controllers\FCMenuCanvasController.cs" />
-    <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Scripts\WSCube.cs" />
-    <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Scripts\WSPassDataFromWorldToUI.cs" />
-    <Compile Include="Assets\Canvas Flow\Storyboard Hooks\StoryboardHookUnityEngineUIButton.cs" />
-    <Compile Include="Assets\Canvas Flow\Examples\2. Transitions Example\Canvas Controllers\TEDefaultTransitionCanvasController.cs" />
-    <Compile Include="Assets\Canvas Flow\Examples\2. Transitions Example\Canvas Controllers\TEMenuCanvasController.cs" />
-    <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Scripts\FCPlayerBooster.cs" />
-    <Compile Include="Assets\Canvas Flow\Examples\2. Transitions Example\Canvas Controllers\TEScaleTransitionCanvasController.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Canvas Controllers\WSControlPanelBaseCanvasController.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Canvas Controllers\FCGameOverlayCanvasController.cs" />
     <Compile Include="Assets\Canvas Flow\Transition Animators\ScaleTransitionAnimator.cs" />
     <Compile Include="Assets\Canvas Flow\Transition Animators\FadeToColorTransitionAnimator.cs" />
+    <Compile Include="Assets\step04\Potion1.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Scripts\WSCamera.cs" />
+    <Compile Include="Assets\seed_plant\Scripts\Ice.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Scripts\FCFollowCamera.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Scripts\FCPlayer.cs" />
+    <Compile Include="Assets\seed_plant\Scripts\Fruit01.cs" />
+    <Compile Include="Assets\step03\Scripts\Push_Button.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Scripts\FCShadow.cs" />
+    <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\ExtrudeConveyorWizard.cs" />
+    <Compile Include="Assets\Psd2UnityPro\Canvas_UI.cs" />
+    <Compile Include="Assets\seed_plant\Scripts\Seedposition.cs" />
+    <Compile Include="Assets\step01\stand_anim.cs" />
+    <Compile Include="Assets\step01\Light.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\conveyor\ModularConveyorTools\Shaders\Conveyor.shader" />
@@ -321,11 +325,11 @@
     <Reference Include="UnityEditor">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.17f1\Editor\Data\Managed\UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.5\net35\unity-custom\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="CanvasFlow">
       <HintPath>Assets\Canvas Flow\Executables\CanvasFlow.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.5\net35\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.17f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>

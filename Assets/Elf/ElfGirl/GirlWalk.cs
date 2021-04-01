@@ -11,8 +11,8 @@ public class GirlWalk : MonoBehaviour
     private float minDistance = 0.1f;
     private int lastWaypointIndex;
 
-    private float movementSpeed = 1.0f;
-    private float rotationSpeed = 2.0f;
+    private float movementSpeed = 0.1f;
+    private float rotationSpeed = 0.5f;
 
     private bool elfMove = true;
 
@@ -46,7 +46,7 @@ public class GirlWalk : MonoBehaviour
         if(currentDistance <= minDistance && elfMove == true)
         {
             targetWayPointIndex++;
-            if(targetWayPointIndex == 6)
+            if(targetWayPointIndex == 8)
             {
                 elfMove = false;
             }

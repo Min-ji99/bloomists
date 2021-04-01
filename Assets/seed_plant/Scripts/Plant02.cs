@@ -8,6 +8,7 @@ public class Plant02 : MonoBehaviour
     //public GameObject potion;
    // private float Dist;
     public bool state = false;
+    public bool appear = false;
     
     //private Animator animator;
 
@@ -20,7 +21,8 @@ public class Plant02 : MonoBehaviour
     void Start()
     {
         Plant.gameObject.SetActive(false);
-        p1 = GameObject.Find("plant01").GetComponent<Plant01>();
+        //p1 = GameObject.Find("plant01").GetComponent<Plant01>();
+        p1 = GameObject.Find("Plant1").transform.Find("plant01").GetComponent<Plant01>();
         //rIce= GameObject.Find("03_ice").GetComponent<RemoveIce>();
 
         pt = GameObject.Find("04_tank").GetComponent<PotionTank>();
@@ -71,7 +73,7 @@ public class Plant02 : MonoBehaviour
     void Play()
     {
         GameObject.Find("Plant2").transform.Find("plant02").gameObject.SetActive(true);
-      
+        appear = true;
     }
 
     void Disappear()

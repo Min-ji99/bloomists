@@ -262,17 +262,17 @@
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.17f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.5\net35\unity-custom\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="Psd2UnityPro">
-      <HintPath>Assets\Psd2UnityPro\Editor\Psd2UnityPro.dll</HintPath>
-    </Reference>
     <Reference Include="CanvasFlow">
       <HintPath>Assets\Canvas Flow\Executables\CanvasFlow.dll</HintPath>
     </Reference>
     <Reference Include="CanvasFlowEditor">
       <HintPath>Assets\Canvas Flow\Executables\Editor\CanvasFlowEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Psd2UnityPro">
+      <HintPath>Assets\Psd2UnityPro\Editor\Psd2UnityPro.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.5\net35\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.17f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>

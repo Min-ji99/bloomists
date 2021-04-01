@@ -28,14 +28,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Depth: -0.84
+    - _Depth: -0.86
     - _DepthThreshold: 0
     - _FPower: 1
     - _FScale: 1
     - _FlowSpeed: 0
     - _NormalScale: 0.27
-    - _WaveHeight: 0.11
-    - _WaveSpeed: 100
+    - _WaveHeight: 0.01
+    - _WaveSpeed: 97.6
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DepthColor: {r: 0.33790532, g: 0.31372553, b: 0.65882355, a: 1}

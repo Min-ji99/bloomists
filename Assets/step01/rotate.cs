@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class rotate : MonoBehaviour
 {
-    bool isMove = false;
-    private Vector3 touchpos;
+    public bool isMove = false;
+
+    
     private Animator animator;
+    Seedposition Sp;
     //public bool state = false;
 
     // Use this for initialization 
     void Start()
     {
         animator = GetComponent<Animator>();
+        Sp = GameObject.Find("S_P").transform.Find("seed").GetComponent<Seedposition>();
 
     }
     // Update is called once per frame 
@@ -24,39 +27,15 @@ public class rotate : MonoBehaviour
     // 터치 시 오브젝트 확인 함수 
     void touchClick()
     {
-        // 터치 입력이 들어올 경우
-        if (Input.GetMouseButtonDown(0))
+        if (Sp.bud==true)
         {
-            // 오브젝트 정보를 담을 변수 생성 
-            RaycastHit hit;
-            // 터치 좌표를 담는 변수 
-            Ray touchray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            // 터치한 곳에 ray를 보냄 
-            Physics.Raycast(touchray, out hit); // ray가 오브젝트에 부딪힐 경우 
-
-            if (hit.collider.gameObject.name == "Box055" ||
-                hit.collider.gameObject.name == "Box056" ||
-                hit.collider.gameObject.name == "Cylinder069")
-            {
-                if (isMove == false)
-                {
-                    isMove = true;
-                    animator.SetBool("Click", true);
-                    //Invoke("touchClick", 5.0f);
-                    //state = true;
-                }
-                else
-                {
-                    isMove = false;
-                    animator.SetBool("Click", false);
-                    //state = false;
-                }
-
-                Debug.Log(hit.collider.gameObject.name);
-
-            }
-
+            Invoke("Play", 2.0f);
         }
-
+        
+    }
+    void Play()
+    {
+        animator.SetBool("Click", true);
+        isMove = true;
     }
 }
