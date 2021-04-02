@@ -16,8 +16,14 @@ public class Roller : MonoBehaviour {
 	
 	Plant02 p2;
 	AfterIce aI;
+	AfterWater aW;
 	Seedposition Sp;
 	rotate ro;
+	Plant01 p1;
+	Flower01 f1;
+	Flower2 f2;
+	Fruit01 f01;
+	Fruit02 f02;
 
 	void Start() {
 
@@ -25,6 +31,12 @@ public class Roller : MonoBehaviour {
 		aI = GameObject.Find("Plant2").transform.Find("plant02").GetComponent<AfterIce>();
 		Sp= GameObject.Find("S_P").transform.Find("seed").GetComponent<Seedposition>();
 		ro = GameObject.Find("01").transform.Find("01_rotateplane").GetComponent<rotate>();
+		p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
+		aW = GameObject.Find("Plant1").transform.Find("plant01").GetComponent<AfterWater>();
+		f1= GameObject.Find("Flower1").GetComponent<Flower01>();
+		f2 = GameObject.Find("Flower2").GetComponent<Flower2>();
+		f01 = GameObject.Find("Fruit1").GetComponent<Fruit01>();
+		f02 = GameObject.Find("Fruit2").GetComponent<Fruit02>();
 
 		rb = GetComponent<Rigidbody> ();
 		rb.isKinematic = true;
@@ -33,15 +45,18 @@ public class Roller : MonoBehaviour {
 	void Update () {
         //rotate the roller
 
-        if (p2.appear==true||Sp.state==true)
+        if (Sp.state==true||Sp.appear==true||p1.appear==true|| p2.reach == true)
         {
+			//Debug.Log("Sp.appear:" + Sp.appear);
 			tangentSpeed = 0;
 			
         }
-        if (aI.bloom==true||ro.isMove==true)
+        else if (aI.bloom == true || ro.isMove==true || aW.bloom == true||f1.state==true|| f2.state == true|| f01.state == true|| f02.state == true)
         {
+			//Debug.Log("p2.reach:" + p2.reach);
 			tangentSpeed = 1;
 		}
+		//aI.bloom == true ||, p2.appear==true||
 
 		float angularVelocity = (tangentSpeed*Mathf.Rad2Deg) / radius;
 		Quaternion newRot = rb.rotation * Quaternion.AngleAxis (angularVelocity * Time.deltaTime, transform.InverseTransformDirection(transform.right));

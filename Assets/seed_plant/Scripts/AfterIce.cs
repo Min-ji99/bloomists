@@ -11,13 +11,15 @@ public class AfterIce : MonoBehaviour
     public bool bloom = false;
 
     RemoveIce rIce;
+    Plant01 p1;
 
     // Use this for initialization 
     void Start()
     {
         animator = GetComponent<Animator>();
         rIce = GameObject.Find("ICE").transform.Find("03_ice").GetComponent<RemoveIce>();
-        
+        p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
+
     }
     // Update is called once per frame 
     void Update()
@@ -41,6 +43,7 @@ public class AfterIce : MonoBehaviour
     }
     void Bloom()
     {
+        p1.appear = false;
         bloom = true;
     }
 }

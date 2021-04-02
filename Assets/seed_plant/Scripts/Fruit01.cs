@@ -45,20 +45,18 @@ public class Fruit01 : MonoBehaviour
             {
                 //Invoke("Play", 3.0f);
                 GameObject.Find("Fruit1").transform.Find("fruit01").gameObject.SetActive(true);
+                Invoke("Next", 5.0f);
                 //animator.SetBool("Click", false);
             }
         }
     }
 
-    //if (rIce.state == true)
-    //{
-    //    animator.SetBool("Click", true);
+    void Next()
+    {
+        p2.reach = false;
+        state = true;
 
-    //}
-
+    }
 }
-    //void Play()
-    //{
-    //    GameObject.Find("Fruit2").transform.Find("fruit02").gameObject.SetActive(true);
-    //}
+    
 

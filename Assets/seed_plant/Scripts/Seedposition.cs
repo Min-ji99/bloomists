@@ -13,8 +13,11 @@ public class Seedposition : MonoBehaviour
     public bool state = false;
     public bool bud = false;
     public bool state2 = false;
+    public bool appear = false;
 
     Light light;
+    rotate ro;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,7 @@ public class Seedposition : MonoBehaviour
         //animator = GetComponent<Animator>();
         animator = GameObject.Find("S_P").transform.Find("seed").GetComponent<Animator>();
         light = GameObject.Find("StandLight").GetComponent<Light>();
+        ro= GameObject.Find("01").transform.Find("01_rotateplane").GetComponent<rotate>();
     }
 
     // Update is called once per frame
@@ -35,41 +39,56 @@ public class Seedposition : MonoBehaviour
 
     void LateUpdate()
     {
-        print("Dist : " + Dist);
-        Debug.Log("Dist2 : " + Dist2);
+       //print("Dist : " + Dist);
+        //Debug.Log("Dist2 : " + Dist2);
     }
 
     void Play()
     {
 
-        Debug.Log("Play");
-        if (Dist < 0.15f)
+        
+        if (Dist < 0.16f)
         {
-            Debug.Log("stand");
+           
             state = true;
-            Next();
+         
         }
         if (light.state == true)
         {
             Invoke("GoPlant", 1.0f);
         }
-        
-    }
-
-    void Next()
-    {
-        if (Dist2 < 0.15f)
+        if (ro.isMove==true)
         {
-            Debug.Log("water");
-            //seed.gameObject.SetActive(false);
-            state2 = true;
+            //Debug.Log("Dist2 : " + Dist2);
+            if (Dist2 < 0.15f)
+            {
+                
+                seed.gameObject.SetActive(false);
+                state2 = true;
+                ro.isMove = false;
+                appear = true;
+               
+            }
+
         }
     }
+
+    //void Next()
+    //{
+    //    if (Dist2 < 0.15f)
+    //    {
+    //        Debug.Log("water");
+    //        //seed.gameObject.SetActive(false);
+    //        state2 = true;
+    //    }
+    //}
 
     void GoPlant()
     {
         animator.SetBool("Go", true);
         bud = true;
+        state = false;
+        
     }
 }
 

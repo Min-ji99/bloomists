@@ -45,6 +45,7 @@ public class Fruit02 : MonoBehaviour
             {
                 //Invoke("Play", 3.0f);
                 GameObject.Find("Fruit2").transform.Find("fruit02").gameObject.SetActive(true);
+                Invoke("Next", 5.0f);
                 //animator.SetBool("Click", false);
             }
         }
@@ -56,8 +57,11 @@ public class Fruit02 : MonoBehaviour
 
     }
 
-    //void Play()
-    //{
-    //    GameObject.Find("Fruit2").transform.Find("fruit02").gameObject.SetActive(true);
-    //}
+    void Next()
+    {
+        p2.reach = false;
+        state = true;
+       
+    }
+    
 }

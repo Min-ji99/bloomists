@@ -9,6 +9,8 @@ public class watertank : MonoBehaviour
     private Animator animator;
     public ParticleSystem water;
 
+    public bool watering = false;
+
     
 
     // Use this for initialization 
@@ -63,6 +65,6 @@ public class watertank : MonoBehaviour
     void Particle()
     {
             water.Play();
-        
+        watering = true;
     }
 }

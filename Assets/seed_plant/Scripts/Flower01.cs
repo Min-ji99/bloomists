@@ -45,8 +45,16 @@ public class Flower01 : MonoBehaviour
             {
                 //Invoke("Play", 3.0f);
                 GameObject.Find("Flower1").transform.Find("flower01").gameObject.SetActive(true);
+                Invoke("Next",5.0f);
+
                 //animator.SetBool("Click", false);
             }
         }
+    }
+    void Next()
+    {
+        p2.reach = false;
+        state = true;
+
     }
 }

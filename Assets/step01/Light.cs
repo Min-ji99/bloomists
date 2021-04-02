@@ -15,6 +15,7 @@ public class Light : MonoBehaviour
     {
         light.gameObject.SetActive(false);
         sta = GameObject.Find("01").transform.Find("stand").GetComponent<stand_anim>();
+       
     }
 
     // Update is called once per frame

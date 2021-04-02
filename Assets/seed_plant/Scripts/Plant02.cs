@@ -5,10 +5,10 @@ using UnityEngine;
 public class Plant02 : MonoBehaviour
 {
     public GameObject Plant;
-    //public GameObject potion;
-   // private float Dist;
+    public GameObject potion;
+    private float Dist;
     public bool state = false;
-    public bool appear = false;
+    public bool reach = false;
     
     //private Animator animator;
 
@@ -22,7 +22,7 @@ public class Plant02 : MonoBehaviour
     {
         Plant.gameObject.SetActive(false);
         //p1 = GameObject.Find("plant01").GetComponent<Plant01>();
-        p1 = GameObject.Find("Plant1").transform.Find("plant01").GetComponent<Plant01>();
+        p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
         //rIce= GameObject.Find("03_ice").GetComponent<RemoveIce>();
 
         pt = GameObject.Find("04_tank").GetComponent<PotionTank>();
@@ -41,7 +41,7 @@ public class Plant02 : MonoBehaviour
         {
             PlantAppear();
         }
-        //Dist = Vector3.Distance(Plant.transform.position, potion.transform.position);
+        Dist = Vector3.Distance(Plant.transform.position, potion.transform.position);
        
     }
 
@@ -70,16 +70,29 @@ public class Plant02 : MonoBehaviour
         }
     }
 
+    //void LateUpdate()
+    //{
+    //    print("Dist : " + Dist);
+    //}
+
     void Play()
     {
         GameObject.Find("Plant2").transform.Find("plant02").gameObject.SetActive(true);
-        appear = true;
+        
+
+        if (Dist < 0.365f)
+        {
+
+            reach = true;
+        }
     }
 
     void Disappear()
     {
         Plant.gameObject.SetActive(false);
         state = true;
+        //reach = false;
+        p1.appear = false;
     }
 
 }
