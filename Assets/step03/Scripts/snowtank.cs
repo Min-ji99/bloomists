@@ -13,15 +13,16 @@ public class snowtank : MonoBehaviour
 
     public bool pstate = false;
     private bool IsDestroy_Ice = false;
-   
+
+    public AudioSource warning;
+
 
     // Use this for initialization 
     void Start()
     {
         animator = GetComponent<Animator>();
         snowstart = GameObject.Find("03_bluestick").GetComponent<snow_start>();
-        
-
+        AudioSource warning = GetComponent<AudioSource>();
     }
     // Update is called once per frame 
     void Update()
@@ -41,6 +42,7 @@ public class snowtank : MonoBehaviour
             //animator.SetBool("snow", true);
             Invoke("Play", 2f);
             Invoke("Particle", 4f);
+            Invoke("Warn_sound", 4f);
         }
         else
         {
@@ -66,5 +68,10 @@ public class snowtank : MonoBehaviour
         pstate = true;
         Destroy(snow, 5f);
         IsDestroy_Ice = true;
+    }
+
+    void Warn_sound()
+    {
+        warning.Play();
     }
 }

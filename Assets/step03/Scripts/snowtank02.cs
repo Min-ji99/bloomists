@@ -9,10 +9,13 @@ public class snowtank02 : MonoBehaviour
     private Animator animator;
     public ParticleSystem smoke;
 
+    public AudioSource snowtank;
+
     // Use this for initialization 
     void Start()
     {
         animator = GetComponent<Animator>();
+        AudioSource snowtank = GetComponent<AudioSource>();
 
     }
     // Update is called once per frame 
@@ -44,6 +47,7 @@ public class snowtank02 : MonoBehaviour
                     isMove = true;
                     // animator.SetBool("Snow02", true);
                     Invoke("play", 1.0f);
+                    Invoke("tankSound", 1.5f);
                     
                 }
                 else
@@ -62,5 +66,11 @@ public class snowtank02 : MonoBehaviour
    void play()
     {
         smoke.Play();
+        
+    }
+
+    void tankSound()
+    {
+        snowtank.Play();
     }
 }

@@ -276,8 +276,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152690508}
-  m_LocalRotation: {x: 0.09797975, y: -0.901033, z: 0.27576378, w: 0.3201466}
-  m_LocalPosition: {x: 0.9075696, y: 1.0409496, z: 1.1798253}
+  m_LocalRotation: {x: -0.052412726, y: -0.9461029, z: 0.25149193, w: -0.19721588}
+  m_LocalPosition: {x: -1.8815819, y: 0.84176147, z: 1.4852028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1386,12 +1386,12 @@ PrefabInstance:
     - target: {fileID: 528030686821521143, guid: ff8e53e3ca043a1479d1cc7904e5d8ca,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.13
+      value: 10.88
       objectReference: {fileID: 0}
     - target: {fileID: 528030686821521143, guid: ff8e53e3ca043a1479d1cc7904e5d8ca,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20.18
+      value: -18.89
       objectReference: {fileID: 0}
     - target: {fileID: 528030686821521143, guid: ff8e53e3ca043a1479d1cc7904e5d8ca,
         type: 3}
@@ -1497,6 +1497,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: seedFactory 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2884013519836526446, guid: ff8e53e3ca043a1479d1cc7904e5d8ca,
+        type: 3}
+      propertyPath: speed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675125040412598350, guid: ff8e53e3ca043a1479d1cc7904e5d8ca,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.042
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675125040412598350, guid: ff8e53e3ca043a1479d1cc7904e5d8ca,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.305
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675125040412598350, guid: ff8e53e3ca043a1479d1cc7904e5d8ca,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.019
       objectReference: {fileID: 0}
     - target: {fileID: 4700806910075144981, guid: ff8e53e3ca043a1479d1cc7904e5d8ca,
         type: 3}

@@ -9,11 +9,14 @@ public class Ice : MonoBehaviour
 
     snowtank stank;
 
+    public AudioSource icemake;
+
     void Start()
     {
         ice.gameObject.SetActive(false);
 
         stank = GameObject.Find("03_snowtank").GetComponent<snowtank>();
+        AudioSource icemake = GetComponent<AudioSource>();
 
     }
 
@@ -29,8 +32,7 @@ public class Ice : MonoBehaviour
         if (stank.pstate == true)
         {
             Invoke("Play", 2f);
-
-
+            Invoke("IceSound", 2f);
         }
         
 
@@ -40,5 +42,11 @@ public class Ice : MonoBehaviour
     {
         GameObject.Find("ICE").transform.Find("03_ice").gameObject.SetActive(true);
         istate = true;
+        
+    }
+
+    void IceSound()
+    {
+        icemake.Play();
     }
 }

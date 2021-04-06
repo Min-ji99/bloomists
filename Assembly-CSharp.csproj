@@ -73,6 +73,7 @@
     <Compile Include="Assets\Intro.cs" />
     <Compile Include="Assets\Elf\ElfBoy\BoyWalk.cs" />
     <Compile Include="Assets\Elf\ElfBoy\DownLever.cs" />
+    <Compile Include="Assets\step01\Light.cs" />
     <Compile Include="Assets\seed_plant\Scripts\Flower2.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Canvas Controllers\WSColorControlCanvasController.cs" />
     <Compile Include="Assets\step02\watertank.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Assets\Deco\Question\QuestionMark.cs" />
     <Compile Include="Assets\seed_plant\Scripts\Plant01.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\2. Transitions Example\Canvas Controllers\TEDefaultTransitionCanvasController.cs" />
+    <Compile Include="Assets\seed_plant\Scripts\Seedposition.cs" />
     <Compile Include="Assets\final\final_machine.cs" />
     <Compile Include="Assets\Elf\ElfGirl\ClickToMove.cs" />
     <Compile Include="Assets\start\Scripts\Seed.cs" />
@@ -107,10 +109,12 @@
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\ExtrudedConveyor.cs" />
     <Compile Include="Assets\step04\Potion2.cs" />
     <Compile Include="Assets\Deco\book\Book.cs" />
+    <Compile Include="Assets\step01\stand_anim.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\2. Transitions Example\Canvas Controllers\TEScaleTransitionCanvasController.cs" />
     <Compile Include="Assets\AlignedGames\Polygonal Foliage Asset Package\Scripts\Utility\FlyCameraBehaviour.cs" />
     <Compile Include="Assets\step04\Potion3.cs" />
     <Compile Include="Assets\step04\Potion4.cs" />
+    <Compile Include="Assets\Psd2UnityPro\Canvas_UI.cs" />
     <Compile Include="Assets\step03\Scripts\Gear.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Canvas Controllers\WSControlPanelBaseCanvasController.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Canvas Controllers\FCGameOverlayCanvasController.cs" />
@@ -122,13 +126,10 @@
     <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Scripts\FCFollowCamera.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Scripts\FCPlayer.cs" />
     <Compile Include="Assets\seed_plant\Scripts\Fruit01.cs" />
+    <Compile Include="Assets\seed_plant\Scripts\AfterWater.cs" />
     <Compile Include="Assets\step03\Scripts\Push_Button.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Scripts\FCShadow.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\ExtrudeConveyorWizard.cs" />
-    <Compile Include="Assets\Psd2UnityPro\Canvas_UI.cs" />
-    <Compile Include="Assets\seed_plant\Scripts\Seedposition.cs" />
-    <Compile Include="Assets\step01\stand_anim.cs" />
-    <Compile Include="Assets\step01\Light.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\conveyor\ModularConveyorTools\Shaders\Conveyor.shader" />

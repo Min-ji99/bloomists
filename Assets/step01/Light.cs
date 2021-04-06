@@ -10,12 +10,14 @@ public class Light : MonoBehaviour
 
     stand_anim sta;
 
+    public AudioSource stlight;
+
     // Start is called before the first frame update
     void Start()
     {
         light.gameObject.SetActive(false);
         sta = GameObject.Find("01").transform.Find("stand").GetComponent<stand_anim>();
-       
+        AudioSource stlight = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,7 @@ public class Light : MonoBehaviour
         if (sta.state==true)
         {
             Invoke("Play",8.0f);
+            stlight.Play();
         }
     }
 

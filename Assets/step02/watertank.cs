@@ -11,13 +11,15 @@ public class watertank : MonoBehaviour
 
     public bool watering = false;
 
-    
+    public AudioSource shower;
+
+
 
     // Use this for initialization 
     void Start()
     {
         animator = GetComponent<Animator>();
-
+        AudioSource shower = GetComponent<AudioSource>();
     }
     // Update is called once per frame 
     void Update()
@@ -46,6 +48,7 @@ public class watertank : MonoBehaviour
                     animator.SetBool("water", true);
 
                     Invoke("Particle", 10.0f);
+                    
                     //Invoke("touchClick", 5.0f);
                 }
                 else
@@ -64,7 +67,8 @@ public class watertank : MonoBehaviour
 
     void Particle()
     {
-            water.Play();
+        water.Play();
         watering = true;
+        shower.Play();
     }
 }

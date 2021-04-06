@@ -22,11 +22,13 @@ public class RemoveIce : MonoBehaviour
 
     Ice i;
 
+    public AudioSource ice_break;
+
     void Start()
     {
         //animator = GetComponent<Animator>();
         i = GameObject.Find("ICE").GetComponent<Ice>();
-
+        AudioSource ice_break = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -55,6 +57,7 @@ public class RemoveIce : MonoBehaviour
             if (hit.collider.gameObject.name == "ice01")
             {
                ice1.gameObject.SetActive(false);
+                ice_break.Play();
                 ib1.Play();
                 ices--;
             }
@@ -62,24 +65,28 @@ public class RemoveIce : MonoBehaviour
             {
                 ice2.gameObject.SetActive(false);
                 ib2.Play();
+                ice_break.Play();
                 ices--;
             }
             else if (hit.collider.gameObject.name == "ice03")
             {
                 ice3.gameObject.SetActive(false);
                 ib3.Play();
+                ice_break.Play();
                 ices--;
             }
             else if (hit.collider.gameObject.name == "ice04")
             {
                 ice4.gameObject.SetActive(false);
                 ib4.Play();
+                ice_break.Play();
                 ices--;
             }
             else 
             {
                 ice5.gameObject.SetActive(false);
                 ib5.Play();
+                ice_break.Play();
                 ices--;
 
             }
