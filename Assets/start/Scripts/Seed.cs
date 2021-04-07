@@ -27,15 +27,15 @@ public class Seed : MonoBehaviour
             // 터치한 곳에 ray를 보냄 
             Physics.Raycast(touchray, out hit); // ray가 오브젝트에 부딪힐 경우 
 
-            if (hit.collider.gameObject.name == "Cylinder275" || hit.collider.gameObject.name == "Sphere041")
+            if (hit.collider.gameObject.name == "Cylinder275" || hit.collider.gameObject.name == "Sphere041") //뽑기머신 누르면
             {
-                Invoke("Play", 2f);
+                Invoke("Play", 2f);  //2초뒤에
             }
         }
     }
 
     void Play()
     {
-        GameObject.Find("S_P").transform.Find("seed").gameObject.SetActive(true);
+        GameObject.Find("S_P").transform.Find("seed").gameObject.SetActive(true);   //씨앗 나타나게
     }
 }

@@ -39,22 +39,22 @@ public class Fruit01 : MonoBehaviour
     void PlantAppear()
     {
 
-        if (p2.state == true)
+        if (p2.state == true)   //plant02 사라졌다면
         {
-            if (po2.state == true)
+            if (po2.state == true)  //물약2 눌렸다면 
             {
-                //Invoke("Play", 3.0f);
-                GameObject.Find("Fruit1").transform.Find("fruit01").gameObject.SetActive(true);
-                Invoke("Next", 5.0f);
-                //animator.SetBool("Click", false);
+                
+                GameObject.Find("Fruit1").transform.Find("fruit01").gameObject.SetActive(true);     //fruit01 피어남
+                Invoke("Next", 3.0f);   //5초 뒤에
+               
             }
         }
     }
 
     void Next()
     {
-        p2.reach = false;
-        state = true;
+        p2.reach = false;   //roller 정지상태 꺼줌
+        state = true;       //roller 동작상태 켜줌
 
     }
 }

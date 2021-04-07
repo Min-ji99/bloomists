@@ -36,14 +36,14 @@ public class snow_start : MonoBehaviour
 
             if (hit.collider.gameObject.name == "Cylinder310" ||
                 hit.collider.gameObject.name == "Cylinder311" ||
-                hit.collider.gameObject.name == "Sphere029")
+                hit.collider.gameObject.name == "Sphere029")           //파란 레버 누르면
             {
                 if (isMove == false)
                 {
                     isMove = true;
-                    animator.SetBool("Click", true);
+                    animator.SetBool("Click", true);    //레버 내려감
                     //Invoke("touchClick", 5.0f);
-                    state = true;
+                    state = true;   //레버 내려간 상태-> <Gear> -> <snowtank02> -> <snowtank>
                 }
                 else
                 {

@@ -39,14 +39,14 @@ public class snowtank02 : MonoBehaviour
 
             if (hit.collider.gameObject.name == "Cylinder310" ||
                 hit.collider.gameObject.name == "Cylinder311" ||
-                hit.collider.gameObject.name == "Sphere029")
+                hit.collider.gameObject.name == "Sphere029")                //파란 레버 내려가면
             {
                 if (isMove == false)
                 {
                     Invoke("touchClick", 5.0f);
                     isMove = true;
                     // animator.SetBool("Snow02", true);
-                    Invoke("play", 1.0f);
+                    Invoke("play", 1.0f);   //1초위에 연기나옴
                     Invoke("tankSound", 1.5f);
                     
                 }

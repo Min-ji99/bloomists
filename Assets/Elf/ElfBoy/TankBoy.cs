@@ -12,11 +12,11 @@ public class TankBoy : MonoBehaviour
     public List<Transform> waypoints = new List<Transform>();
     private Transform targetWaypoint;
     private int targetWayPointIndex = 0;
-    private float minDistance = 0.1f;
+    private float minDistance = 0.001f;
     private int lastWaypointIndex;
 
-    private float movementSpeed = 1.0f;
-    private float rotationSpeed = 2.0f;
+    private float movementSpeed = 0.1f;
+    private float rotationSpeed = 0.5f;
 
 
     void Start()
@@ -32,20 +32,24 @@ public class TankBoy : MonoBehaviour
         animator.SetBool("Click", false);
         touchClick();
 
-        float movementStep = movementSpeed * Time.deltaTime;
-        float rotationStep = rotationSpeed * Time.deltaTime;
+        if (isMove==true) 
+        {
+            animator.SetBool("Click", true);
 
-        Vector3 directionToTarget = targetWaypoint.position - transform.position;
-        Quaternion rotationToTarget = Quaternion.LookRotation(directionToTarget);
+            float movementStep = movementSpeed * Time.deltaTime;
+            float rotationStep = rotationSpeed * Time.deltaTime;
+
+            Vector3 directionToTarget = targetWaypoint.position - transform.position;
+            Quaternion rotationToTarget = Quaternion.LookRotation(directionToTarget);
 
 
-        transform.rotation = rotationToTarget;
+            transform.rotation = rotationToTarget;
 
-        float distance = Vector3.Distance(transform.position, targetWaypoint.position);
-        CheckDistanceToWaypoint(distance);
+            float distance = Vector3.Distance(transform.position, targetWaypoint.position);
+            CheckDistanceToWaypoint(distance);
 
-        transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, movementStep);
-
+            transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, movementStep);
+        }
 
     }
 
@@ -72,11 +76,11 @@ public class TankBoy : MonoBehaviour
                     targetWaypoint = waypoints[targetWayPointIndex];
                    
                 }
-                else
-                {
-                    isMove = false;
-                    animator.SetBool("Click", false);
-                }
+                //else
+                //{
+                //    isMove = false;
+                //    animator.SetBool("Click", false);
+                //}
 
                 Debug.Log(hit.collider.gameObject.name);
 
@@ -92,8 +96,8 @@ public class TankBoy : MonoBehaviour
         if (currentDistance <= minDistance)
         {
             targetWayPointIndex++;
-            UpdateTargetWaypoint();
-            //Debug.Log("증가 " + targetWayPointIndex);
+           UpdateTargetWaypoint();
+          
         }
 
 
@@ -104,7 +108,8 @@ public class TankBoy : MonoBehaviour
     {
         if (targetWayPointIndex > lastWaypointIndex)
         {
-            targetWayPointIndex--;
+            animator.SetBool("Click", false);
+            isMove = false;
 
         }
         targetWaypoint = waypoints[targetWayPointIndex];

@@ -35,14 +35,14 @@ public class snowtank : MonoBehaviour
     void touchClick()
     {
         
-        if (snowstart.state == true && IsDestroy_Ice == false)
+        if (snowstart.state == true && IsDestroy_Ice == false)  //레버가 내려갔다면
         {
           
             //isMove = true;
             //animator.SetBool("snow", true);
-            Invoke("Play", 2f);
-            Invoke("Particle", 4f);
-            Invoke("Warn_sound", 4f);
+            Invoke("Play", 2f); //2초뒤에 기계 움직임
+            Invoke("Particle", 4f); //그 후 2초 뒤에 눈내림
+            Invoke("Warn_sound", 4f);   
         }
         else
         {
@@ -59,13 +59,13 @@ public class snowtank : MonoBehaviour
     }
     void Play()
     {
-        animator.SetBool("snow", true);
+        animator.SetBool("snow", true); //꿀렁꿀렁 움직임
 
     }
     void Particle()
     {
-        snow.Play();
-        pstate = true;
+        snow.Play();    //눈내림
+        pstate = true;  //눈 파티클 실행됐으면 <Ice>
         Destroy(snow, 5f);
         IsDestroy_Ice = true;
     }

@@ -10,34 +10,26 @@ public class Plant02 : MonoBehaviour
     public bool state = false;
     public bool reach = false;
     
-    //private Animator animator;
+
 
     Plant01 p1;
-   // RemoveIce rIce;
     PotionTank pt;
     
     
 
     void Start()
     {
-        Plant.gameObject.SetActive(false);
-        //p1 = GameObject.Find("plant01").GetComponent<Plant01>();
+        Plant.gameObject.SetActive(false);  //plant02 안보여
         p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
-        //rIce= GameObject.Find("03_ice").GetComponent<RemoveIce>();
-
         pt = GameObject.Find("04_tank").GetComponent<PotionTank>();
 
-       
-
-
-        //animator = GameObject.Find("Plant2").transform.Find("plant02").GetComponent<Animator>();
 
 
     }
 
     void Update()
     {
-        if (state == false)
+        if (state == false) // false일동안 step03
         {
             PlantAppear();
         }
@@ -56,16 +48,12 @@ public class Plant02 : MonoBehaviour
             
             Play();
 
-            //animator.SetBool("Click", false);
+    
         }
-        //if (rIce.state == true)
-        //{
-        //    animator.SetBool("Click", true);
+       
+        if (pt.pstate == true) {    //물약기계 움직였다면
 
-        //}
-        if (pt.pstate == true) {
-
-            Invoke("Disappear", 4.0f);
+            Invoke("Disappear", 4.0f);  //4초 뒤에 사라졋!!~!~
 
         }
     }
@@ -77,22 +65,21 @@ public class Plant02 : MonoBehaviour
 
     void Play()
     {
-        GameObject.Find("Plant2").transform.Find("plant02").gameObject.SetActive(true);
+        GameObject.Find("Plant2").transform.Find("plant02").gameObject.SetActive(true); //plant02 생김
         
 
-        if (Dist < 0.365f)
+        if (Dist < 0.365f)  //plant02 자라난 뒤 step04로 다가가면
         {
 
-            reach = true;
+            reach = true; //roller 정지상태 켜줌
         }
     }
 
     void Disappear()
     {
-        Plant.gameObject.SetActive(false);
-        state = true;
-        //reach = false;
-        p1.appear = false;
+        state = true;      //사라졌다면
+        Plant.gameObject.SetActive(false);  //plant02사라지구
+       // p1.appear = false;  
     }
 
 }

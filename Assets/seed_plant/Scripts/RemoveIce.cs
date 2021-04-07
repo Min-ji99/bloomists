@@ -35,7 +35,7 @@ public class RemoveIce : MonoBehaviour
     {
         //animator.SetBool("Click", false);
 
-        if (i.istate == true)
+        if (i.istate == true)   //얼음이 생겼다면
         {
             //animator.SetBool("Click", true);
             touchClick();
@@ -54,12 +54,12 @@ public class RemoveIce : MonoBehaviour
             // 터치한 곳에 ray를 보냄 
             Physics.Raycast(touchray, out hit); // ray가 오브젝트에 부딪힐 경우 
 
-            if (hit.collider.gameObject.name == "ice01")
+            if (hit.collider.gameObject.name == "ice01")    //얼음1 클릭시
             {
-               ice1.gameObject.SetActive(false);
+               ice1.gameObject.SetActive(false);    //얼음1 사라져
                 ice_break.Play();
                 ib1.Play();
-                ices--;
+                ices--;                         //하나씩 사라지게
             }
             else if (hit.collider.gameObject.name == "ice02")
             {
@@ -91,9 +91,9 @@ public class RemoveIce : MonoBehaviour
 
             }
 
-            if (ices == 0)
+            if (ices == 0)  //5개가 모두 사라지면
             {
-                state = true;
+                state = true;   // 얼음이 다 사라졌다면 <AfterIce>
             }
 
         }

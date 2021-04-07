@@ -9,7 +9,7 @@ public class rotate : MonoBehaviour
     
     private Animator animator;
     Seedposition Sp;
-    //public bool state = false;
+    
 
     // Use this for initialization 
     void Start()
@@ -22,20 +22,20 @@ public class rotate : MonoBehaviour
     void Update()
     {
         animator.SetBool("Click", false);
-        touchClick();
+        BudGrow();
     }
     // 터치 시 오브젝트 확인 함수 
-    void touchClick()
+    void BudGrow()
     {
-        if (Sp.bud==true)
+        if (Sp.bud==true)   //<Seedposition>에서 새싹이 자라면 
         {
-            Invoke("Play", 2.0f);
+            Invoke("Play", 2.0f);   //2초뒤에
         }
         
     }
     void Play()
     {
-        animator.SetBool("Click", true);
-        isMove = true;
+        animator.SetBool("Click", true);    //기계 돌아가는 애니메이션 재생
+        isMove = true;  // roller 동작상태 켜줌
     }
 }

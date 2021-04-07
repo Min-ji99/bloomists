@@ -5,6 +5,7 @@ using UnityEngine;
 public class stand_anim : MonoBehaviour
 {
     Seedposition Sp;
+ 
 
     private Animator animator;
     public bool state = false;
@@ -15,6 +16,7 @@ public class stand_anim : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         Sp = GameObject.Find("S_P").transform.Find("seed").GetComponent<Seedposition>();
+ 
     }
 
     // Update is called once per frame
@@ -31,5 +33,6 @@ public class stand_anim : MonoBehaviour
     {
         animator.SetBool("Click", true);
         state = true;
+        
     }
 }

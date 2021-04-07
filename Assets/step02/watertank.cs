@@ -24,7 +24,7 @@ public class watertank : MonoBehaviour
     // Update is called once per frame 
     void Update()
     {
-        animator.SetBool("water", false);
+        animator.SetBool("water", false);   //애니메이션 작동하지마
         touchClick();
     }
     // 터치 시 오브젝트 확인 함수 
@@ -40,14 +40,14 @@ public class watertank : MonoBehaviour
             // 터치한 곳에 ray를 보냄 
             Physics.Raycast(touchray, out hit); // ray가 오브젝트에 부딪힐 경우 
 
-            if (hit.collider.gameObject.name == "02_tank" || hit.collider.gameObject.name == "Torus013")
+            if (hit.collider.gameObject.name == "02_tank" || hit.collider.gameObject.name == "Torus013")    //핸들 누르면
             {
                 if (isMove == false)
                 {
                     isMove = true;
-                    animator.SetBool("water", true);
+                    animator.SetBool("water", true);    //애니메이션 재생
 
-                    Invoke("Particle", 10.0f);
+                    Invoke("Particle", 10.0f);  //10초뒤에
                     
                     //Invoke("touchClick", 5.0f);
                 }
@@ -67,8 +67,8 @@ public class watertank : MonoBehaviour
 
     void Particle()
     {
-        water.Play();
-        watering = true;
+        water.Play();   //파티클 재생
+        watering = true;    //물 재생되면 식물 자라나게
         shower.Play();
     }
 }

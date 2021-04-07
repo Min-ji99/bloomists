@@ -30,7 +30,7 @@ public class Gear : MonoBehaviour
     void touchClick()
     {
 
-        if (snowstart.state == true)
+        if (snowstart.state == true)    //레버 내려갔으면
         {
 
             //Invoke("Play", 1f);
@@ -49,7 +49,7 @@ public class Gear : MonoBehaviour
     }
     void Play()
     {
-        animator.SetBool("Click", true);
+        animator.SetBool("Click", true);    //기어 돌아가
 
     }
 }

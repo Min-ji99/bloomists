@@ -38,15 +38,11 @@ public class PotionTank : MonoBehaviour
     void touchClick()
     {
 
-        if (potion4.state == true|| potion3.state == true|| potion2.state == true|| potion1.state == true)
+        if (potion4.state == true|| potion3.state == true|| potion2.state == true|| potion1.state == true)  //포션이 클릭됐다면
         {
-
-            //isMove = true;
-            //animator.SetBool("snow", true);
-            Invoke("Play", 2f);
-            //Invoke("Particle", 4f);
-
-
+           
+            Invoke("Play", 2f); //2초 뒤에
+      
         }
         else
         {
@@ -54,22 +50,13 @@ public class PotionTank : MonoBehaviour
             animator.SetBool("GoPotion", false);
         }
 
-        // Debug.Log(hit.collider.gameObject.name);
-
-        //}
-
-        //   }
 
     }
     void Play()
     {
-        animator.SetBool("GoPotion", true);
-        pstate = true;
+        animator.SetBool("GoPotion", true); //물약 기계 움직여
+        pstate = true;  //기계 오면 plant2 사라지게
 
     }
-    //void Particle()
-    //{
-    //    snow.Play();
-    //    pstate = true;
-    //}
+    
 }

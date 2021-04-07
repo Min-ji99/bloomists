@@ -29,10 +29,11 @@ public class Ice : MonoBehaviour
     {
 
 
-        if (stank.pstate == true)
+        if (stank.pstate == true)   //눈 실행됐으면
         {
-            Invoke("Play", 2f);
-            Invoke("IceSound", 2f);
+            //Invoke("IceSound", 2f);
+            Invoke("Play", 2f); //2초뒤에 얼음 생겨
+            
         }
         
 
@@ -40,13 +41,16 @@ public class Ice : MonoBehaviour
 
     void Play()
     {
+        Debug.Log("PlaySound");
+        icemake.Play();
         GameObject.Find("ICE").transform.Find("03_ice").gameObject.SetActive(true);
-        istate = true;
+        istate = true;  //얼음 생긴 상태-> <RemoveIce>
         
     }
 
-    void IceSound()
-    {
-        icemake.Play();
-    }
+    //void IceSound()
+    //{
+    //    
+    //    icemake.Play();
+    //}
 }

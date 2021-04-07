@@ -31,19 +31,19 @@ public class AfterIce : MonoBehaviour
     void touchClick()
     {
 
-        if (rIce.state == true)
+        if (rIce.state == true) //얼음이 다 사라졌다면
         {
 
-            animator.SetBool("Click", true);
+            animator.SetBool("Click", true);    //plant02 자라남
             state_p2 = true;
-            Invoke("Bloom", 2.0f);
+            Invoke("Bloom", 2.0f);  //2초 뒤면
 
 
         }
     }
     void Bloom()
     {
-        p1.appear = false;
-        bloom = true;
+        p1.appear = false;  //roller 정지상태 꺼줌
+        bloom = true;   //roller 동작상태 켜줌
     }
 }

@@ -14,7 +14,7 @@ public class DownLever : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-
+        
     }
     // Update is called once per frame 
     void Update()
@@ -22,7 +22,7 @@ public class DownLever : MonoBehaviour
         animator.SetBool("Click", false);
         touchClick();
     }
-    // 터치 시 오브젝트 확인 함수 
+   // 터치 시 오브젝트 확인 함수
     void touchClick()
     {
         // 터치 입력이 들어올 경우
@@ -41,7 +41,7 @@ public class DownLever : MonoBehaviour
                 {
                     isMove = true;
                     animator.SetBool("Click", true);
-                    //Invoke("touchClick", 5.0f);
+                    
                 }
                 else
                 {
@@ -52,7 +52,7 @@ public class DownLever : MonoBehaviour
                 Debug.Log(hit.collider.gameObject.name);
 
             }
-            
+
         }
 
     }

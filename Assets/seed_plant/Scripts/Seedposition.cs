@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Seedposition : MonoBehaviour
 {
+
     public GameObject seed;
     public GameObject Stand;
     public GameObject water;
@@ -17,6 +18,7 @@ public class Seedposition : MonoBehaviour
 
     Light light;
     rotate ro;
+    watertank tank;
 
 
     // Start is called before the first frame update
@@ -25,7 +27,8 @@ public class Seedposition : MonoBehaviour
         //animator = GetComponent<Animator>();
         animator = GameObject.Find("S_P").transform.Find("seed").GetComponent<Animator>();
         light = GameObject.Find("StandLight").GetComponent<Light>();
-        ro= GameObject.Find("01").transform.Find("01_rotateplane").GetComponent<rotate>();
+        ro = GameObject.Find("01").transform.Find("01_rotateplane").GetComponent<rotate>();
+        tank = GameObject.Find("02").transform.Find("02_tank").GetComponent<watertank>();
     }
 
     // Update is called once per frame
@@ -34,61 +37,58 @@ public class Seedposition : MonoBehaviour
         Dist = Vector3.Distance(seed.transform.position, Stand.transform.position);
         Dist2 = Vector3.Distance(seed.transform.position, water.transform.position);
         Play();
-        
+
     }
 
     void LateUpdate()
     {
-       //print("Dist : " + Dist);
+        //print("Dist : " + Dist);
         //Debug.Log("Dist2 : " + Dist2);
     }
 
     void Play()
     {
 
-        
-        if (Dist < 0.16f)
+
+        if (Dist < 0.16f)   // step01에 가까워지면
         {
-           
-            state = true;
-         
+
+            state = true; // rotateplane에 도착하면 roller 정지상태 켜줌
+
         }
-        if (light.state == true)
+        if (light.state == true) //빛이 나타나면
         {
-            Invoke("GoPlant", 1.0f);
+            Invoke("GoPlant", 1.0f); //1초뒤에 새싹 자라게
         }
-        if (ro.isMove==true)
+        if (ro.isMove == true)  //roller 정지 상태 아니라면
         {
             //Debug.Log("Dist2 : " + Dist2);
-            if (Dist2 < 0.15f)
+
+            if (Dist2 < 0.15f)  //step02 에 다가오면
             {
-                
-                seed.gameObject.SetActive(false);
-                state2 = true;
-                ro.isMove = false;
-                appear = true;
-               
+
+       
+                ro.isMove = false; //roller 동작상태 꺼줌
+                appear = true; //step02에 도착하면 roller 정지상태 켜줌
+
+                if (tank.watering == true) //물 애니메이션 재생되면
+                {
+                    seed.gameObject.SetActive(false); //씨앗 오브젝트 사라짐
+                }
+
             }
 
         }
+
     }
 
-    //void Next()
-    //{
-    //    if (Dist2 < 0.15f)
-    //    {
-    //        Debug.Log("water");
-    //        //seed.gameObject.SetActive(false);
-    //        state2 = true;
-    //    }
-    //}
 
     void GoPlant()
     {
-        animator.SetBool("Go", true);
-        bud = true;
-        state = false;
-        
+        animator.SetBool("Go", true);   //애니메이션 재생
+        bud = true; //새싹 true
+        state = false; // roller 정지상태 꺼줌
+
     }
 }
 
