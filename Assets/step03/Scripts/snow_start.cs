@@ -9,11 +9,14 @@ public class snow_start : MonoBehaviour
     private Animator animator;
     public bool state = false;
 
+    public bool stickOn = false;
+    public AudioSource bluestick;
+
     // Use this for initialization 
     void Start()
     {
         animator = GetComponent<Animator>();
-
+        AudioSource bluestick = GetComponent<AudioSource>();
     }
     // Update is called once per frame 
     void Update()
@@ -42,6 +45,11 @@ public class snow_start : MonoBehaviour
                 {
                     isMove = true;
                     animator.SetBool("Click", true);    //레버 내려감
+                    if (stickOn == false)
+                    {
+                        bluestick.Play();
+                        stickOn = true;
+                    }
                     //Invoke("touchClick", 5.0f);
                     state = true;   //레버 내려간 상태-> <Gear> -> <snowtank02> -> <snowtank>
                 }

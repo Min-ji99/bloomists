@@ -12,6 +12,8 @@ public class watertank : MonoBehaviour
     public bool watering = false;
 
     public AudioSource shower;
+    public AudioSource tank;
+    public bool tankOn = false;
 
 
 
@@ -20,6 +22,7 @@ public class watertank : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         AudioSource shower = GetComponent<AudioSource>();
+        AudioSource tank = GetComponent<AudioSource>();
     }
     // Update is called once per frame 
     void Update()
@@ -41,11 +44,17 @@ public class watertank : MonoBehaviour
             Physics.Raycast(touchray, out hit); // ray가 오브젝트에 부딪힐 경우 
 
             if (hit.collider.gameObject.name == "02_tank" || hit.collider.gameObject.name == "Torus013")    //핸들 누르면
-            {
+            { 
                 if (isMove == false)
                 {
                     isMove = true;
                     animator.SetBool("water", true);    //애니메이션 재생
+
+                    if (tankOn == false)
+                    {
+                        tank.Play();
+                        tankOn = true;
+                    }
 
                     Invoke("Particle", 10.0f);  //10초뒤에
                     

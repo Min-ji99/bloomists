@@ -20,7 +20,7 @@ public class Flower01 : MonoBehaviour
     {
         Plant.gameObject.SetActive(false);
         p2 = GameObject.Find("Plant2").GetComponent<Plant02>();
-        po1 = GameObject.Find("04_liquid01").GetComponent<Potion1>();
+        po1 = GameObject.Find("4_liquid01").GetComponent<Potion1>();
 
 
         //animator = GameObject.Find("Plant2").transform.Find("plant02").GetComponent<Animator>();

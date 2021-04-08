@@ -7,7 +7,7 @@ public class GlassWalk : MonoBehaviour
     public List<Transform> waypoints = new List<Transform>();
     private Transform targetWaypoint;
     private int targetWayPointIndex = 0;
-    private float minDistance = 0.1f;
+    private float minDistance = 0.001f;
     private int lastWaypointIndex;
 
     private float movementSpeed = 0.1f;

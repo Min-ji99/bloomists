@@ -82,7 +82,7 @@ public class RemoveIce : MonoBehaviour
                 ice_break.Play();
                 ices--;
             }
-            else 
+            else if (hit.collider.gameObject.name == "ice05")
             {
                 ice5.gameObject.SetActive(false);
                 ib5.Play();
@@ -94,6 +94,7 @@ public class RemoveIce : MonoBehaviour
             if (ices == 0)  //5개가 모두 사라지면
             {
                 state = true;   // 얼음이 다 사라졌다면 <AfterIce>
+                ice_break.enabled = false;
             }
 
         }

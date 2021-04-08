@@ -34,7 +34,7 @@ public class Potion1 : MonoBehaviour
             // 터치한 곳에 ray를 보냄 
             Physics.Raycast(touchray, out hit); // ray가 오브젝트에 부딪힐 경우 
 
-            if (hit.collider.gameObject.name == "4_medicine01")
+            if (hit.collider.gameObject.name == "04_bottle01")
             {
                 if (isMove == false)
                 {

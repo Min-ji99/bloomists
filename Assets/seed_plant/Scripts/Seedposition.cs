@@ -16,6 +16,12 @@ public class Seedposition : MonoBehaviour
     public bool state2 = false;
     public bool appear = false;
 
+    //lp판
+    private float MDist;
+    public GameObject MStart;
+    public AudioSource Lp;
+    public bool Music = false;
+
     Light light;
     rotate ro;
     watertank tank;
@@ -29,6 +35,7 @@ public class Seedposition : MonoBehaviour
         light = GameObject.Find("StandLight").GetComponent<Light>();
         ro = GameObject.Find("01").transform.Find("01_rotateplane").GetComponent<rotate>();
         tank = GameObject.Find("02").transform.Find("02_tank").GetComponent<watertank>();
+        AudioSource Lp = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -36,6 +43,7 @@ public class Seedposition : MonoBehaviour
     {
         Dist = Vector3.Distance(seed.transform.position, Stand.transform.position);
         Dist2 = Vector3.Distance(seed.transform.position, water.transform.position);
+        MDist = Vector3.Distance(seed.transform.position, MStart.transform.position);
         Play();
 
     }
@@ -79,6 +87,17 @@ public class Seedposition : MonoBehaviour
             }
 
         }
+
+        if(MDist < 0.342f)
+        {
+            Debug.Log("MDist : " + MDist);
+            if (Music == false)
+            {
+                Lp.Play();
+                Music = true;
+            }
+        }
+        
 
     }
 

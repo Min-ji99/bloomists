@@ -42,7 +42,7 @@ public class snowtank : MonoBehaviour
             //animator.SetBool("snow", true);
             Invoke("Play", 2f); //2초뒤에 기계 움직임
             Invoke("Particle", 4f); //그 후 2초 뒤에 눈내림
-            Invoke("Warn_sound", 4f);   
+            Invoke("Warn_sound", 2f);   
         }
         else
         {

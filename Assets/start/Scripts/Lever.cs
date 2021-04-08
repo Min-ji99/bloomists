@@ -8,10 +8,14 @@ public class Lever : MonoBehaviour
     private Vector3 touchpos;
     private Animator animator;
 
+    public AudioSource start_lever;
+    public bool leverOn = false;
+
     // Use this for initialization 
     void Start()
     {
         animator = GetComponent<Animator>();
+        AudioSource start_lever = GetComponent<AudioSource>();
 
     }
     // Update is called once per frame 
@@ -39,6 +43,14 @@ public class Lever : MonoBehaviour
                 {
                     isMove = true;
                     animator.SetBool("Lever", true);
+
+                    if (leverOn == false)
+                    {
+                        start_lever.Play();
+                        leverOn = true;
+                    }
+
+
                     //Invoke("touchClick", 5.0f);
                 }
                 else
