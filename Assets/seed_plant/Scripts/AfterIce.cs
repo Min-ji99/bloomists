@@ -13,6 +13,8 @@ public class AfterIce : MonoBehaviour
     RemoveIce rIce;
     Plant01 p1;
 
+    public ParticleSystem blooming;
+
     // Use this for initialization 
     void Start()
     {
@@ -37,10 +39,18 @@ public class AfterIce : MonoBehaviour
             animator.SetBool("Click", true);    //plant02 자라남
             state_p2 = true;
             Invoke("Bloom", 2.0f);  //2초 뒤면
+            Invoke("Particle", 0.0f); //파티클
 
 
         }
     }
+
+    void Particle()
+    {
+        blooming.Play();
+        Destroy(blooming, 2f);
+    }
+
     void Bloom()
     {
         p1.appear = false;  //roller 정지상태 꺼줌

@@ -8,6 +8,8 @@ public class final_machine : MonoBehaviour
     private Vector3 touchpos;
     private Animator animator;
 
+    public ParticleSystem blooming;
+
     // Use this for initialization 
     void Start()
     {
@@ -41,6 +43,8 @@ public class final_machine : MonoBehaviour
                 {
                     isMove = true;
                     animator.SetBool("final", true);
+                    Invoke("Particle", 2.0f); //파티클
+
                     //Invoke("touchClick", 5.0f);
                 }
                 else
@@ -55,5 +59,11 @@ public class final_machine : MonoBehaviour
 
         }
 
+    }
+
+    void Particle()
+    {
+        blooming.Play();
+        Destroy(blooming, 2f);
     }
 }

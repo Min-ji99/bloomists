@@ -17,6 +17,8 @@ public class Plant01 : MonoBehaviour
     Seedposition seedPos;
     watertank tank;
 
+    public ParticleSystem blooming;
+
 
 
     void Start()
@@ -71,7 +73,8 @@ public class Plant01 : MonoBehaviour
     }
     void Play()
     {
-        GameObject.Find("Plant1").transform.Find("plant01").gameObject.SetActive(true);     //plant01 생기면서 자라남
+        GameObject.Find("Plant1").transform.Find("plant01").gameObject.SetActive(true);    //plant01 생기면서 자라남
+        Invoke("Particle", 5.0f); //파티클
         Invoke("GoPlant", 5.0f);    //5초 뒤에
 
 
@@ -85,4 +88,9 @@ public class Plant01 : MonoBehaviour
 
     }
 
+    void Particle()
+    {
+        blooming.Play();
+        Destroy(blooming, 2f);
+    }
 }

@@ -89,6 +89,7 @@
     <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Canvas Controllers\FCGameCompleteCanvasController.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\LinearConveyor.cs" />
     <Compile Include="Assets\seed_plant\Scripts\RemoveIce.cs" />
+    <Compile Include="Assets\step01\stand_light.cs" />
     <Compile Include="Assets\seed_plant\Scripts\AfterIce.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\Shared\Scripts\LoadExample.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Canvas Controllers\FCMenuCanvasController.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Assets\step03\Scripts\Push_Button.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Scripts\FCShadow.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\ExtrudeConveyorWizard.cs" />
+    <Compile Include="Assets\final\final_cover.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\conveyor\ModularConveyorTools\Shaders\Conveyor.shader" />

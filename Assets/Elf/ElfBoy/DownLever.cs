@@ -40,7 +40,7 @@ public class DownLever : MonoBehaviour
                 if (isMove == false)
                 {
                     isMove = true;
-                    animator.SetBool("Click", true);
+                    Invoke("anim_play", 0.5f);
                     
                 }
                 else
@@ -55,5 +55,10 @@ public class DownLever : MonoBehaviour
 
         }
 
+    }
+
+    void anim_play()
+    {
+        animator.SetBool("Click", true);
     }
 }

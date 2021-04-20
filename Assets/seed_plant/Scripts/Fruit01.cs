@@ -13,7 +13,7 @@ public class Fruit01 : MonoBehaviour
     Plant02 p2;
     Potion2 po2;
 
-
+    public ParticleSystem blooming;
 
 
     void Start()
@@ -45,11 +45,19 @@ public class Fruit01 : MonoBehaviour
             {
                 
                 GameObject.Find("Fruit1").transform.Find("fruit01").gameObject.SetActive(true);     //fruit01 피어남
+                Invoke("Particle", 0.0f); //파티클
                 Invoke("Next", 3.0f);   //5초 뒤에
                
             }
         }
     }
+
+    void Particle()
+    {
+        blooming.Play();
+        Destroy(blooming, 2f);
+    }
+
 
     void Next()
     {

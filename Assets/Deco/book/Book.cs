@@ -12,11 +12,15 @@ public class Book : MonoBehaviour
     public bool state = false;
     public bool stateFactory = false;
 
+    //브금
+    public AudioSource book_bgm;
+    public bool bookOn = false;
+
     // Use this for initialization 
     void Start()
     {
         animator = GetComponent<Animator>();
-
+        AudioSource book_bgm = GetComponent<AudioSource>();
     }
     // Update is called once per frame 
     void Update()
@@ -45,9 +49,15 @@ public class Book : MonoBehaviour
                     {
                         isMove = true;
                         animator.SetBool("Click", true);
+                        if (bookOn == false)
+                        {
+                            book_bgm.Play();
+                            bookOn = true;
+                        }
                         //Invoke("touchClick", 5.0f);
                         state = true;
                         stateFactory = true;
+
                     }
                     else
                     {

@@ -16,26 +16,31 @@ public class Seedposition : MonoBehaviour
     public bool state2 = false;
     public bool appear = false;
 
+    //꽃 필때 파티클
+    public ParticleSystem bloom;
+    public AudioSource blooming;
+
+
     //lp판
     private float MDist;
     public GameObject MStart;
     public AudioSource Lp;
     public bool Music = false;
 
-    Light light;
+    stand_light light;
     rotate ro;
     watertank tank;
-
 
     // Start is called before the first frame update
     void Start()
     {
         //animator = GetComponent<Animator>();
         animator = GameObject.Find("S_P").transform.Find("seed").GetComponent<Animator>();
-        light = GameObject.Find("StandLight").GetComponent<Light>();
+        light = GameObject.Find("StandLight").GetComponent<stand_light>();
         ro = GameObject.Find("01").transform.Find("01_rotateplane").GetComponent<rotate>();
         tank = GameObject.Find("02").transform.Find("02_tank").GetComponent<watertank>();
         AudioSource Lp = GetComponent<AudioSource>();
+        AudioSource blooming = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -67,6 +72,7 @@ public class Seedposition : MonoBehaviour
         if (light.state == true) //빛이 나타나면
         {
             Invoke("GoPlant", 1.0f); //1초뒤에 새싹 자라게
+            Invoke("particle", 0.0f); //파티클
         }
         if (ro.isMove == true)  //roller 정지 상태 아니라면
         {
@@ -109,5 +115,14 @@ public class Seedposition : MonoBehaviour
         state = false; // roller 정지상태 꺼줌
 
     }
+
+    void particle()
+    {
+        bloom.Play();
+        Destroy(bloom, 2f);
+        blooming.Play();
+    }
+
+
 }
 

@@ -11,6 +11,8 @@ public class Lever : MonoBehaviour
     public AudioSource start_lever;
     public bool leverOn = false;
 
+    public ParticleSystem blooming;
+
     // Use this for initialization 
     void Start()
     {
@@ -42,13 +44,11 @@ public class Lever : MonoBehaviour
                 if (isMove == false)
                 {
                     isMove = true;
-                    animator.SetBool("Lever", true);
+                    Invoke("lever_anim", 0.5f);
+                    Invoke("Particle", 0.0f); //파티클
 
-                    if (leverOn == false)
-                    {
-                        start_lever.Play();
-                        leverOn = true;
-                    }
+
+                    
 
 
                     //Invoke("touchClick", 5.0f);
@@ -65,5 +65,21 @@ public class Lever : MonoBehaviour
 
         }
 
+    }
+
+    void lever_anim()
+    {
+        animator.SetBool("Lever", true);
+        if (leverOn == false)
+        {
+            start_lever.Play();
+            leverOn = true;
+        }
+    }
+
+    void Particle()
+    {
+        blooming.Play();
+        Destroy(blooming, 2f);
     }
 }

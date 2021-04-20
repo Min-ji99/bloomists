@@ -14,8 +14,8 @@ public class Plant02 : MonoBehaviour
 
     Plant01 p1;
     PotionTank pt;
-    
-    
+
+
 
     void Start()
     {

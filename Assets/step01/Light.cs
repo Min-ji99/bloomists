@@ -8,8 +8,6 @@ public class Light : MonoBehaviour
     public GameObject light;
     public bool state = false;
     public bool standOn = false;
-    
-   
 
     stand_anim sta;
 
@@ -26,13 +24,11 @@ public class Light : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (sta.state == true)
         {
 
             Invoke("Play", 5.0f);
         }
-
     }
 
 
@@ -48,8 +44,6 @@ public class Light : MonoBehaviour
         GameObject.Find("StandLight").transform.Find("sLight").gameObject.SetActive(true);
         
         state = true;
-        
-
     }
 
 }

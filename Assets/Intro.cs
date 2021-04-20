@@ -32,7 +32,7 @@ public class Intro : MonoBehaviour
             // 터치한 곳에 ray를 보냄 
             Physics.Raycast(touchray, out hit); // ray가 오브젝트에 부딪힐 경우 
 
-            if (hit.collider.gameObject.name == "question_mark")
+            if (hit.collider.gameObject.name == "seed")
             {
                 GameObject.Find("All").transform.Find("Factory_OBJ").gameObject.SetActive(true);
                 state = true;

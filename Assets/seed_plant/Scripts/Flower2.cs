@@ -13,7 +13,7 @@ public class Flower2 : MonoBehaviour
     Plant02 p2;
     Potion3 po3;
 
-
+    public ParticleSystem blooming;
 
 
     void Start()
@@ -44,11 +44,19 @@ public class Flower2 : MonoBehaviour
             {
                 //Invoke("Play", 3.0f);
                 GameObject.Find("Flower2").transform.Find("flower02").gameObject.SetActive(true);       //flower02 피어남
+                Invoke("Particle", 0.0f); //파티클
                 Invoke("Next", 3.0f);
                 //animator.SetBool("Click", false);
             }
         } 
     }
+
+    void Particle()
+    {
+        blooming.Play();
+        Destroy(blooming, 2f);
+    }
+
     void Next()
     {
         p2.reach = false;   //roller 정지상태 꺼줌

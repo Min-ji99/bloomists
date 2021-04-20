@@ -20,10 +20,10 @@ public class PotionTank : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        potion4 = GameObject.Find("04_liquid04").GetComponent<Potion4>();
-        potion3 = GameObject.Find("04_liquid03").GetComponent<Potion3>();
-        potion2 = GameObject.Find("04_liquid02").GetComponent<Potion2>();
-        potion1 = GameObject.Find("04_liquid01").GetComponent<Potion1>();
+        potion4 = GameObject.Find("4_liquid04").GetComponent<Potion4>();
+        potion3 = GameObject.Find("4_liquid03").GetComponent<Potion3>();
+        potion2 = GameObject.Find("4_liquid02").GetComponent<Potion2>();
+        potion1 = GameObject.Find("4_liquid01").GetComponent<Potion1>();
 
 
     }
