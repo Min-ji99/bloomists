@@ -16,6 +16,7 @@ public class Book : MonoBehaviour
     public AudioSource book_bgm;
     public bool bookOn = false;
 
+
     // Use this for initialization 
     void Start()
     {
@@ -57,6 +58,8 @@ public class Book : MonoBehaviour
                         //Invoke("touchClick", 5.0f);
                         state = true;
                         stateFactory = true;
+
+                       
 
                     }
                     else

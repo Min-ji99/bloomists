@@ -35,9 +35,9 @@ public class final_machine : MonoBehaviour
             // 터치한 곳에 ray를 보냄 
             Physics.Raycast(touchray, out hit); // ray가 오브젝트에 부딪힐 경우 
 
-            if (hit.collider.gameObject.name == "Cylinder015" || 
-                hit.collider.gameObject.name == "Cylinder010" ||
-                hit.collider.gameObject.name == "Cylinder006")
+            if (hit.collider.gameObject.name == "Cylinder021" || 
+                hit.collider.gameObject.name == "Cylinder017" ||
+                hit.collider.gameObject.name == "Tube001")
             {
                 if (isMove == false)
                 {

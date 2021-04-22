@@ -63,10 +63,12 @@ public class Seedposition : MonoBehaviour
     {
 
 
-        if (Dist < 0.16f)   // step01에 가까워지면
+        if (Dist < 0.207f)   // step01에 가까워지면
         {
 
             state = true; // rotateplane에 도착하면 roller 정지상태 켜줌
+
+            light.state = true; //임시
 
         }
         if (light.state == true) //빛이 나타나면
@@ -77,7 +79,7 @@ public class Seedposition : MonoBehaviour
         if (ro.isMove == true)  //roller 정지 상태 아니라면
         {
             //Debug.Log("Dist2 : " + Dist2);
-
+           // Debug.Log("MDist : " + MDist);
             if (Dist2 < 0.15f)  //step02 에 다가오면
             {
 
@@ -94,9 +96,9 @@ public class Seedposition : MonoBehaviour
 
         }
 
-        if(MDist < 0.342f)
+        if(MDist < 0.18f)
         {
-            Debug.Log("MDist : " + MDist);
+            
             if (Music == false)
             {
                 Lp.Play();

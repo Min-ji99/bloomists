@@ -94,11 +94,17 @@ public class RemoveIce : MonoBehaviour
             if (ices == 0)  //5개가 모두 사라지면
             {
                 state = true;   // 얼음이 다 사라졌다면 <AfterIce>
-                ice_break.enabled = false;
+
+                Invoke("StopSound", 1f);
+                //ice_break.enabled = false;
             }
 
         }
 
 
+    }
+    void StopSound()
+    {
+        ice_break.enabled = false;
     }
 }

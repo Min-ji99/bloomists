@@ -6,9 +6,13 @@ public class Seed : MonoBehaviour
 {
     public GameObject sd;
 
+    public AudioSource seedDrop;
+
     void Start()
     {
         sd.gameObject.SetActive(false);
+
+        AudioSource seedDrop = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -29,13 +33,21 @@ public class Seed : MonoBehaviour
 
             if (hit.collider.gameObject.name == "Cylinder275" || hit.collider.gameObject.name == "Sphere041") //뽑기머신 누르면
             {
-                Invoke("Play", 2f);  //2초뒤에
+                Invoke("soundPlay", 5.5f);
+                Invoke("Play", 6f);  //2초뒤에
             }
         }
     }
 
     void Play()
     {
+
+        
         GameObject.Find("S_P").transform.Find("seed").gameObject.SetActive(true);   //씨앗 나타나게
+    }
+
+    void soundPlay()
+    {
+        seedDrop.Play();
     }
 }

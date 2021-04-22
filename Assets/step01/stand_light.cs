@@ -10,7 +10,7 @@ public class stand_light : MonoBehaviour
 
     stand_anim stand;
 
-    public AudioSource stlight;
+    //public AudioSource stlight;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +33,7 @@ public class stand_light : MonoBehaviour
     {
         if (standOn == false)
         {
-            stlight.Play();
+           // stlight.Play();
             standOn = true;
         }
 

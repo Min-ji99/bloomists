@@ -67,13 +67,5 @@ public class GirlWalk : MonoBehaviour
 
     }
 
-    //void UpdateTargetWaypoint()
-    //{
-    //    if (targetWayPointIndex > lastWaypointIndex)
-    //    {
-    //        targetWayPointIndex--;
-            
-    //    }
-    //    targetWaypoint = waypoints[targetWayPointIndex];
-    //}
+    
 }

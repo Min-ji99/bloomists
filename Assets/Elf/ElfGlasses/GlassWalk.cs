@@ -7,7 +7,7 @@ public class GlassWalk : MonoBehaviour
     public List<Transform> waypoints = new List<Transform>();
     private Transform targetWaypoint;
     private int targetWayPointIndex = 0;
-    private float minDistance = 0.001f;
+    private float minDistance = 0.1f;
     private int lastWaypointIndex;
 
     private float movementSpeed = 0.1f;
@@ -31,6 +31,7 @@ public class GlassWalk : MonoBehaviour
 
 
         transform.rotation = rotationToTarget;
+        //transform.rotation = Quaternion.Slerp(transform.rotation, rotationToTarget, rotationStep);
 
         float distance = Vector3.Distance(transform.position, targetWaypoint.position);
         CheckDistanceToWaypoint(distance);
@@ -50,12 +51,12 @@ public class GlassWalk : MonoBehaviour
                 elfMove = false;
             }
             //UpdateTargetWaypoint();
-           // Debug.Log("증가 " + targetWayPointIndex);
+            //Debug.Log("증가 " + targetWayPointIndex);
         }
         else if (currentDistance <= minDistance && elfMove == false)
         {
             targetWayPointIndex--;
-          //  Debug.Log("감소 " + targetWayPointIndex);
+            //Debug.Log("감소 " + targetWayPointIndex);
             if (targetWayPointIndex == 0)
             {
                 elfMove = true;

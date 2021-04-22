@@ -8,6 +8,7 @@ public class QuestionMark : MonoBehaviour
     Book books;
     Intro intro;
     bool stateMark;
+    public bool isDestroyed = false;
     public ParticleSystem seed_intro;
 
     void Start()
@@ -29,8 +30,8 @@ public class QuestionMark : MonoBehaviour
 
         if (books.state==true)
         {
-            Invoke("Play", 7f);  //28f
-            Invoke("particle", 7.5f); //28.5f
+            Invoke("Play", 1f);  //28f
+            Invoke("particle", 28.5f); //28.5f
            
                
         }
@@ -38,6 +39,7 @@ public class QuestionMark : MonoBehaviour
         {
             //mark.gameObject.SetActive(false);
             Destroy(mark);
+            isDestroyed = true;
             stateMark = false;
 
         }

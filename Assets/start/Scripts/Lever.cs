@@ -44,8 +44,8 @@ public class Lever : MonoBehaviour
                 if (isMove == false)
                 {
                     isMove = true;
-                    Invoke("lever_anim", 0.5f);
-                    Invoke("Particle", 0.0f); //파티클
+                    Invoke("lever_anim", 1f);
+                    Invoke("Particle", 3f); //파티클
 
 
                     

@@ -58,10 +58,10 @@ public class Plant02 : MonoBehaviour
         }
     }
 
-    //void LateUpdate()
-    //{
-    //    print("Dist : " + Dist);
-    //}
+    void LateUpdate()
+    {
+        print("Dist : " + Dist);
+    }
 
     void Play()
     {
