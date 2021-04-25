@@ -95,6 +95,7 @@
     <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Canvas Controllers\FCMenuCanvasController.cs" />
     <Compile Include="Assets\start\Scripts\ARTapToPlace.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Scripts\WSCube.cs" />
+    <Compile Include="Assets\Deco\book\BookControl.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Scripts\WSPassDataFromWorldToUI.cs" />
     <Compile Include="Assets\Canvas Flow\Storyboard Hooks\StoryboardHookUnityEngineUIButton.cs" />
     <Compile Include="Assets\step03\Scripts\snowtank.cs" />
@@ -132,7 +133,7 @@
     <Compile Include="Assets\step03\Scripts\Push_Button.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Scripts\FCShadow.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\ExtrudeConveyorWizard.cs" />
-    <Compile Include="Assets\final\final_cover.cs" />
+    <Compile Include="Assets\final\final_plane.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\conveyor\ModularConveyorTools\Shaders\Conveyor.shader" />

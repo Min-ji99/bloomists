@@ -8,8 +8,6 @@ public class final_machine : MonoBehaviour
     private Vector3 touchpos;
     private Animator animator;
 
-    public ParticleSystem blooming;
-
     // Use this for initialization 
     void Start()
     {
@@ -35,24 +33,18 @@ public class final_machine : MonoBehaviour
             // 터치한 곳에 ray를 보냄 
             Physics.Raycast(touchray, out hit); // ray가 오브젝트에 부딪힐 경우 
 
-            if (hit.collider.gameObject.name == "Cylinder021" || 
-                hit.collider.gameObject.name == "Cylinder017" ||
-                hit.collider.gameObject.name == "Tube001")
+            if (hit.collider.gameObject.name == "Sphere001")
             {
                 if (isMove == false)
                 {
                     isMove = true;
-                    animator.SetBool("final", true);
-                    Invoke("Particle", 2.0f); //파티클
-
-                    //Invoke("touchClick", 5.0f);
+                    Invoke("machinePlay", 0.1f);
                 }
                 else
                 {
                     isMove = false;
                     animator.SetBool("final", false);
                 }
-
                 Debug.Log(hit.collider.gameObject.name);
 
             }
@@ -61,9 +53,8 @@ public class final_machine : MonoBehaviour
 
     }
 
-    void Particle()
+    void machinePlay()
     {
-        blooming.Play();
-        Destroy(blooming, 2f);
+        animator.SetBool("final", true);
     }
 }
