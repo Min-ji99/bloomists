@@ -276,8 +276,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152690508}
-  m_LocalRotation: {x: -0.25957832, y: -0.22735241, z: 0.063418224, w: -0.9364337}
-  m_LocalPosition: {x: -1.515503, y: 2.0371056, z: -3.5581632}
+  m_LocalRotation: {x: 0.04894376, y: 0.9506918, z: -0.20263268, w: 0.22962932}
+  m_LocalPosition: {x: -1.7570955, y: 1.136224, z: 2.0530064}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1632,6 +1632,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: seedFactory 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2584372546223623091, guid: ff8e53e3ca043a1479d1cc7904e5d8ca,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 2990103418628915140, guid: ff8e53e3ca043a1479d1cc7904e5d8ca,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: -1.0653
+      objectReference: {fileID: 0}
+    - target: {fileID: 2990103418628915140, guid: ff8e53e3ca043a1479d1cc7904e5d8ca,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2990103418628915140, guid: ff8e53e3ca043a1479d1cc7904e5d8ca,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.253
+      objectReference: {fileID: 0}
+    - target: {fileID: 2990103418628915140, guid: ff8e53e3ca043a1479d1cc7904e5d8ca,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.026
+      objectReference: {fileID: 0}
     - target: {fileID: 5305634868621470362, guid: ff8e53e3ca043a1479d1cc7904e5d8ca,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1798,14 +1823,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seedmachine: {fileID: 143564497}
   stand: {fileID: 1966161913}
+  musicLP: {fileID: 0}
   water: {fileID: 1362129394}
+  waterPot: {fileID: 0}
   snow_joystick: {fileID: 157264696}
   ice: {fileID: 1873876136}
   potion: {fileID: 1030578856}
-  color: {fileID: 441295842}
-  final_lever: {fileID: 1999616614}
-  final_comment1: {fileID: 283049540}
-  final_comment2: {fileID: 557605982}
+  colorAsk: {fileID: 0}
+  color01: {fileID: 0}
+  color02: {fileID: 0}
+  color03: {fileID: 0}
+  color04: {fileID: 0}
+  spoid: {fileID: 0}
+  final_comment01: {fileID: 0}
+  final_comment02: {fileID: 0}
+  final_comment03: {fileID: 0}
+  final_comment04: {fileID: 0}
+  final_comment05: {fileID: 0}
 --- !u!1 &1966161913
 GameObject:
   m_ObjectHideFlags: 0

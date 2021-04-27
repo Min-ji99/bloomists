@@ -51,7 +51,7 @@ public class Ice : MonoBehaviour
 
     void Sound()
     {
-        Debug.Log("PlaySound");
+        //Debug.Log("PlaySound");
         if (makeice == false)
         {
             icemake.Play();

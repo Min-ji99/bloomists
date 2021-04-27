@@ -17,17 +17,17 @@ public class stand_light : MonoBehaviour
     {
         light.gameObject.SetActive(false);
         stand = GameObject.Find("01").transform.Find("stand").GetComponent<stand_anim>();
-        AudioSource stlight = GetComponent<AudioSource>();
+        //AudioSource stlight = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (stand.state == true)
-        {
-            Invoke("Play", 5.0f);
-        }
-    }
+    //void Update()
+    //{
+    //    if (stand.state == true)
+    //    {
+    //        Invoke("Play", 5.0f);
+    //    }
+    //}
 
     void Play()
     {

@@ -9,6 +9,8 @@ public class AfterIce : MonoBehaviour
 
     public bool state_p2=false;
     public bool bloom = false;
+    private bool particleOn = false;
+
 
     RemoveIce rIce;
     Plant01 p1;
@@ -47,8 +49,12 @@ public class AfterIce : MonoBehaviour
 
     void Particle()
     {
-        blooming.Play();
-        Destroy(blooming, 2f);
+        if (particleOn == false)
+        {
+            blooming.Play();
+            Destroy(blooming, 2f);
+            particleOn = true;
+        }
     }
 
     void Bloom()

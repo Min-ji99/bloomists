@@ -13,7 +13,7 @@ public class Seedposition : MonoBehaviour
     private Animator animator;
     public bool state = false;
     public bool bud = false;
-    public bool state2 = false;
+    public bool standOn = false;
     public bool appear = false;
 
     //꽃 필때 파티클
@@ -57,16 +57,19 @@ public class Seedposition : MonoBehaviour
     {
         //print("Dist : " + Dist);
         //Debug.Log("Dist2 : " + Dist2);
+        //Debug.Log("MDist : " + MDist);
+
     }
 
     void Play()
     {
 
 
-        if (Dist < 0.207f)   // step01에 가까워지면
+        if (Dist < 0.41f)   // step01에 가까워지면
         {
 
             state = true; // rotateplane에 도착하면 roller 정지상태 켜줌
+            standOn = true; //캔버스 뜨도록
 
             light.state = true; //임시
 
@@ -78,9 +81,8 @@ public class Seedposition : MonoBehaviour
         }
         if (ro.isMove == true)  //roller 정지 상태 아니라면
         {
-            //Debug.Log("Dist2 : " + Dist2);
-           // Debug.Log("MDist : " + MDist);
-            if (Dist2 < 0.15f)  //step02 에 다가오면
+           
+            if (Dist2 < 0.35f)  //step02 에 다가오면
             {
 
        
@@ -89,14 +91,14 @@ public class Seedposition : MonoBehaviour
 
                 if (tank.watering == true) //물 애니메이션 재생되면
                 {
-                    seed.gameObject.SetActive(false); //씨앗 오브젝트 사라짐
+                    Destroy(seed); //씨앗 오브젝트 사라짐
                 }
 
             }
 
         }
 
-        if(MDist < 0.18f)
+        if(MDist < 0.45f)
         {
             
             if (Music == false)
@@ -122,7 +124,7 @@ public class Seedposition : MonoBehaviour
     {
         bloom.Play();
         Destroy(bloom, 2f);
-        blooming.Play();
+        blooming.PlayOneShot(blooming.clip);
     }
 
 

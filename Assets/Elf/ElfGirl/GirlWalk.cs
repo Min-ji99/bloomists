@@ -8,11 +8,11 @@ public class GirlWalk : MonoBehaviour
     public List<Transform> waypoints = new List<Transform>();
     private Transform targetWaypoint;
     private int targetWayPointIndex=0;
-    private float minDistance = 0.1f;
+    private float minDistance = 0.05f;
     private int lastWaypointIndex;
 
     private float movementSpeed = 0.1f;
-    private float rotationSpeed = 0.5f;
+    private float rotationSpeed = 1f;
 
     private bool elfMove = true;
 
@@ -30,7 +30,6 @@ public class GirlWalk : MonoBehaviour
         Vector3 directionToTarget = targetWaypoint.position - transform.position;
         Quaternion rotationToTarget = Quaternion.LookRotation(directionToTarget);
 
-
         transform.rotation = rotationToTarget;
 
         float distance = Vector3.Distance(transform.position, targetWaypoint.position);
@@ -46,7 +45,7 @@ public class GirlWalk : MonoBehaviour
         if(currentDistance <= minDistance && elfMove == true)
         {
             targetWayPointIndex++;
-            if(targetWayPointIndex == 8)
+            if(targetWayPointIndex == lastWaypointIndex)
             {
                 elfMove = false;
             }

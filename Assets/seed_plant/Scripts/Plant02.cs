@@ -60,7 +60,7 @@ public class Plant02 : MonoBehaviour
 
     void LateUpdate()
     {
-        print("Dist : " + Dist);
+       // print("Dist : " + Dist);
     }
 
     void Play()
@@ -68,7 +68,7 @@ public class Plant02 : MonoBehaviour
         GameObject.Find("Plant2").transform.Find("plant02").gameObject.SetActive(true); //plant02 생김
         
 
-        if (Dist < 0.365f)  //plant02 자라난 뒤 step04로 다가가면
+        if (Dist < 0.5725f)  //plant02 자라난 뒤 step04로 다가가면
         {
 
             reach = true; //roller 정지상태 켜줌

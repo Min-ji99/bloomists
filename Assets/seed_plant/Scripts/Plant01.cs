@@ -62,7 +62,7 @@ public class Plant01 : MonoBehaviour
             Play();
         }
 
-        if (Dist < 0.09f) // step03 다가가면
+        if (Dist < 0.245f) // step03 다가가면
         {
             Plant.gameObject.SetActive(false); //plant01 사라짐
             state = true; //plant01사라지면서 step03로
@@ -75,7 +75,7 @@ public class Plant01 : MonoBehaviour
     {
         GameObject.Find("Plant1").transform.Find("plant01").gameObject.SetActive(true);    //plant01 생기면서 자라남
         Invoke("Particle", 0.8f); //파티클
-        Invoke("GoPlant", 6.0f);    //5초 뒤에
+        Invoke("GoPlant", 5.0f);    //5초 뒤에
 
 
 

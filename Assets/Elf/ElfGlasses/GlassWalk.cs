@@ -7,11 +7,11 @@ public class GlassWalk : MonoBehaviour
     public List<Transform> waypoints = new List<Transform>();
     private Transform targetWaypoint;
     private int targetWayPointIndex = 0;
-    private float minDistance = 0.1f;
+    private float minDistance = 0.01f;
     private int lastWaypointIndex;
 
     private float movementSpeed = 0.1f;
-    private float rotationSpeed = 0.5f;
+    private float rotationSpeed = 1f;
 
     private bool elfMove = true;
 
@@ -46,7 +46,7 @@ public class GlassWalk : MonoBehaviour
         if (currentDistance <= minDistance && elfMove == true)
         {
             targetWayPointIndex++;
-            if (targetWayPointIndex == 5)
+            if (targetWayPointIndex == lastWaypointIndex)
             {
                 elfMove = false;
             }
