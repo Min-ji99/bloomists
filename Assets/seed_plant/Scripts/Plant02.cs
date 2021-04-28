@@ -9,12 +9,14 @@ public class Plant02 : MonoBehaviour
     private float Dist;
     public bool state = false;
     public bool reach = false;
-    
-
 
     Plant01 p1;
     PotionTank pt;
 
+    color1 col1;
+    color2 col2;
+    color3 col3;
+    color4 col4;
 
 
     void Start()
@@ -22,9 +24,10 @@ public class Plant02 : MonoBehaviour
         Plant.gameObject.SetActive(false);  //plant02 안보여
         p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
         pt = GameObject.Find("04_tank").GetComponent<PotionTank>();
-
-
-
+        col1 = GameObject.Find("07-1").GetComponent<color1>();
+        col2 = GameObject.Find("07-2").GetComponent<color2>();
+        col3 = GameObject.Find("07-3").GetComponent<color3>();
+        col4 = GameObject.Find("07-4").GetComponent<color4>();
     }
 
     void Update()
@@ -51,7 +54,7 @@ public class Plant02 : MonoBehaviour
     
         }
        
-        if (pt.pstate == true) {    //물약기계 움직였다면
+        if (col1.answer1 == true || col2.answer2 == true || col3.answer3 == true || col4.answer4 == true) {    //물약기계 움직였다면
 
             Invoke("Disappear", 4.0f);  //4초 뒤에 사라졋!!~!~
 

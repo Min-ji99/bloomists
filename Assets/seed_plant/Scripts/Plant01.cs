@@ -11,6 +11,7 @@ public class Plant01 : MonoBehaviour
     public bool state = false;
     public bool appear = false;
     public bool bloom = false;
+    private bool isbloomed = false;
 
     //public bool bloom = false;
 
@@ -90,7 +91,11 @@ public class Plant01 : MonoBehaviour
 
     void Particle()
     {
-        blooming.Play();
-        Destroy(blooming, 2f);
+        if (isbloomed==false) 
+        {
+            blooming.Play();
+            Destroy(blooming, 2f);
+            isbloomed = true;
+        }
     }
 }

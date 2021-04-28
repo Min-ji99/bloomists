@@ -5,13 +5,16 @@ using UnityEngine;
 public class Fruit02 : MonoBehaviour
 {
     public GameObject Plant;
-    
+    public GameObject final;
+
     private float Dist;
     public bool state = false;
-    //private Animator animator;
+    private float fruit2Dist;
+    public bool fruit2reach = false;
+    private bool isbloomed = false;
 
     Plant02 p2;
-    Potion4 po4;
+    color4 col4;
 
     public ParticleSystem blooming;
 
@@ -19,20 +22,19 @@ public class Fruit02 : MonoBehaviour
     {
         Plant.gameObject.SetActive(false);
         p2 = GameObject.Find("Plant2").GetComponent<Plant02>();
-        po4 = GameObject.Find("4_liquid04").GetComponent<Potion4>();
-
-
-        //animator = GameObject.Find("Plant2").transform.Find("plant02").GetComponent<Animator>();
-
+        col4 = GameObject.Find("07-4").GetComponent<color4>();
 
     }
 
     void Update()
     {
+        fruit2Dist = Vector3.Distance(Plant.transform.position, final.transform.position);
+        PlantAppear();       
+    }
 
-        PlantAppear();
-
-       
+    void LateUpdate()
+    {
+       //print("fruit2Dist : " + fruit2Dist);
     }
 
     void PlantAppear()
@@ -41,27 +43,26 @@ public class Fruit02 : MonoBehaviour
 
         if (p2.state == true)   //plant02 사라졌다면
         {
-            if (po4.state == true)  //물약4 눌렸다면 
+            if (col4.answer4 == true)  //물약4 눌렸다면 
             {
                 //Invoke("Play", 3.0f);
                 GameObject.Find("Fruit2").transform.Find("fruit02").gameObject.SetActive(true);     //fruit02 피어남
                 Invoke("Particle", 0.0f); //파티클
                 Invoke("Next", 3.0f);
-                //animator.SetBool("Click", false);
+       
             }
         }
-        //if (rIce.state == true)
-        //{
-        //    animator.SetBool("Click", true);
-
-        //}
-
+       
     }
 
     void Particle()
     {
-        blooming.Play();
-        Destroy(blooming, 2f);
+        if (isbloomed == false)
+        {
+            blooming.Play();
+            Destroy(blooming, 2f);
+            isbloomed = true;
+        }
     }
 
     void Next()
@@ -69,6 +70,11 @@ public class Fruit02 : MonoBehaviour
         p2.reach = false;   //roller 정지상태 꺼줌
         state = true;    //roller 동작상태 켜줌
 
+        if (fruit2Dist < 2.04f)
+        {
+            state = false;  //roller 동작상태 꺼줌
+            fruit2reach = true;  //roller 정지상태 켜줌
+        }
     }
     
 }

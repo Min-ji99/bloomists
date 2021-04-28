@@ -7,6 +7,7 @@ public class final_machine : MonoBehaviour
     bool isMove = false;
     private Vector3 touchpos;
     private Animator animator;
+    public bool isclosed = false;
 
     // Use this for initialization 
     void Start()
@@ -38,7 +39,8 @@ public class final_machine : MonoBehaviour
                 if (isMove == false)
                 {
                     isMove = true;
-                    Invoke("machinePlay", 0.1f);
+                    //Invoke("machinePlay", 0.1f);
+                    machinePlay();
                 }
                 else
                 {
@@ -56,5 +58,6 @@ public class final_machine : MonoBehaviour
     void machinePlay()
     {
         animator.SetBool("final", true);
+        isclosed = true;
     }
 }

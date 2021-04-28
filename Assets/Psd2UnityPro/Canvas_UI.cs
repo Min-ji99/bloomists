@@ -36,16 +36,18 @@ public class Canvas_UI : MonoBehaviour
     private bool IsDestroy5 = false;
     private bool IsDestroy6 = false;
     private bool IsDestroy7 = false;
-    private bool IsDestroy7_1 = false;
-    private bool IsDestroy7_2 = false;
-    private bool IsDestroy7_3 = false;
-    private bool IsDestroy7_4 = false;
+    private bool IsDestroy9 = false;
+    private bool IsDestroy10 = false;
+    private bool IsDestroy11 = false;
+    private bool IsDestroy12 = false;
+    private bool IsDestroy13 = false;
 
-    //색상 선택 
-    public bool answer1 = false;
-    public bool answer2 = false;
-    public bool answer3 = false;
-    public bool answer4 = false;
+
+    ////색상 선택 
+    //public bool answer1 = false;
+    //public bool answer2 = false;
+    //public bool answer3 = false;
+    //public bool answer4 = false;
 
 
     Intro intro;
@@ -54,7 +56,12 @@ public class Canvas_UI : MonoBehaviour
     //Ice iceball;
     snowtank tank;
     Plant02 p2;
-    
+    Flower01 f1;
+    Flower2 f2;
+    Fruit01 f01;
+    Fruit02 f02;
+    final_machine Fmachine;
+
 
     // Start is called before the first frame update
     void Start()
@@ -86,6 +93,13 @@ public class Canvas_UI : MonoBehaviour
         tank= GameObject.Find("03_snowtank").GetComponent<snowtank>();
         p2 = GameObject.Find("Plant2").GetComponent<Plant02>();
 
+        f1 = GameObject.Find("Flower1").GetComponent<Flower01>();
+        f2 = GameObject.Find("Flower2").GetComponent<Flower2>();
+        f01 = GameObject.Find("Fruit1").GetComponent<Fruit01>();
+        f02 = GameObject.Find("Fruit2").GetComponent<Fruit02>();
+
+        Fmachine= GameObject.Find("final_final").GetComponent<final_machine>();
+
     }
 
     // Update is called once per frame
@@ -112,13 +126,37 @@ public class Canvas_UI : MonoBehaviour
         if (tank.pstate == true && IsDestroy5 == false)
             Invoke("PlayIce", 4f);
 
-        if (p2.reach == true && IsDestroy6 == false && IsDestroy7==false && IsDestroy7_1 == false && IsDestroy7_2 == false && IsDestroy7_3 == false && IsDestroy7_4 == false)
+        if (p2.reach == true && IsDestroy6 == false)
         {
             Invoke("PlayPotion", 1.5f);
             Invoke("PlayColorAsk", 6.8f);
 
         }
 
+        if( IsDestroy9 == false && (f1.flower1reach == true || f2.flower2reach == true || f01.fruit1reach == true || f02.fruit2reach == true))
+        {
+            Invoke("PlayFinalComment01",1.5f);
+        }
+
+        if (IsDestroy9== true && IsDestroy10==false)
+        {
+            Invoke("PlayFinalComment02", 5.5f);
+        }
+
+        if (IsDestroy10 == true && IsDestroy11 == false)
+        {
+            Invoke("PlayFinalComment03", 5.5f);
+        }
+
+        if(Fmachine.isclosed==true && IsDestroy12 == false)
+        {
+            Invoke("PlayFinalComment04", 4.5f);
+        }
+
+        if (IsDestroy12 == true && IsDestroy13 == false)
+        {
+            Invoke("PlayFinalComment05", 2.5f);
+        }
     }
 
     void PlayIntro()
@@ -175,70 +213,47 @@ public class Canvas_UI : MonoBehaviour
     void PlayColorAsk()
     {
         GameObject.Find("Canvas").transform.Find("07").gameObject.SetActive(true);
-        GameObject.Find("Canvas").transform.Find("Button").gameObject.SetActive(true);
+        GameObject.Find("Canvas").transform.Find("07-1").gameObject.SetActive(true);
         GameObject.Find("Canvas").transform.Find("07-2").gameObject.SetActive(true);
         GameObject.Find("Canvas").transform.Find("07-3").gameObject.SetActive(true);
         GameObject.Find("Canvas").transform.Find("07-4").gameObject.SetActive(true);
 
-        //캔버스 선택
-        //4중 하나 선택시 
-        //캔버스 7,7-1~7-4 사라지고 
-        //꽃생기도록
-        if (Input.GetMouseButtonDown(0))
-        {           
-            RaycastHit hit;        
-            Ray touchray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Physics.Raycast(touchray, out hit); // ray가 오브젝트에 부딪힐 경우 
+    }
 
-            if (hit.collider.gameObject.name == "07-1")
-            {
-                if (isMove == false)
-                {
-                    Debug.Log("pushed");
-                    isMove = true;
-                    answer1 = true;
-                }
-            }
-            else if (hit.collider.gameObject.name == "07-2")
-            {
-                if (isMove == false)
-                {
-                    isMove = true;
-                    answer2 = true;
-                }
-            }
-            else if (hit.collider.gameObject.name == "07-3")
-            {
-                if (isMove == false)
-                {
-                    isMove = true;
-                    answer3 = true;
-                }
-            }
-            else if (hit.collider.gameObject.name == "07-4")
-            {
-                if (isMove == false)
-                {
-                    isMove = true;
-                    answer4 = true;
-                }
-            }
+    //물약 뿌리기
 
-        }
-        if (answer1 == true || answer2 == true || answer3 == true || answer4 == true)  //포션이 클릭됐다면
-        {
-            //Destroy(colorAsk);
-            //Destroy(color01);
-            //Destroy(color02);
-            //Destroy(color03);
-            //Destroy(color04);
+    void PlayFinalComment01()
+    {
+        GameObject.Find("Canvas").transform.Find("09").gameObject.SetActive(true);
+        Destroy(final_comment01, 5f);
+        IsDestroy9 = true;
+    }
 
-            answered = true;
-        }
-        IsDestroy7 = true;
-        IsDestroy7_1 = true;
-        IsDestroy7_2 = true;
-        IsDestroy7_3 = true;
-        IsDestroy7_4 = true;
+    void PlayFinalComment02()
+    {
+        GameObject.Find("Canvas").transform.Find("10").gameObject.SetActive(true);
+        Destroy(final_comment02, 5f);
+        IsDestroy10 = true;
+    }
+
+    void PlayFinalComment03()
+    {
+        GameObject.Find("Canvas").transform.Find("11").gameObject.SetActive(true);
+        Destroy(final_comment03, 3f);
+        IsDestroy11 = true;
+    }
+
+    void PlayFinalComment04()
+    {
+        GameObject.Find("Canvas").transform.Find("12").gameObject.SetActive(true);
+        Destroy(final_comment04, 2f);
+        IsDestroy12 = true;
+    }
+
+    void PlayFinalComment05()
+    {
+        GameObject.Find("Canvas").transform.Find("13").gameObject.SetActive(true);
+        Destroy(final_comment05, 5f);
+        IsDestroy13 = true;
     }
 }

@@ -12,6 +12,8 @@ public class Book : MonoBehaviour
     public bool state = false;
     public bool stateFactory = false;
 
+
+
     //브금
     public AudioSource book_bgm;
     public bool bookOn = false;
@@ -50,6 +52,8 @@ public class Book : MonoBehaviour
                     {
                         isMove = true;
                         animator.SetBool("Click", true);
+                        
+
                         if (bookOn == false)
                         {
                             book_bgm.Play();
@@ -78,4 +82,5 @@ public class Book : MonoBehaviour
         }
 
     }
+    
 }

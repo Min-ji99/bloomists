@@ -15,6 +15,7 @@ public class Seedposition : MonoBehaviour
     public bool bud = false;
     public bool standOn = false;
     public bool appear = false;
+    public bool isbloomed = false;
 
     //꽃 필때 파티클
     public ParticleSystem bloom;
@@ -122,9 +123,13 @@ public class Seedposition : MonoBehaviour
 
     void particle()
     {
-        bloom.Play();
-        Destroy(bloom, 2f);
-        blooming.PlayOneShot(blooming.clip);
+        if (isbloomed == false)
+        {
+            bloom.Play();
+            Destroy(bloom, 2f);
+            isbloomed = true;
+            blooming.PlayOneShot(blooming.clip);
+        }
     }
 
 

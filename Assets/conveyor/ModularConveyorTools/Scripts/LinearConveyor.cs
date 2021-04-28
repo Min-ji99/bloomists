@@ -13,7 +13,7 @@ public class LinearConveyor : MonoBehaviour {
 
 	private MeshRenderer mr;
 
-	public float speed = 0.5f;
+	public float speed = 0.2f;
 
 	// Use this for initialization
 	void Start () {

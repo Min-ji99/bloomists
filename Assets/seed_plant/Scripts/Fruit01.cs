@@ -5,13 +5,16 @@ using UnityEngine;
 public class Fruit01 : MonoBehaviour
 {
     public GameObject Plant;
+    public GameObject final;
 
     private float Dist;
     public bool state = false;
-    //private Animator animator;
+    private float fruit1Dist;
+    public bool fruit1reach = false;
+    private bool isbloomed = false;
 
     Plant02 p2;
-    Potion2 po2;
+    color3 col3;
 
     public ParticleSystem blooming;
 
@@ -20,20 +23,19 @@ public class Fruit01 : MonoBehaviour
     {
         Plant.gameObject.SetActive(false);
         p2 = GameObject.Find("Plant2").GetComponent<Plant02>();
-        po2 = GameObject.Find("4_liquid02").GetComponent<Potion2>();
-
-
-        //animator = GameObject.Find("Plant2").transform.Find("plant02").GetComponent<Animator>();
-
+        col3 = GameObject.Find("07-3").GetComponent<color3>();
 
     }
 
     void Update()
     {
-
+        fruit1Dist = Vector3.Distance(Plant.transform.position, final.transform.position);
         PlantAppear();
+    }
 
-
+    void LateUpdate()
+    {
+        //print("fruit1Dist : " + fruit1Dist);
     }
 
     void PlantAppear()
@@ -41,7 +43,7 @@ public class Fruit01 : MonoBehaviour
 
         if (p2.state == true)   //plant02 사라졌다면
         {
-            if (po2.state == true)  //물약2 눌렸다면 
+            if (col3.answer3 == true)  //물약2 눌렸다면 
             {
                 
                 GameObject.Find("Fruit1").transform.Find("fruit01").gameObject.SetActive(true);     //fruit01 피어남
@@ -54,16 +56,24 @@ public class Fruit01 : MonoBehaviour
 
     void Particle()
     {
-        blooming.Play();
-        Destroy(blooming, 2f);
+        if (isbloomed == false)
+        {
+            blooming.Play();
+            Destroy(blooming, 2f);
+            isbloomed = true;
+        }
     }
-
 
     void Next()
     {
         p2.reach = false;   //roller 정지상태 꺼줌
         state = true;       //roller 동작상태 켜줌
 
+        if (fruit1Dist < 2.38f)
+        {
+            state = false;  //roller 동작상태 꺼줌
+            fruit1reach= true;  //roller 정지상태 켜줌
+        }
     }
 }
     

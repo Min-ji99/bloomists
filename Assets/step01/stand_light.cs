@@ -8,7 +8,7 @@ public class stand_light : MonoBehaviour
     public bool state = false;
     public bool standOn = false;
 
-    stand_anim stand;
+    //stand_anim stand;
 
     //public AudioSource stlight;
 
@@ -16,7 +16,7 @@ public class stand_light : MonoBehaviour
     void Start()
     {
         light.gameObject.SetActive(false);
-        stand = GameObject.Find("01").transform.Find("stand").GetComponent<stand_anim>();
+        //stand = GameObject.Find("01").transform.Find("stand").GetComponent<stand_anim>();
         //AudioSource stlight = GetComponent<AudioSource>();
     }
 

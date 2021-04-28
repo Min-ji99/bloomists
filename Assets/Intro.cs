@@ -7,11 +7,13 @@ public class Intro : MonoBehaviour
     public GameObject Factory;
     public GameObject question;
     public bool state = false;
+    public AudioSource bgm;
 
     // Start is called before the first frame update
     void Start()
     {
         Factory.gameObject.SetActive(false);
+        AudioSource bgm = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,6 +37,7 @@ public class Intro : MonoBehaviour
             if (hit.collider.gameObject.name == "seed")
             {
                 GameObject.Find("All").transform.Find("Factory_OBJ").gameObject.SetActive(true);
+                Invoke("soundPlay", 2f); // 배경음 재생
                 state = true;
                 Debug.Log(hit.collider.gameObject.name);
                 //question.gameObject.SetActive(false);
@@ -43,5 +46,10 @@ public class Intro : MonoBehaviour
 
         }
 
+    }
+
+    void soundPlay()
+    {
+        bgm.Play();
     }
 }

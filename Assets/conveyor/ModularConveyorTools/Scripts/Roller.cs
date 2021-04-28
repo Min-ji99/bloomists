@@ -43,22 +43,23 @@ public class Roller : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
-		//rotate the roller
+        //rotate the roller
 
-		if (Sp.state == true || Sp.appear == true || p1.appear == true || p2.reach == true)
-		{
-			//Debug.Log("Sp.appear:" + Sp.appear);
-			tangentSpeed = 0;
+        if (Sp.state == true || Sp.appear == true || p1.appear == true || p2.reach == true || f1.flower1reach==true || f2.flower2reach==true || f01.fruit1reach == true || f02.fruit2reach == true)
+        {
+            //Debug.Log("Sp.appear:" + Sp.appear);
+            tangentSpeed = 0;
+			//정지
+        }
+        else if (aI.bloom == true || ro.isMove == true || p1.bloom == true || f1.state == true || f2.state == true || f01.state == true || f02.state == true)
+        {
+            //Debug.Log("p2.reach:" + p2.reach);
+            tangentSpeed = 1;
+			//동작
+        }
 
-		}
-		else if (aI.bloom == true || ro.isMove == true || p1.bloom == true || f1.state == true || f2.state == true || f01.state == true || f02.state == true)
-		{
-			//Debug.Log("p2.reach:" + p2.reach);
-			tangentSpeed = 1;
-		}
-		
 
-		float angularVelocity = (tangentSpeed * Mathf.Rad2Deg) / radius;
+        float angularVelocity = (tangentSpeed * Mathf.Rad2Deg) / radius;
 		Quaternion newRot = rb.rotation * Quaternion.AngleAxis(angularVelocity * Time.deltaTime, transform.InverseTransformDirection(transform.right));
 		rb.MoveRotation(newRot);
 	}

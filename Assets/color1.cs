@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class testUI : MonoBehaviour
+public class color1 : MonoBehaviour
 {
     public GameObject colorAsk;
     public GameObject color01;
@@ -10,12 +10,13 @@ public class testUI : MonoBehaviour
     public GameObject color03;
     public GameObject color04;
 
-   // public GameObject Building;
+    public bool answer1 = false;
 
     public void BuildingSetActive()
     {
-        //Building.SetActive(!Building.active);
-        Invoke("disappear",0.5f);
+        answer1 = true;
+        //Debug.Log(answer1);
+        Invoke("disappear", 0.5f);
 
 
     }
@@ -28,4 +29,5 @@ public class testUI : MonoBehaviour
         Destroy(color03);
         Destroy(color04);
     }
+
 }
