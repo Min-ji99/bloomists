@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO.Ports;
 
 public class Seedposition : MonoBehaviour
 {
+    SerialPort sp = new SerialPort("COM4", 9600);
+    string stream;
 
     public GameObject seed;
     public GameObject Stand;
@@ -16,6 +19,9 @@ public class Seedposition : MonoBehaviour
     public bool standOn = false;
     public bool appear = false;
     public bool isbloomed = false;
+    public bool lightDetect = false;
+    public bool growth = false;
+
 
     //꽃 필때 파티클
     public ParticleSystem bloom;
