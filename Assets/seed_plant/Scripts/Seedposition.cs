@@ -37,6 +37,7 @@ public class Seedposition : MonoBehaviour
     stand_light light;
     rotate ro;
     watertank tank;
+    Plant01 p1;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +49,7 @@ public class Seedposition : MonoBehaviour
         tank = GameObject.Find("02").transform.Find("02_tank").GetComponent<watertank>();
         AudioSource Lp = GetComponent<AudioSource>();
         AudioSource blooming = GetComponent<AudioSource>();
+        p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
     }
 
     // Update is called once per frame
@@ -62,7 +64,7 @@ public class Seedposition : MonoBehaviour
 
     void LateUpdate()
     {
-        //print("Dist : " + Dist);
+        //Debug.Log("Dist : " + Dist);
         //Debug.Log("Dist2 : " + Dist2);
         //Debug.Log("MDist : " + MDist);
 
@@ -72,7 +74,7 @@ public class Seedposition : MonoBehaviour
     {
 
 
-        if (Dist < 0.41f)   // step01에 가까워지면
+        if (Dist < 0.27f)   // step01에 가까워지면
         {
 
             state = true; // rotateplane에 도착하면 roller 정지상태 켜줌
@@ -89,16 +91,16 @@ public class Seedposition : MonoBehaviour
         if (ro.isMove == true)  //roller 정지 상태 아니라면
         {
            
-            if (Dist2 < 0.35f)  //step02 에 다가오면
+            if (Dist2 < 0.244f)  //step02 에 다가오면
             {
 
        
                 ro.isMove = false; //roller 동작상태 꺼줌
                 appear = true; //step02에 도착하면 roller 정지상태 켜줌
 
-                if (tank.watering == true) //물 애니메이션 재생되면
+                if (p1.extraWater == true) // 추가적인 물 받게되면
                 {
-                    Destroy(seed); //씨앗 오브젝트 사라짐
+                    Destroy(seed,1.5f); //씨앗 오브젝트 사라짐
                 }
 
             }

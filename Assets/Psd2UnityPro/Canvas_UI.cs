@@ -32,10 +32,12 @@ public class Canvas_UI : MonoBehaviour
     private bool IsDestroy2 = false;
     private bool IsDestroy2_1 = false;
     private bool IsDestroy3 = false;
+    private bool IsDestroy3_1 = false;
     private bool IsDestroy4 = false;
     private bool IsDestroy5 = false;
     private bool IsDestroy6 = false;
     private bool IsDestroy7 = false;
+    private bool IsDestroy8 = false;
     private bool IsDestroy9 = false;
     private bool IsDestroy10 = false;
     private bool IsDestroy11 = false;
@@ -61,6 +63,11 @@ public class Canvas_UI : MonoBehaviour
     Fruit01 f01;
     Fruit02 f02;
     final_machine Fmachine;
+
+    color1 col1;
+    color2 col2;
+    color3 col3;
+    color4 col4;
 
 
     // Start is called before the first frame update
@@ -100,6 +107,11 @@ public class Canvas_UI : MonoBehaviour
 
         Fmachine= GameObject.Find("final_final").GetComponent<final_machine>();
 
+        col1 = GameObject.Find("Canvas").transform.Find("07-1").GetComponent<color1>();
+        col2 = GameObject.Find("Canvas").transform.Find("07-2").GetComponent<color2>();
+        col3 = GameObject.Find("Canvas").transform.Find("07-3").GetComponent<color3>();
+        col4 = GameObject.Find("Canvas").transform.Find("07-4").GetComponent<color4>();
+
     }
 
     // Update is called once per frame
@@ -117,6 +129,9 @@ public class Canvas_UI : MonoBehaviour
         if (Light.appear == true && IsDestroy3 == false)
             Invoke("PlayWater", 1.5f);
 
+        if (p1.extraWater == true && IsDestroy3_1 == false)
+            Invoke("PlayExtraWater", 0.5f);
+
         if (p1.state == true && IsDestroy4 == false)
             Invoke("PlaySnow", 1.5f);
 
@@ -131,6 +146,11 @@ public class Canvas_UI : MonoBehaviour
             Invoke("PlayPotion", 1.5f);
             Invoke("PlayColorAsk", 6.8f);
 
+        }
+
+        if(IsDestroy8 == false && (col1.answer1 == true || col2.answer2 == true || col3.answer3 == true || col4.answer4 == true))
+        {
+            Invoke("PlaySpoid", 1f);
         }
 
         if( IsDestroy9 == false && (f1.flower1reach == true || f2.flower2reach == true || f01.fruit1reach == true || f02.fruit2reach == true))
@@ -187,7 +207,13 @@ public class Canvas_UI : MonoBehaviour
         IsDestroy3 = true;
     }
 
-    //물보충
+    void PlayExtraWater() //물보충
+    {
+        GameObject.Find("Canvas").transform.Find("03-1").gameObject.SetActive(true);
+        Destroy(waterPot, 3f);
+        IsDestroy3_1 = true;
+    }
+
 
     void PlaySnow()
     {
@@ -220,7 +246,12 @@ public class Canvas_UI : MonoBehaviour
 
     }
 
-    //물약 뿌리기
+    void PlaySpoid()//물약 뿌리기
+    {
+        GameObject.Find("Canvas").transform.Find("08").gameObject.SetActive(true);
+        Destroy(spoid, 3f);
+        IsDestroy8 = true;
+    }
 
     void PlayFinalComment01()
     {

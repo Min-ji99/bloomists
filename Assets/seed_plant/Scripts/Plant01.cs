@@ -12,6 +12,9 @@ public class Plant01 : MonoBehaviour
     public bool appear = false;
     public bool bloom = false;
     private bool isbloomed = false;
+    public bool extraWater = false;
+    public bool disappear = false;
+    
 
     //public bool bloom = false;
 
@@ -25,7 +28,7 @@ public class Plant01 : MonoBehaviour
     void Start()
     {
 
-
+        //GameObject.Find("Plant1").transform.Find("plant01").gameObject.SetActive(false);
         Plant.gameObject.SetActive(false);
         tank = GameObject.Find("02").transform.Find("02_tank").GetComponent<watertank>();
         seedPos = GameObject.Find("S_P").transform.Find("seed").GetComponent<Seedposition>();
@@ -37,14 +40,15 @@ public class Plant01 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Dist = Vector3.Distance(Plant.transform.position, icebox.transform.position);
-
-        if (state == false) //false일동안 step02
+        if (disappear == false)
         {
-            PlantAppear();
-        }
+            Dist = Vector3.Distance(Plant.transform.position, icebox.transform.position);
 
+            if (state == false) //false일동안 step02
+            {
+                PlantAppear();
+            }
+        }
     }
 
     void LateUpdate()
@@ -57,15 +61,18 @@ public class Plant01 : MonoBehaviour
     void PlantAppear()
     {
 
-        if (tank.watering == true) //물 애니메이션 재생되면
+        if (tank.watering == true) //물 애니메이션 재생되고
         {
+            extraWater = true;      //(임시)추가로 물
 
-            Play();
+            Invoke("Play",1.5f);
         }
 
         if (Dist < 0.245f) // step03 다가가면
         {
-            Plant.gameObject.SetActive(false); //plant01 사라짐
+            //Plant.gameObject.SetActive(false); //plant01 사라짐
+            Destroy(Plant);
+            disappear = true;
             state = true; //plant01사라지면서 step03로
             appear = true; // roller 정지상태 켜줌
         }
@@ -74,11 +81,9 @@ public class Plant01 : MonoBehaviour
     }
     void Play()
     {
-        GameObject.Find("Plant1").transform.Find("plant01").gameObject.SetActive(true);    //plant01 생기면서 자라남
-        Invoke("Particle", 0.8f); //파티클
-        Invoke("GoPlant", 5.0f);    //5초 뒤에
-
-
+            GameObject.Find("Plant1").transform.Find("plant01").gameObject.SetActive(true);    //plant01 생기면서 자라남
+            Invoke("Particle", 0.8f); //파티클
+            Invoke("GoPlant", 5.0f);    //5초 뒤에        
 
     }
 
