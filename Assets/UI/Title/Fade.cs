@@ -17,8 +17,8 @@ public class Fade : MonoBehaviour
 
     void Update()
     {
-
-        Invoke("Fadeslow", 3.5f);
+        Fadeslow();
+        //Invoke("Fadeslow", 3.5f);
     }
 
     void Fadeslow()

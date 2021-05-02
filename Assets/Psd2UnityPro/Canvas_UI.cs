@@ -30,9 +30,7 @@ public class Canvas_UI : MonoBehaviour
 
     private bool IsDestroy1 = false;
     private bool IsDestroy2 = false;
-    private bool IsDestroy2_1 = false;
     private bool IsDestroy3 = false;
-    private bool IsDestroy3_1 = false;
     private bool IsDestroy4 = false;
     private bool IsDestroy5 = false;
     private bool IsDestroy6 = false;
@@ -43,13 +41,8 @@ public class Canvas_UI : MonoBehaviour
     private bool IsDestroy11 = false;
     private bool IsDestroy12 = false;
     private bool IsDestroy13 = false;
-
-
-    ////색상 선택 
-    //public bool answer1 = false;
-    //public bool answer2 = false;
-    //public bool answer3 = false;
-    //public bool answer4 = false;
+    private bool IsDestroy14 = false;
+    public bool IsDestroy15 = false;
 
 
     Intro intro;
@@ -107,14 +100,14 @@ public class Canvas_UI : MonoBehaviour
 
         Fmachine= GameObject.Find("final_final").GetComponent<final_machine>();
 
-        col1 = GameObject.Find("Canvas").transform.Find("07-1").GetComponent<color1>();
-        col2 = GameObject.Find("Canvas").transform.Find("07-2").GetComponent<color2>();
-        col3 = GameObject.Find("Canvas").transform.Find("07-3").GetComponent<color3>();
-        col4 = GameObject.Find("Canvas").transform.Find("07-4").GetComponent<color4>();
+        col1 = GameObject.Find("Canvas_UI").transform.Find("10-1").GetComponent<color1>();
+        col2 = GameObject.Find("Canvas_UI").transform.Find("10-2").GetComponent<color2>();
+        col3 = GameObject.Find("Canvas_UI").transform.Find("10-3").GetComponent<color3>();
+        col4 = GameObject.Find("Canvas_UI").transform.Find("10-4").GetComponent<color4>();
 
     }
 
-    // Update is called once per frame
+    // 각 위치에서 캔버스 뜨기 위한 조건
     void Update()
     {
         if (intro.state == true && IsDestroy1 == false)
@@ -123,168 +116,169 @@ public class Canvas_UI : MonoBehaviour
         if ( Light.standOn == true && IsDestroy2 == false)
             Invoke("PlayStand", 1f);
 
-        if (Light.Music == true && IsDestroy2_1 == false)
+        if (Light.Music == true && IsDestroy3 == false)
             Invoke("PlayMusic", 1.5f);
 
-        if (Light.appear == true && IsDestroy3 == false)
+        if (Light.appear == true && IsDestroy4 == false)
             Invoke("PlayWater", 1.5f);
 
-        if (p1.extraWater == true && IsDestroy3_1 == false)
+        if (p1.extraWater == true && IsDestroy5 == false)
             Invoke("PlayExtraWater", 0.5f);
 
-        if (p1.state == true && IsDestroy4 == false)
+        if (p1.state == true && IsDestroy6 == false)
             Invoke("PlaySnow", 1.5f);
 
         //if (iceball.istate == true && IsDestroy5 == false)
         //    Invoke("PlayIce", 1.5f);
 
-        if (tank.pstate == true && IsDestroy5 == false)
+        if (tank.pstate == true && IsDestroy7 == false)
             Invoke("PlayIce", 4f);
 
-        if (p2.reach == true && IsDestroy6 == false)
+        if (p2.reach == true && IsDestroy8 == false)
         {
             Invoke("PlayPotion", 1.5f);
             Invoke("PlayColorAsk", 6.8f);
 
         }
 
-        if(IsDestroy8 == false && (col1.answer1 == true || col2.answer2 == true || col3.answer3 == true || col4.answer4 == true))
+        if(IsDestroy10 == false && (col1.answer1 == true || col2.answer2 == true || col3.answer3 == true || col4.answer4 == true))
         {
             Invoke("PlaySpoid", 1f);
         }
 
-        if( IsDestroy9 == false && (f1.flower1reach == true || f2.flower2reach == true || f01.fruit1reach == true || f02.fruit2reach == true))
+        if( IsDestroy11 == false && (f1.flower1reach == true || f2.flower2reach == true || f01.fruit1reach == true || f02.fruit2reach == true))
         {
             Invoke("PlayFinalComment01",1.5f);
         }
 
-        if (IsDestroy9== true && IsDestroy10==false)
+        if (IsDestroy11== true && IsDestroy12==false)
         {
             Invoke("PlayFinalComment02", 5.5f);
         }
 
-        if (IsDestroy10 == true && IsDestroy11 == false)
+        if (IsDestroy12 == true && IsDestroy13 == false)
         {
             Invoke("PlayFinalComment03", 5.5f);
         }
 
-        if(Fmachine.isclosed==true && IsDestroy12 == false)
+        if(Fmachine.isclosed==true && IsDestroy14 == false)
         {
             Invoke("PlayFinalComment04", 4.5f);
         }
 
-        if (IsDestroy12 == true && IsDestroy13 == false)
+        if (IsDestroy14 == true && IsDestroy15 == false)
         {
             Invoke("PlayFinalComment05", 2.5f);
         }
     }
 
+    //캔버스 나타나고 몇초 뒤 사라지게
     void PlayIntro()
     {
-        GameObject.Find("Canvas").transform.Find("01").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("01").gameObject.SetActive(true);
         Destroy(seedmachine, 5f);
         IsDestroy1 = true;
     }
 
     void PlayStand()
     {
-        GameObject.Find("Canvas").transform.Find("02").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("02").gameObject.SetActive(true);
         Destroy(stand, 5f);
         IsDestroy2 = true;
     }
 
     void PlayMusic()
     {
-        GameObject.Find("Canvas").transform.Find("02-1").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("03").gameObject.SetActive(true);
         Destroy(musicLP, 4f);
-        IsDestroy2_1 = true;
+        IsDestroy3 = true;
     }
 
     void PlayWater()
     {
-        GameObject.Find("Canvas").transform.Find("03").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("04").gameObject.SetActive(true);
         Destroy(water, 5f);
-        IsDestroy3 = true;
+        IsDestroy4 = true;
     }
 
     void PlayExtraWater() //물보충
     {
-        GameObject.Find("Canvas").transform.Find("03-1").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("05").gameObject.SetActive(true);
         Destroy(waterPot, 3f);
-        IsDestroy3_1 = true;
+        IsDestroy5 = true;
     }
 
 
     void PlaySnow()
     {
-        GameObject.Find("Canvas").transform.Find("04").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("06").gameObject.SetActive(true);
         Destroy(snow_joystick, 5f);
-        IsDestroy4 = true;
+        IsDestroy6 = true;
     }
 
     void PlayIce()
     {
-        GameObject.Find("Canvas").transform.Find("05").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("07").gameObject.SetActive(true);
         Destroy(ice, 4f);
-        IsDestroy5 = true;
+        IsDestroy7 = true;
     }
 
     void PlayPotion()
     {
-        GameObject.Find("Canvas").transform.Find("06").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("08").gameObject.SetActive(true);
         Destroy(potion, 5f);
-        IsDestroy6 = true;
+        IsDestroy8 = true;
     }
 
     void PlayColorAsk()
     {
-        GameObject.Find("Canvas").transform.Find("07").gameObject.SetActive(true);
-        GameObject.Find("Canvas").transform.Find("07-1").gameObject.SetActive(true);
-        GameObject.Find("Canvas").transform.Find("07-2").gameObject.SetActive(true);
-        GameObject.Find("Canvas").transform.Find("07-3").gameObject.SetActive(true);
-        GameObject.Find("Canvas").transform.Find("07-4").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("09").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("10-1").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("10-2").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("10-3").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("10-4").gameObject.SetActive(true);
 
     }
 
     void PlaySpoid()//물약 뿌리기
     {
-        GameObject.Find("Canvas").transform.Find("08").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("10").gameObject.SetActive(true);
         Destroy(spoid, 3f);
-        IsDestroy8 = true;
+        IsDestroy10 = true;
     }
 
     void PlayFinalComment01()
     {
-        GameObject.Find("Canvas").transform.Find("09").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("11").gameObject.SetActive(true);
         Destroy(final_comment01, 5f);
-        IsDestroy9 = true;
+        IsDestroy11 = true;
     }
 
     void PlayFinalComment02()
     {
-        GameObject.Find("Canvas").transform.Find("10").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("12").gameObject.SetActive(true);
         Destroy(final_comment02, 5f);
-        IsDestroy10 = true;
+        IsDestroy12 = true;
     }
 
     void PlayFinalComment03()
     {
-        GameObject.Find("Canvas").transform.Find("11").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("13").gameObject.SetActive(true);
         Destroy(final_comment03, 3f);
-        IsDestroy11 = true;
+        IsDestroy13 = true;
     }
 
     void PlayFinalComment04()
     {
-        GameObject.Find("Canvas").transform.Find("12").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("14").gameObject.SetActive(true);
         Destroy(final_comment04, 2f);
-        IsDestroy12 = true;
+        IsDestroy14 = true;
     }
 
     void PlayFinalComment05()
     {
-        GameObject.Find("Canvas").transform.Find("13").gameObject.SetActive(true);
+        GameObject.Find("Canvas_UI").transform.Find("15").gameObject.SetActive(true);
         Destroy(final_comment05, 5f);
-        IsDestroy13 = true;
+        IsDestroy15 = true;
     }
 }

@@ -18,6 +18,13 @@ public class RemoveIce : MonoBehaviour
     public ParticleSystem ib4;
     public ParticleSystem ib5;
 
+    public bool i1 = false;
+    public bool i2 = false;
+    public bool i3 = false;
+    public bool i4 = false;
+    public bool i5 = false;
+
+
     public int ices=5;
 
     Ice i;
@@ -54,40 +61,45 @@ public class RemoveIce : MonoBehaviour
             // 터치한 곳에 ray를 보냄 
             Physics.Raycast(touchray, out hit); // ray가 오브젝트에 부딪힐 경우 
 
-            if (hit.collider.gameObject.name == "ice01")    //얼음1 클릭시
+            if (hit.collider.gameObject.name == "ice01" && i1 == false)    //얼음1 클릭시
             {
-               ice1.gameObject.SetActive(false);    //얼음1 사라져
+                Destroy(ice1);  //얼음1 사라져
                 ice_break.Play();
                 ib1.Play();
                 ices--;                         //하나씩 사라지게
+                i1 = true;
             }
-            else if (hit.collider.gameObject.name == "ice02")
+            else if (hit.collider.gameObject.name == "ice02" && i2 == false)
             {
-                ice2.gameObject.SetActive(false);
+                Destroy(ice2);
                 ib2.Play();
                 ice_break.Play();
                 ices--;
+                i2 = true;
             }
-            else if (hit.collider.gameObject.name == "ice03")
+            else if (hit.collider.gameObject.name == "ice03" && i3 == false)
             {
-                ice3.gameObject.SetActive(false);
+                Destroy(ice3);
                 ib3.Play();
                 ice_break.Play();
                 ices--;
+                i3 = true;
             }
-            else if (hit.collider.gameObject.name == "ice04")
+            else if (hit.collider.gameObject.name == "ice04" && i4 == false)
             {
-                ice4.gameObject.SetActive(false);
+                Destroy(ice4);
                 ib4.Play();
                 ice_break.Play();
                 ices--;
+                i4 = true;
             }
-            else if (hit.collider.gameObject.name == "ice05")
+            else if (hit.collider.gameObject.name == "ice05" && i5 == false)
             {
-                ice5.gameObject.SetActive(false);
+                Destroy(ice5);
                 ib5.Play();
                 ice_break.Play();
                 ices--;
+                i5 = true;
 
             }
 

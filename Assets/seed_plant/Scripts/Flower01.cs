@@ -23,7 +23,7 @@ public class Flower01 : MonoBehaviour
     {
         Plant.gameObject.SetActive(false);
         p2 = GameObject.Find("Plant2").GetComponent<Plant02>();
-        col1= GameObject.Find("07-1").GetComponent<color1>();
+        col1= GameObject.Find("10-1").GetComponent<color1>();
 
     }
 

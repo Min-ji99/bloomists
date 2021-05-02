@@ -17201,7 +17201,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487024995756227786}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cbc0f301f6c9fb47a82a4f061eead5b, type: 3}
   m_Name: 
@@ -47552,8 +47552,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a62df95e2689f14b99f86e2379e2b8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 6892426150712637863}
   cir: {fileID: 550000804203235048}
-  hall: {fileID: 7564774920188454307}
+  hole: {fileID: 7564774920188454307}
   fade: {fileID: 4720423698674241293}
 --- !u!54 &300093461830537563
 Rigidbody:
@@ -76733,6 +76734,11 @@ MonoBehaviour:
   ib3: {fileID: 9194440283073322329}
   ib4: {fileID: 1625950294825752679}
   ib5: {fileID: 8932572454402352189}
+  i1: 0
+  i2: 0
+  i3: 0
+  i4: 0
+  i5: 0
   ices: 5
   ice_break: {fileID: 4919795105819354452}
 --- !u!1 &6768154335481851358
@@ -76879,7 +76885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7275667860585068156
 RectTransform:
   m_ObjectHideFlags: 0
@@ -82614,7 +82620,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7459544663137006354}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04cd5251a5b465b46828bd068b493f08, type: 3}
   m_Name: 
@@ -87450,7 +87456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7557218663383883346
 RectTransform:
   m_ObjectHideFlags: 0
@@ -87580,6 +87586,7 @@ MonoBehaviour:
   final_comment03: {fileID: 6299870155501869331}
   final_comment04: {fileID: 4503537755762708675}
   final_comment05: {fileID: 3511675767629342954}
+  IsDestroy15: 0
 --- !u!1 &7557022772270937152
 GameObject:
   m_ObjectHideFlags: 0
@@ -87680,7 +87687,7 @@ GameObject:
   - component: {fileID: 6699413691687063424}
   - component: {fileID: 7826972964321257872}
   m_Layer: 5
-  m_Name: hall
+  m_Name: hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93746,7 +93753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

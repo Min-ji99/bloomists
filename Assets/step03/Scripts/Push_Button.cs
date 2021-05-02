@@ -33,7 +33,9 @@ public class Push_Button : MonoBehaviour
             // 터치한 곳에 ray를 보냄 
             Physics.Raycast(touchray, out hit); // ray가 오브젝트에 부딪힐 경우 
 
-            if (hit.collider.gameObject.name == "Box138" || hit.collider.gameObject.name == "Box139")
+            if (hit.collider.gameObject.name == "Cylinder310" ||
+                hit.collider.gameObject.name == "Cylinder311" ||
+                hit.collider.gameObject.name == "Sphere029")
             {
                 if (isMove == false)
                 {

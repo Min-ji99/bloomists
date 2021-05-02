@@ -24,10 +24,11 @@ public class Plant02 : MonoBehaviour
         Plant.gameObject.SetActive(false);  //plant02 안보여
         p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
         pt = GameObject.Find("04_tank").GetComponent<PotionTank>();
-        col1 = GameObject.Find("07-1").GetComponent<color1>();
-        col2 = GameObject.Find("07-2").GetComponent<color2>();
-        col3 = GameObject.Find("07-3").GetComponent<color3>();
-        col4 = GameObject.Find("07-4").GetComponent<color4>();
+
+        col1 = GameObject.Find("Canvas_UI").transform.Find("10-1").GetComponent<color1>();
+        col2 = GameObject.Find("Canvas_UI").transform.Find("10-2").GetComponent<color2>();
+        col3 = GameObject.Find("Canvas_UI").transform.Find("10-3").GetComponent<color3>();
+        col4 = GameObject.Find("Canvas_UI").transform.Find("10-4").GetComponent<color4>();
     }
 
     void Update()

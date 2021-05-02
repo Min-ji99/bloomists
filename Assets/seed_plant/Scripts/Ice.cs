@@ -30,7 +30,7 @@ public class Ice : MonoBehaviour
     {
 
 
-        if (stank.pstate == true)   //눈 실행됐으면
+        if (stank.pstate == true && istate ==false)   //눈 실행됐으면
         {
             //Invoke("IceSound", 2f);
             Invoke("Play", 2f); //2초뒤에 얼음 생겨
@@ -54,7 +54,7 @@ public class Ice : MonoBehaviour
         //Debug.Log("PlaySound");
         if (makeice == false)
         {
-            icemake.Play();
+            icemake.PlayOneShot(icemake.clip);
             makeice = true;
         }
     }
