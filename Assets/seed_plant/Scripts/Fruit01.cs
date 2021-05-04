@@ -12,11 +12,13 @@ public class Fruit01 : MonoBehaviour
     private float fruit1Dist;
     public bool fruit1reach = false;
     private bool isbloomed = false;
+    private bool soundOn = false;
 
     Plant02 p2;
     color3 col3;
 
     public ParticleSystem blooming;
+    public AudioSource bloomingSound;
 
 
     void Start()
@@ -43,13 +45,19 @@ public class Fruit01 : MonoBehaviour
 
         if (p2.state == true)   //plant02 사라졌다면
         {
-            if (col3.answer3 == true)  //물약2 눌렸다면 
+            if (col3.answer3 == true )  //물약2 눌렸다면 
             {
                 
                 GameObject.Find("Fruit1").transform.Find("fruit01").gameObject.SetActive(true);     //fruit01 피어남
+                if (soundOn == false)
+                {
+                    bloomingSound.Play();
+                    soundOn = true;
+                }
                 Invoke("Particle", 0.0f); //파티클
                 Invoke("Next", 3.0f);   //5초 뒤에
-               
+                
+
             }
         }
     }
@@ -69,7 +77,7 @@ public class Fruit01 : MonoBehaviour
         p2.reach = false;   //roller 정지상태 꺼줌
         state = true;       //roller 동작상태 켜줌
 
-        if (fruit1Dist < 2.38f)
+        if (fruit1Dist < 2.402f)
         {
             state = false;  //roller 동작상태 꺼줌
             fruit1reach= true;  //roller 정지상태 켜줌

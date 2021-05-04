@@ -146,7 +146,7 @@ public class Canvas_UI : MonoBehaviour
             Invoke("PlaySpoid", 1f);
         }
 
-        if( IsDestroy11 == false && (f1.flower1reach == true || f2.flower2reach == true || f01.fruit1reach == true || f02.fruit2reach == true))
+        if(IsDestroy10==true && IsDestroy11 == false && (f1.flower1reach == true || f2.flower2reach == true || f01.fruit1reach == true || f02.fruit2reach == true))
         {
             Invoke("PlayFinalComment01",1.5f);
         }

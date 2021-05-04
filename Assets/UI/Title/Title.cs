@@ -17,7 +17,7 @@ public class Title : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Invoke("TitleSize", 3f);
+        Invoke("TitleSize", 7f);
     }
 
     void TitleSize()
@@ -26,6 +26,10 @@ public class Title : MonoBehaviour
         {
             animator.SetBool("Title", true);    //애니메이션 재생
             isMove = true;
+            if (isMove)
+            {
+                Destroy(gameObject, 8f);
+            }
         }
 
         else

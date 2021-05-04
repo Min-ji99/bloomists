@@ -8,7 +8,9 @@ public class Fade : MonoBehaviour
     public UnityEngine.UI.Image fade;
     float fades = 1.0f;
     float time = 0;
+    public bool soundOn = false;
 
+    public AudioSource introSound;
 
     void Start()
     {
@@ -17,8 +19,13 @@ public class Fade : MonoBehaviour
 
     void Update()
     {
-        Fadeslow();
-        //Invoke("Fadeslow", 3.5f);
+        if (soundOn == false)
+        {
+            introSound.Play();
+            soundOn = true;
+        }
+        // Fadeslow();
+        Invoke("Fadeslow", 7.5f);
     }
 
     void Fadeslow()
@@ -30,6 +37,8 @@ public class Fade : MonoBehaviour
             fades -= 0.1f;
             fade.color = new Color(255, 255, 255, fades);
             time = 0;
+
+            Destroy(fade,5.0f);
         }
         else if (fades <= 0.0f)
         {

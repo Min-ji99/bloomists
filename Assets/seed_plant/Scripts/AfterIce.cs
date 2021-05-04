@@ -10,12 +10,14 @@ public class AfterIce : MonoBehaviour
     public bool state_p2=false;
     public bool bloom = false;
     private bool particleOn = false;
+    private bool soundOn = false;
 
 
     RemoveIce rIce;
     Plant01 p1;
 
     public ParticleSystem blooming;
+    public AudioSource bloomingSound;
 
     // Use this for initialization 
     void Start()
@@ -35,14 +37,14 @@ public class AfterIce : MonoBehaviour
     void touchClick()
     {
 
-        if (rIce.state == true) //얼음이 다 사라졌다면
+        if (rIce.state == true && soundOn==false) //얼음이 다 사라졌다면
         {
-
+            bloomingSound.Play();
+            soundOn = true;
             animator.SetBool("Click", true);    //plant02 자라남
             state_p2 = true;
             Invoke("Bloom", 2.0f);  //2초 뒤면
             Invoke("Particle", 0.0f); //파티클
-
 
         }
     }

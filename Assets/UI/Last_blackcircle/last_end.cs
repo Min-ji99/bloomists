@@ -87,7 +87,7 @@ public class last_end : MonoBehaviour
         while(fadeCount < 1.0f) //알파 최대값, 1.0까지 반복
         {
             fadeCount += 0.01f;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.001f);
             fade.color = new Color(1, 1, 1, fadeCount);
         }
     }

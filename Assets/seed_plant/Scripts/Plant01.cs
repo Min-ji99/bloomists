@@ -14,6 +14,7 @@ public class Plant01 : MonoBehaviour
     private bool isbloomed = false;
     public bool extraWater = false;
     public bool disappear = false;
+    public bool soundOn = false;
     
 
     //public bool bloom = false;
@@ -22,6 +23,7 @@ public class Plant01 : MonoBehaviour
     watertank tank;
 
     public ParticleSystem blooming;
+    public AudioSource bloomingSound;
 
 
 
@@ -81,10 +83,13 @@ public class Plant01 : MonoBehaviour
     }
     void Play()
     {
+        if (disappear==false && soundOn==false) {
+            bloomingSound.Play();
             GameObject.Find("Plant1").transform.Find("plant01").gameObject.SetActive(true);    //plant01 생기면서 자라남
             Invoke("Particle", 0.8f); //파티클
-            Invoke("GoPlant", 5.0f);    //5초 뒤에        
-
+            Invoke("GoPlant", 5.0f);    //5초 뒤에  
+            soundOn = true;
+        }
     }
 
     void GoPlant()
