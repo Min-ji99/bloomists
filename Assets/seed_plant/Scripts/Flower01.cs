@@ -12,10 +12,11 @@ public class Flower01 : MonoBehaviour
     private float flower1Dist;
     public bool flower1reach = false;
     private bool isbloomed = false;
-    
+    public bool potionDetect = false;
 
     Plant02 p2;
     color1 col1;
+    Sensor sensor;
 
     public ParticleSystem blooming;
     public AudioSource bloomingSound;
@@ -27,6 +28,7 @@ public class Flower01 : MonoBehaviour
         Plant.gameObject.SetActive(false);
         p2 = GameObject.Find("Plant2").GetComponent<Plant02>();
         col1= GameObject.Find("10-1").GetComponent<color1>();
+        sensor = GameObject.Find("ArdManager").GetComponent<Sensor>();
 
     }
 
@@ -34,6 +36,8 @@ public class Flower01 : MonoBehaviour
     {
         flower1Dist = Vector3.Distance(Plant.transform.position, final.transform.position);
         PlantAppear();
+        if (sensor.potionDetect)
+            potionDetect = true;
     }
 
     void LateUpdate()
@@ -48,16 +52,18 @@ public class Flower01 : MonoBehaviour
         {
             if (col1.answer1 == true )  //물약1 눌렸다면 
             {
-                //Invoke("Play", 3.0f);
-                if (soundOn==false)
+                if (potionDetect)
                 {
-                    bloomingSound.Play();
-                    soundOn = true;
+                    GameObject.Find("Flower1").transform.Find("flower01").gameObject.SetActive(true);       //flower01 피어남       
+                                                                                                            //Invoke("Play", 3.0f);
+                    if (soundOn == false)
+                    {
+                        bloomingSound.Play();
+                        soundOn = true;
+                    }
+                    Invoke("Particle", 0.0f); //파티클
+                    Invoke("Next",3.0f);
                 }
-                GameObject.Find("Flower1").transform.Find("flower01").gameObject.SetActive(true);       //flower01 피어남             
-                Invoke("Particle", 0.0f); //파티클
-                Invoke("Next",3.0f);
-                
 
             }
         }

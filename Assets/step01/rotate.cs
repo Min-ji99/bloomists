@@ -29,7 +29,7 @@ public class rotate : MonoBehaviour
     {
         if (Sp.bud==true)   //<Seedposition>에서 새싹이 자라면 
         {
-            Invoke("Play", 2.0f);   //2초뒤에
+            Invoke("Play", 0.8f);   //2초뒤에
         }
         
     }

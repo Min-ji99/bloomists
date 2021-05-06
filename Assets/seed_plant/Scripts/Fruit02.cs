@@ -13,9 +13,11 @@ public class Fruit02 : MonoBehaviour
     public bool fruit2reach = false;
     private bool isbloomed = false;
     private bool soundOn = false;
+    public bool potionDetect = false;
 
     Plant02 p2;
     color4 col4;
+    Sensor sensor;
 
     public ParticleSystem blooming;
     public AudioSource bloomingSound;
@@ -25,13 +27,18 @@ public class Fruit02 : MonoBehaviour
         Plant.gameObject.SetActive(false);
         p2 = GameObject.Find("Plant2").GetComponent<Plant02>();
         col4 = GameObject.Find("10-4").GetComponent<color4>();
+        sensor = GameObject.Find("ArdManager").GetComponent<Sensor>();
 
     }
 
     void Update()
     {
         fruit2Dist = Vector3.Distance(Plant.transform.position, final.transform.position);
-        PlantAppear();       
+        PlantAppear();
+        if (sensor.potionDetect)
+        {
+            potionDetect = true;
+        }
     }
 
     void LateUpdate()
@@ -47,16 +54,19 @@ public class Fruit02 : MonoBehaviour
         {
             if (col4.answer4 == true )  //물약4 눌렸다면 
             {
-                //Invoke("Play", 3.0f);
-                GameObject.Find("Fruit2").transform.Find("fruit02").gameObject.SetActive(true);     //fruit02 피어남
-                if (soundOn == false)
+                if (potionDetect)
                 {
-                    bloomingSound.Play();
-                    soundOn = true;
+                    //Invoke("Play", 3.0f);
+                    GameObject.Find("Fruit2").transform.Find("fruit02").gameObject.SetActive(true);     //fruit02 피어남
+                    if (soundOn == false)
+                    {
+                        bloomingSound.Play();
+                        soundOn = true;
+                    }
+                    Invoke("Particle", 0.0f); //파티클
+                    Invoke("Next", 3.0f);
+
                 }
-                Invoke("Particle", 0.0f); //파티클
-                Invoke("Next", 3.0f);
-                
             }
         }
        

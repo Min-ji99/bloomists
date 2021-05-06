@@ -13,9 +13,11 @@ public class Fruit01 : MonoBehaviour
     public bool fruit1reach = false;
     private bool isbloomed = false;
     private bool soundOn = false;
-
+    public bool potionDetect = false;
     Plant02 p2;
     color3 col3;
+    Sensor sensor;
+
 
     public ParticleSystem blooming;
     public AudioSource bloomingSound;
@@ -26,13 +28,17 @@ public class Fruit01 : MonoBehaviour
         Plant.gameObject.SetActive(false);
         p2 = GameObject.Find("Plant2").GetComponent<Plant02>();
         col3 = GameObject.Find("10-3").GetComponent<color3>();
-
+        sensor = GameObject.Find("ArdManager").GetComponent<Sensor>();
     }
 
     void Update()
     {
         fruit1Dist = Vector3.Distance(Plant.transform.position, final.transform.position);
         PlantAppear();
+        if (sensor.potionDetect)
+        {
+            potionDetect = true;
+        }
     }
 
     void LateUpdate()
@@ -47,17 +53,17 @@ public class Fruit01 : MonoBehaviour
         {
             if (col3.answer3 == true )  //물약2 눌렸다면 
             {
-                
-                GameObject.Find("Fruit1").transform.Find("fruit01").gameObject.SetActive(true);     //fruit01 피어남
-                if (soundOn == false)
+                if (potionDetect)
                 {
-                    bloomingSound.Play();
-                    soundOn = true;
+                    GameObject.Find("Fruit1").transform.Find("fruit01").gameObject.SetActive(true);     //fruit01 피어남
+                    if (soundOn == false)
+                    {
+                        bloomingSound.Play();
+                        soundOn = true;
+                    }
+                    Invoke("Particle", 0.0f); //파티클
+                    Invoke("Next", 3.0f);   //5초 뒤에
                 }
-                Invoke("Particle", 0.0f); //파티클
-                Invoke("Next", 3.0f);   //5초 뒤에
-                
-
             }
         }
     }

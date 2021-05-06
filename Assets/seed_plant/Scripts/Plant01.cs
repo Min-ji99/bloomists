@@ -15,12 +15,13 @@ public class Plant01 : MonoBehaviour
     public bool extraWater = false;
     public bool disappear = false;
     public bool soundOn = false;
-    
+    public bool WaterDetect = false;
 
     //public bool bloom = false;
 
     Seedposition seedPos;
     watertank tank;
+    Sensor sensor;
 
     public ParticleSystem blooming;
     public AudioSource bloomingSound;
@@ -34,7 +35,7 @@ public class Plant01 : MonoBehaviour
         Plant.gameObject.SetActive(false);
         tank = GameObject.Find("02").transform.Find("02_tank").GetComponent<watertank>();
         seedPos = GameObject.Find("S_P").transform.Find("seed").GetComponent<Seedposition>();
-        
+        sensor = GameObject.Find("ArdManager").GetComponent<Sensor>();
 
 
     }
@@ -49,6 +50,10 @@ public class Plant01 : MonoBehaviour
             if (state == false) //false일동안 step02
             {
                 PlantAppear();
+                if (sensor.waterDetect)
+                {
+                    WaterDetect = true;
+                }
             }
         }
     }
@@ -66,8 +71,8 @@ public class Plant01 : MonoBehaviour
         if (tank.watering == true) //물 애니메이션 재생되고
         {
             extraWater = true;      //(임시)추가로 물
-
-            Invoke("Play",1.5f);
+            if (WaterDetect)
+                Invoke("Play", 1.5f);
         }
 
         if (Dist < 0.245f) // step03 다가가면

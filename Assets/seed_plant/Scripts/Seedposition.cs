@@ -5,8 +5,6 @@ using System.IO.Ports;
 
 public class Seedposition : MonoBehaviour
 {
-    SerialPort sp = new SerialPort("COM4", 9600);
-    string stream;
 
     public GameObject seed;
     public GameObject Stand;
@@ -38,7 +36,7 @@ public class Seedposition : MonoBehaviour
     rotate ro;
     watertank tank;
     Plant01 p1;
-
+    Sensor sensor;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +48,7 @@ public class Seedposition : MonoBehaviour
         AudioSource Lp = GetComponent<AudioSource>();
         AudioSource blooming = GetComponent<AudioSource>();
         p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
+        sensor = GameObject.Find("ArdManager").GetComponent<Sensor>();
     }
 
     // Update is called once per frame
@@ -80,10 +79,13 @@ public class Seedposition : MonoBehaviour
             state = true; // rotateplane에 도착하면 roller 정지상태 켜줌
             standOn = true; //캔버스 뜨도록
 
-            light.state = true; //임시
+            if (sensor.lightDetect)
+            {
+                lightDetect = true;
+            }
 
         }
-        if (light.state == true) //빛이 나타나면
+        if (lightDetect)
         {
             Invoke("GoPlant", 1.0f); //1초뒤에 새싹 자라게
             Invoke("particle", 0.0f); //파티클
@@ -100,7 +102,12 @@ public class Seedposition : MonoBehaviour
 
                 if (p1.extraWater == true) // 추가적인 물 받게되면
                 {
-                    Destroy(seed,1.5f); //씨앗 오브젝트 사라짐
+
+                    growth = true;
+                }
+                if (p1.WaterDetect == true)
+                {
+                    Destroy(seed, 1.5f); //씨앗 오브젝트 사라짐
                 }
 
             }
