@@ -12,9 +12,10 @@ public class Fade : MonoBehaviour
 
     public AudioSource introSound;
 
+    
+
     void Start()
     {
-        
     }
 
     void Update()
@@ -24,6 +25,7 @@ public class Fade : MonoBehaviour
             introSound.Play();
             soundOn = true;
         }
+
         // Fadeslow();
         Invoke("Fadeslow", 7.5f);
     }
@@ -45,6 +47,7 @@ public class Fade : MonoBehaviour
             time = 0;
         }
     }
+
 
 
 }

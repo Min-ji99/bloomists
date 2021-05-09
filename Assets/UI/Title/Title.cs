@@ -7,36 +7,44 @@ public class Title : MonoBehaviour
 {
     private Animator animator;
     bool isMove = false;
-    
+
+    public GameObject all;
+
     void Start()
     {
-        animator = GetComponent<Animator>();
-        animator.SetBool("Title", false);   //애니메이션 작동하지마
+        //animator = GetComponent<Animator>();
+        //animator.SetBool("Title", false);   //애니메이션 작동하지마
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         Invoke("TitleSize", 7f);
     }
 
     void TitleSize()
     {
-        if (isMove == false)
-        {
-            animator.SetBool("Title", true);    //애니메이션 재생
-            isMove = true;
-            if (isMove)
-            {
-                Destroy(gameObject, 8f);
-            }
-        }
+        all.SetActive(true);
 
-        else
-        {
-            isMove = false;
-            animator.SetBool("Title", false);
-        }
+        //if (isMove == false)
+        //{
+        //    animator.SetBool("Title", true);    //애니메이션 재생
+        //    isMove = true;
+        //    if (isMove)
+        //    {
+        //        Destroy(gameObject, 8f);
+        //    }
+        //}
+
+        //else
+        //{
+        //    isMove = false;
+        //    animator.SetBool("Title", false);
+        //}
 
     }
+
+    
+
 }
