@@ -46,7 +46,7 @@ public class Book : MonoBehaviour
 
             if(stateFactory == false)
             {
-                if (hit.collider.gameObject.name == "Book_cover")
+                if (hit.collider.gameObject.name == "Book_cover001")
                 {
                     if (isMove == false)
                     {
