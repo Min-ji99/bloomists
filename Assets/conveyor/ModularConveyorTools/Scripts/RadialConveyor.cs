@@ -21,7 +21,7 @@ public class RadialConveyor : MonoBehaviour {
 
 	private MeshRenderer mr;
 
-	public float speed = 0.5f;
+	public float speed = 0f;
 
 	// Use this for initialization
 	void Start () {
