@@ -49,20 +49,19 @@ public class Plant01 : MonoBehaviour
 
             if (state == false) //false일동안 step02
             {
+                //if (sensor.waterDetect)   //★주석없애야함
+                //{
+                WaterDetect = true;
+                //}
                 PlantAppear();
-                if (sensor.waterDetect)
-                {
-                    WaterDetect = true;
-                }
             }
         }
     }
 
     void LateUpdate()
     {
-       // print("Dist : " + Dist);
+        // print("Dist : " + Dist);
     }
-
 
 
     void PlantAppear()
@@ -75,20 +74,23 @@ public class Plant01 : MonoBehaviour
                 Invoke("Play", 1.5f);
         }
 
-        if (Dist < 0.245f) // step03 다가가면
-        {
-            //Plant.gameObject.SetActive(false); //plant01 사라짐
-            Destroy(Plant);
-            disappear = true;
-            state = true; //plant01사라지면서 step03로
-            appear = true; // roller 정지상태 켜줌
-        }
+        //if (Dist < 0.245f) // step03 다가가면
+        //{
+        //    //Plant.gameObject.SetActive(false); //plant01 사라짐
+
+        //    Destroy(Plant);
+        //    disappear = true;
+        //    state = true; //plant01사라지면서 step03로
+        //    appear = true; // roller 정지상태 켜줌
+        //}
 
 
     }
+
     void Play()
     {
-        if (disappear==false && soundOn==false) {
+        if (disappear == false && soundOn == false)
+        {
             bloomingSound.Play();
             GameObject.Find("Plant1").transform.Find("plant01").gameObject.SetActive(true);    //plant01 생기면서 자라남
             Invoke("Particle", 0.8f); //파티클
@@ -106,7 +108,7 @@ public class Plant01 : MonoBehaviour
 
     void Particle()
     {
-        if (isbloomed==false) 
+        if (isbloomed == false)
         {
             blooming.Play();
             Destroy(blooming, 2f);

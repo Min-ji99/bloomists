@@ -99,61 +99,100 @@ public class Seedposition : MonoBehaviour
             Debug.Log("path: " + path);
         }
 
-    }
-    void Play()
-    {
-
-
-        if (Dist < 0.27f)   // step01에 가까워지면
+        if (collision.collider.name == "Wide Roller_s1")
         {
+            state = true;
 
-            state = true; // rotateplane에 도착하면 roller 정지상태 켜줌
-            standOn = true; //캔버스 뜨도록
-
-            if (sensor.lightDetect)
-            {
-                lightDetect = true;
-            }
-
-        }
-        if (lightDetect)
-        {
-            Invoke("GoPlant", 1.0f); //1초뒤에 새싹 자라게
-            Invoke("particle", 0.0f); //파티클
-        }
-        if (ro.isMove == true)  //roller 정지 상태 아니라면
-        {
-           
-            if (Dist2 < 0.244f)  //step02 에 다가오면
-            {
-
-       
-                ro.isMove = false; //roller 동작상태 꺼줌
-                appear = true; //step02에 도착하면 roller 정지상태 켜줌
-
-                if (p1.extraWater == true) // 추가적인 물 받게되면
-                {
-
-                    growth = true;
-                }
-                if (p1.WaterDetect == true)
-                {
-                    Destroy(seed, 1.5f); //씨앗 오브젝트 사라짐
-                }
-
-            }
-
+            //if (sensor.lightDetect)   //★주석지워줘야함
+            //{
+            lightDetect = true;
+            //}
         }
 
-        if(MDist < 0.45f)
+        else if (collision.collider.name == "WideBelt3r_m")
         {
-            
             if (Music == false)
             {
                 Lp.Play();
                 Music = true;
             }
         }
+
+        else if (collision.collider.name == "Wide Roller_s2")
+        {
+            if (ro.isMove == true)  //roller 동작상태라면
+            {
+                ro.isMove = false; //roller 동작상태 꺼줌
+                appear = true; //step02에 도착하면 roller 정지상태 켜줌
+
+                if (p1.extraWater == true) // 추가적인 물 받게되면
+                {
+                    growth = true;
+                }
+
+                if (p1.WaterDetect == true)
+                {
+                    Debug.Log("사라졋");
+                    Destroy(seed, 1.5f); //씨앗 오브젝트 사라짐
+                }
+            }
+        }
+
+    }
+    void Play()
+    {
+
+
+        //if (Dist < 0.27f)   // step01에 가까워지면
+        //{
+
+        //    state = true; // rotateplane에 도착하면 roller 정지상태 켜줌
+        //    standOn = true; //캔버스 뜨도록
+
+        //    if (sensor.lightDetect)
+        //    {
+        //        lightDetect = true;
+        //    }
+
+        //}
+        if (lightDetect)
+        {
+            Invoke("GoPlant", 1.0f); //1초뒤에 새싹 자라게
+            Invoke("particle", 0.0f); //파티클
+        }
+        //if (ro.isMove == true)  //roller 정지 상태 아니라면
+        //{
+           
+        //    if (Dist2 < 0.244f)  //step02 에 다가오면
+        //    {
+
+       
+        //        ro.isMove = false; //roller 동작상태 꺼줌
+        //        appear = true; //step02에 도착하면 roller 정지상태 켜줌
+
+        //        if (p1.extraWater == true) // 추가적인 물 받게되면
+        //        {
+
+        //            growth = true;
+        //        }
+        //        if (p1.WaterDetect == true)
+        //        {
+        //            Destroy(seed, 1.5f); //씨앗 오브젝트 사라짐
+        //        }
+
+        //    }
+
+        //}
+
+        //if(MDist < 0.45f)
+        //{
+            
+        //    if (Music == false)
+        //    {
+        //        Lp.Play();
+        //        Music = true;
+        //    }
+        //}
         
 
     }

@@ -15,6 +15,7 @@ public class AfterIce : MonoBehaviour
 
     RemoveIce rIce;
     Plant01 p1;
+    Plant02 p2;
 
     public ParticleSystem blooming;
     public AudioSource bloomingSound;
@@ -25,6 +26,7 @@ public class AfterIce : MonoBehaviour
         animator = GetComponent<Animator>();
         rIce = GameObject.Find("ICE").transform.Find("03_ice").GetComponent<RemoveIce>();
         p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
+        p2 = GameObject.Find("Plant2").GetComponent<Plant02>();
 
     }
     // Update is called once per frame 
@@ -33,6 +35,16 @@ public class AfterIce : MonoBehaviour
         animator.SetBool("Click", false);
         touchClick();
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.name == "Wide Roller (2)_s4")    //plant02 자라난 뒤 step04로 다가가면
+        {
+            p2.reach = true;    //roller 정지상태 켜줌
+        }
+
+    }
+
     // 터치 시 오브젝트 확인 함수 
     void touchClick()
     {
