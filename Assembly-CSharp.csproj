@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -52,13 +52,6 @@
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>2020.1.17f1</UnityVersion>
   </PropertyGroup>
-  <PropertyGroup>
-    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
-    <UnityProjectType>Game:1</UnityProjectType>
-    <UnityBuildTarget>Android:13</UnityBuildTarget>
-    <UnityVersion>2020.1.17f1</UnityVersion>
-  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Canvas Flow\Transition Animators\ScaleAndFadeBackgroundTransitionAnimator.cs" />
     <Compile Include="Assets\Canvas Flow\Transition Animators\DefaultTransitionAnimator.cs" />
@@ -88,6 +81,7 @@
     <Compile Include="Assets\seed_plant\Scripts\Flower2.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Canvas Controllers\WSColorControlCanvasController.cs" />
     <Compile Include="Assets\step02\watertank.cs" />
+    <Compile Include="Assets\p1collider.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Canvas Controllers\FCGamePausedCanvasController.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\Roller.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\2. Transitions Example\Canvas Controllers\TEScaleAndFadeTransitionCanvasController.cs" />
@@ -98,6 +92,7 @@
     <Compile Include="Assets\UI\color1.cs" />
     <Compile Include="Assets\start\Scripts\Lever.cs" />
     <Compile Include="Assets\seed_plant\Scripts\Fruit02.cs" />
+    <Compile Include="Assets\Flower1Collider.cs" />
     <Compile Include="Assets\step03\Scripts\snow_start.cs" />
     <Compile Include="Assets\UI\color4.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Canvas Controllers\FCGameCompleteCanvasController.cs" />
@@ -125,7 +120,9 @@
     <Compile Include="Assets\PathCreator\Examples\Scripts\PathFollower.cs" />
     <Compile Include="Assets\final\final_machine.cs" />
     <Compile Include="Assets\Elf\ElfGirl\ClickToMove.cs" />
+    <Compile Include="Assets\Fruit1Collider.cs" />
     <Compile Include="Assets\start\Scripts\Seed.cs" />
+    <Compile Include="Assets\Fruit2Collider.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\2. Transitions Example\Canvas Controllers\TEMenuCanvasController.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Scripts\FCPlayerBooster.cs" />
     <Compile Include="Assets\UI\Title\tt.cs" />
@@ -135,6 +132,7 @@
     <Compile Include="Assets\step01\stand_anim.cs" />
     <Compile Include="Assets\UI\color3.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\2. Transitions Example\Canvas Controllers\TEScaleTransitionCanvasController.cs" />
+    <Compile Include="Assets\Flower2Collider.cs" />
     <Compile Include="Assets\UI\color2.cs" />
     <Compile Include="Assets\AlignedGames\Polygonal Foliage Asset Package\Scripts\Utility\FlyCameraBehaviour.cs" />
     <Compile Include="Assets\step04\Potion3.cs" />
@@ -158,11 +156,11 @@
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\ExtrudeConveyorWizard.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\conveyor\ModularConveyorTools\Shaders\Conveyor.shader" />
-    <None Include="Assets\AlignedGames\Polygonal Foliage Asset Package\Shaders\Cloud.shader" />
-    <None Include="Assets\AlignedGames\Polygonal Foliage Asset Package\Shaders\Diffuse.shader" />
-    <None Include="Assets\Canvas Flow\Executables\CanvasFlow.dll" />
-    <None Include="Assets\material\Water\WaterShader.shader" />
+     <None Include="Assets\conveyor\ModularConveyorTools\Shaders\Conveyor.shader" />
+     <None Include="Assets\AlignedGames\Polygonal Foliage Asset Package\Shaders\Cloud.shader" />
+     <None Include="Assets\AlignedGames\Polygonal Foliage Asset Package\Shaders\Diffuse.shader" />
+     <None Include="Assets\Canvas Flow\Executables\CanvasFlow.dll" />
+     <None Include="Assets\material\Water\WaterShader.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.17f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -348,12 +346,6 @@
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.5\net35\unity-custom\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.17f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.17f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.17f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
@@ -778,7 +770,6 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

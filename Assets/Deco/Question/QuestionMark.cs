@@ -16,7 +16,7 @@ public class QuestionMark : MonoBehaviour
     void Start()
     {
         mark.gameObject.SetActive(false);
-        books = GameObject.Find("book_rotate").GetComponent<Book>();
+        books = GameObject.Find("book").GetComponent<Book>();
         intro = GameObject.Find("All").GetComponent<Intro>();
         stateMark = true;
     }

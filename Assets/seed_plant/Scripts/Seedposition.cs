@@ -10,6 +10,7 @@ public class Seedposition : MonoBehaviour
     public EndOfPathInstruction endOfPathInstruction;
     public float speed = 5;
     float distanceTravelled;
+    public bool path_stand = false;
 
     public GameObject seed;
     public GameObject Stand;
@@ -55,11 +56,12 @@ public class Seedposition : MonoBehaviour
         AudioSource blooming = GetComponent<AudioSource>();
         p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
         sensor = GameObject.Find("ArdManager").GetComponent<Sensor>();
-        //if (pathCreator != null)
-        //{
-        //    // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
-        //    pathCreator.pathUpdated += OnPathChanged;
-        //}
+
+        if (pathCreator != null)
+        {
+            // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
+            pathCreator.pathUpdated += OnPathChanged;
+        }
     }
 
     // Update is called once per frame
@@ -67,22 +69,29 @@ public class Seedposition : MonoBehaviour
     {
         Debug.Log("localPosition" + transform.localPosition);
         Debug.Log("globalPosition" + transform.position);
-        //if (pathCreator != null)
-        //{
-        //    distanceTravelled += speed * Time.deltaTime;
-        //    transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
-        //    transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
-        //}
+
         Dist = Vector3.Distance(seed.transform.position, Stand.transform.position);
         Dist2 = Vector3.Distance(seed.transform.position, water.transform.position);
         MDist = Vector3.Distance(seed.transform.position, MStart.transform.position);
         Play();
 
+        if(path_stand == false)
+        {
+            if (pathCreator != null)
+            {
+                distanceTravelled += speed * Time.deltaTime;
+                transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
+                //transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
+            }
+        }
+
     }
-    //void OnPathChanged()
-    //{
-    //    distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(transform.position);
-    //}
+
+    void OnPathChanged()
+    {
+        distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(transform.position);
+    }
+
     void LateUpdate()
     {
         //Debug.Log("Dist : " + Dist);
@@ -90,6 +99,7 @@ public class Seedposition : MonoBehaviour
         //Debug.Log("MDist : " + MDist);
 
     }
+
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log("collision");
