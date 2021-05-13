@@ -118,6 +118,7 @@
     <Compile Include="Assets\Canvas Flow\Examples\2. Transitions Example\Canvas Controllers\TEDefaultTransitionCanvasController.cs" />
     <Compile Include="Assets\seed_plant\Scripts\Seedposition.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\PathFollower.cs" />
+    <Compile Include="Assets\seedOpen.cs" />
     <Compile Include="Assets\final\final_machine.cs" />
     <Compile Include="Assets\Elf\ElfGirl\ClickToMove.cs" />
     <Compile Include="Assets\Fruit1Collider.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="Assets\step03\Scripts\Push_Button.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Scripts\FCShadow.cs" />
     <Compile Include="Assets\conveyor\ModularConveyorTools\Scripts\ExtrudeConveyorWizard.cs" />
+    <Compile Include="Assets\Open.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\conveyor\ModularConveyorTools\Shaders\Conveyor.shader" />

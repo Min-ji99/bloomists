@@ -13,6 +13,8 @@ public class Seedposition : MonoBehaviour
     public bool path_stand = false;
 
     public GameObject seed;
+    
+
     public GameObject Stand;
     public GameObject water;
     private float Dist;
@@ -44,7 +46,7 @@ public class Seedposition : MonoBehaviour
     watertank tank;
     Plant01 p1;
     Sensor sensor;
-    // Start is called before the first frame update
+
     void Start()
     {
         //animator = GetComponent<Animator>();
@@ -57,6 +59,7 @@ public class Seedposition : MonoBehaviour
         p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
         sensor = GameObject.Find("ArdManager").GetComponent<Sensor>();
 
+
         if (pathCreator != null)
         {
             // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
@@ -67,8 +70,8 @@ public class Seedposition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("localPosition" + transform.localPosition);
-        Debug.Log("globalPosition" + transform.position);
+        //Debug.Log("localPosition" + transform.localPosition);
+        //Debug.Log("globalPosition" + transform.position);
 
         Dist = Vector3.Distance(seed.transform.position, Stand.transform.position);
         Dist2 = Vector3.Distance(seed.transform.position, water.transform.position);
@@ -85,6 +88,12 @@ public class Seedposition : MonoBehaviour
             }
         }
 
+        //if(transform.position = new Vector3(7.00277f, -1.610846f, -0.8221116f))
+        //{
+        //    Destroy(stand_path);
+        //    //stand_path.SetActive(false);
+        //}
+
     }
 
     void OnPathChanged()
@@ -100,72 +109,77 @@ public class Seedposition : MonoBehaviour
 
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("collision");
-        if (collision.collider.name == "WideBelt2r_1")
-        {
-            path = true;
-            Debug.Log("path: " + path);
-        }
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    Debug.Log("collision");
+    //    if (collision.collider.name == "WideBelt2r_1")
+    //    {
+    //        path = true;
+    //        Debug.Log("path: " + path);
+    //    }
 
-        if (collision.collider.name == "Wide Roller_s1")
-        {
-            state = true;
+    //    if (collision.collider.name == "Wide Roller_s1")
+    //    {
+    //        state = true;
+    //        path_stand = true;
 
-            //if (sensor.lightDetect)   //★주석지워줘야함
-            //{
-            lightDetect = true;
-            //}
-        }
+    //        //stand_path.SetActive(false);
+    //        //if (sensor.lightDetect)   //★주석지워줘야함
+    //        //{
+    //        lightDetect = true;
+    //        //}
+    //    }
 
-        else if (collision.collider.name == "WideBelt3r_m")
-        {
-            if (Music == false)
-            {
-                Lp.Play();
-                Music = true;
-            }
-        }
+    //    else if (collision.collider.name == "WideBelt3r_m")
+    //    {
+    //        if (Music == false)
+    //        {
+    //            Lp.Play();
+    //            Music = true;
+    //        }
+    //    }
 
-        else if (collision.collider.name == "Wide Roller_s2")
-        {
-            if (ro.isMove == true)  //roller 동작상태라면
-            {
-                ro.isMove = false; //roller 동작상태 꺼줌
-                appear = true; //step02에 도착하면 roller 정지상태 켜줌
+    //    else if (collision.collider.name == "Wide Roller_s2")
+    //    {
+    //        if (ro.isMove == true)  //roller 동작상태라면
+    //        {
+    //            ro.isMove = false; //roller 동작상태 꺼줌
+    //            appear = true; //step02에 도착하면 roller 정지상태 켜줌
 
-                if (p1.extraWater == true) // 추가적인 물 받게되면
-                {
-                    growth = true;
-                }
+    //            if (p1.extraWater == true) // 추가적인 물 받게되면
+    //            {
+    //                growth = true;
+    //            }
 
-                if (p1.WaterDetect == true)
-                {
-                    Debug.Log("사라졋");
-                    Destroy(seed, 1.5f); //씨앗 오브젝트 사라짐
-                }
-            }
-        }
+    //            if (p1.WaterDetect == true)
+    //            {
+    //                Debug.Log("사라졋");
+    //                Destroy(seed, 1.5f); //씨앗 오브젝트 사라짐
+    //            }
+    //        }
+    //    }
 
-    }
+    //}
     void Play()
     {
 
 
-        //if (Dist < 0.27f)   // step01에 가까워지면
+    if (Dist < 0.2945f)   // step01에 가까워지면
+    {
+
+        state = true; // rotateplane에 도착하면 roller 정지상태 켜줌
+                      //Destroy(seed);
+        seed.SetActive(false);
+        standOn = true; //캔버스 뜨도록
+
+        //if (sensor.lightDetect)
         //{
+            lightDetect = true;
+       // }
 
-        //    state = true; // rotateplane에 도착하면 roller 정지상태 켜줌
-        //    standOn = true; //캔버스 뜨도록
+    }
 
-        //    if (sensor.lightDetect)
-        //    {
-        //        lightDetect = true;
-        //    }
-
-        //}
-        if (lightDetect)
+    if (lightDetect)
         {
             Invoke("GoPlant", 1.0f); //1초뒤에 새싹 자라게
             Invoke("particle", 0.0f); //파티클
@@ -208,24 +222,24 @@ public class Seedposition : MonoBehaviour
     }
 
 
-    void GoPlant()
-    {
-        animator.SetBool("Go", true);   //애니메이션 재생
-        bud = true; //새싹 true
-        state = false; // roller 정지상태 꺼줌
+    //void GoPlant()
+    //{
+    //    animator.SetBool("Go", true);   //애니메이션 재생
+    //    bud = true; //새싹 true
+    //    state = false; // roller 정지상태 꺼줌
 
-    }
+    //}
 
-    void particle()
-    {
-        if (isbloomed == false)
-        {
-            bloom.Play();
-            Destroy(bloom, 2f);
-            isbloomed = true;
-            blooming.PlayOneShot(blooming.clip);
-        }
-    }
+    //void particle()
+    //{
+    //    if (isbloomed == false)
+    //    {
+    //        bloom.Play();
+    //        Destroy(bloom, 2f);
+    //        isbloomed = true;
+    //        blooming.PlayOneShot(blooming.clip);
+    //    }
+    //}
 
 
 }

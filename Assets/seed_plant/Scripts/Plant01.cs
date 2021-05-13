@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Plant01 : MonoBehaviour
 {
+    public GameObject Seed;
     public GameObject Plant;
     public GameObject icebox;
     private float Dist;
@@ -93,6 +94,7 @@ public class Plant01 : MonoBehaviour
         {
             bloomingSound.Play();
             GameObject.Find("Plant1").transform.Find("plant01").gameObject.SetActive(true);    //plant01 생기면서 자라남
+            Destroy(Seed);
             Invoke("Particle", 0.8f); //파티클
             Invoke("GoPlant", 5.0f);    //5초 뒤에  
             soundOn = true;

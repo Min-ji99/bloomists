@@ -13,7 +13,7 @@ public class Roller : MonoBehaviour {
 
 	private Rigidbody rb;
 
-
+	seedOpen seed;
 	Plant02 p2;
 	AfterIce aI;
 	Seedposition Sp;
@@ -26,7 +26,7 @@ public class Roller : MonoBehaviour {
 
 	void Start()
 	{
-
+		seed= GameObject.Find("SeedOpen").transform.Find("seed_open").GetComponent<seedOpen>();
 		p2 = GameObject.Find("Plant2").GetComponent<Plant02>();
 		aI = GameObject.Find("Plant2").transform.Find("plant02").GetComponent<AfterIce>();
 		Sp = GameObject.Find("S_P").transform.Find("seed").GetComponent<Seedposition>();
@@ -45,7 +45,7 @@ public class Roller : MonoBehaviour {
 	{
         //rotate the roller
 
-        if (Sp.state == true || Sp.appear == true || p1.appear == true || p2.reach == true || f1.flower1reach==true || f2.flower2reach==true || f01.fruit1reach == true || f02.fruit2reach == true)
+        if (Sp.state == true || seed.appear == true || p1.appear == true || p2.reach == true || f1.flower1reach==true || f2.flower2reach==true || f01.fruit1reach == true || f02.fruit2reach == true)
         {
             //Debug.Log("Sp.appear:" + Sp.appear);
             tangentSpeed = 0;
