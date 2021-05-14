@@ -45,17 +45,16 @@ public class Lever : MonoBehaviour
             {
                 if (isMove == false)
                 {
-                    isMove = true;
                     Invoke("lever_anim", 1f);
                     Invoke("Particle", 3f); //파티클
-
+                    isMove = true;
                     //Invoke("touchClick", 5.0f);
                 }
-                else
-                {
-                    isMove = false;
-                    animator.SetBool("Lever", false);
-                }
+                //else
+                //{
+                //    isMove = false;
+                //    animator.SetBool("Lever", false);
+                //}
 
                 Debug.Log(hit.collider.gameObject.name);
 
@@ -68,6 +67,7 @@ public class Lever : MonoBehaviour
     void lever_anim()
     {
         animator.SetBool("Lever", true);
+
         if (leverOn == false)
         {
             start_lever.Play();

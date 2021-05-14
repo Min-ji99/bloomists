@@ -9,13 +9,15 @@ public class rotate : MonoBehaviour
     
     private Animator animator;
     seedOpen Sp;
-    
+    Seedposition seedPos;
+
 
     // Use this for initialization 
     void Start()
     {
         animator = GetComponent<Animator>();
         Sp = GameObject.Find("SeedOpen").transform.Find("seed_open").GetComponent<seedOpen>();
+        seedPos = GameObject.Find("S_P").transform.Find("seed").GetComponent<Seedposition>();
 
     }
     // Update is called once per frame 
@@ -41,7 +43,7 @@ public class rotate : MonoBehaviour
 
     void IsMoving()
     {
+        seedPos.state = false;
         isMove = true;  // roller 동작상태 켜줌
-
     }
 }

@@ -21,6 +21,8 @@ public class Plant01 : MonoBehaviour
     //public bool bloom = false;
 
     Seedposition seedPos;
+    Open open;
+    seedOpen SeedOP;
     watertank tank;
     Sensor sensor;
 
@@ -36,6 +38,9 @@ public class Plant01 : MonoBehaviour
         Plant.gameObject.SetActive(false);
         tank = GameObject.Find("02").transform.Find("02_tank").GetComponent<watertank>();
         seedPos = GameObject.Find("S_P").transform.Find("seed").GetComponent<Seedposition>();
+        open= GameObject.Find("SeedOpen").GetComponent<Open>();
+        SeedOP = GameObject.Find("SeedOpen").transform.Find("seed_open").GetComponent<seedOpen>();
+
         sensor = GameObject.Find("ArdManager").GetComponent<Sensor>();
 
 
@@ -94,7 +99,10 @@ public class Plant01 : MonoBehaviour
         {
             bloomingSound.Play();
             GameObject.Find("Plant1").transform.Find("plant01").gameObject.SetActive(true);    //plant01 생기면서 자라남
+            
             Destroy(Seed);
+            open.isDestroyed = true;  // 자라난 씨앗 삭제됨
+
             Invoke("Particle", 0.8f); //파티클
             Invoke("GoPlant", 5.0f);    //5초 뒤에  
             soundOn = true;
@@ -103,7 +111,7 @@ public class Plant01 : MonoBehaviour
 
     void GoPlant()
     {
-        seedPos.appear = false; //roller 정지상태 꺼줌
+        SeedOP.appear = false; //roller 정지상태 꺼줌
         bloom = true; //roller 동작상태 켜줌
 
     }

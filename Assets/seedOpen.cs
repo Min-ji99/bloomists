@@ -17,14 +17,25 @@ public class seedOpen : MonoBehaviour
     public bool SeedOpened = false;
     public bool appear = false;
     public bool growth = false;
+    public bool isbloomed = false;
+
     private float Dist2;
+    private float MDist;
 
     public PathCreator pathCreator;
     public EndOfPathInstruction endOfPathInstruction;
     public float speed = 5;
     float distanceTravelled;
 
-    rotate ro;
+    //꽃 필때 파티클
+    public ParticleSystem bloom;
+    public AudioSource blooming;
+
+    public AudioSource Lp;
+    public bool Music = false;
+    public GameObject MStart;
+
+    rotate ro;  // 1단계 회전판
 
     void Start()
     {
@@ -46,8 +57,11 @@ public class seedOpen : MonoBehaviour
     void Update()
     {
         animator.SetBool("Go", false);
+
         Dist2 = Vector3.Distance(seed.transform.position, water.transform.position);
+        MDist = Vector3.Distance(seed.transform.position, MStart.transform.position);
         //Debug.Log("Dist2 : " + Dist2);
+        Debug.Log("MDist : " + MDist);
 
         //if (seedPos.state)
         //{
@@ -74,7 +88,7 @@ public class seedOpen : MonoBehaviour
     void Play()
     {
 
-        //if (sensor.lightDetect)
+        //if (sensor.lightDetect)   //★주석없애야함
         //{
         lightDetect = true;
         // }
@@ -84,38 +98,58 @@ public class seedOpen : MonoBehaviour
             //Debug.Log("GoAnimation");
 
             animator.SetBool("Go", true);
+            PlayEffect();
+
             Invoke("OpenSeed", 2f);
-           
+            Invoke("PlayLP", 8f);
+
+
         }
-        
-        if (ro.isMove == true)  //roller 정지 상태 아니라면
+       
+        if (ro.isMove == true && Music && Dist2 < 0.2169f)  //roller 동작상태이고 , step02 에 다가오면
         {
+            ro.isMove = false; //roller 동작상태 꺼줌
+            appear = true; //step02에 도착하면 roller 정지상태 켜줌
 
-            if (Dist2 < 0.216f)  //step02 에 다가오면
+            if (p1.extraWater == true) // 추가적인 물 받게되면
             {
-                ro.isMove = false; //roller 동작상태 꺼줌
-                appear = true; //step02에 도착하면 roller 정지상태 켜줌
 
-                if (p1.extraWater == true) // 추가적인 물 받게되면
-                {
-
-                    growth = true;
-                }
-
-                //if (p1.WaterDetect == true)
-                //{
-                //    Debug.Log("Destroy");
-                //    Destroy(seed, 1.5f); //씨앗 오브젝트 사라짐
-                //}
-
+                growth = true;
             }
-        
+
+            //if (p1.WaterDetect == true)
+            //{
+            //    Debug.Log("Destroy");
+            //    Destroy(seed, 1.5f); //씨앗 오브젝트 사라짐
+            //}
         }
+        
+        
 
     }
 
     void OpenSeed()
     {
         SeedOpened = true;
+    }
+
+    void PlayEffect()
+    {
+        if (isbloomed == false)
+        {
+            bloom.Play();
+            Destroy(bloom, 2f);
+            isbloomed = true;
+            blooming.PlayOneShot(blooming.clip);
+        }
+    }
+
+    void PlayLP()
+    {
+        if (Music == false)
+        {
+            Lp.Play();
+            Music = true;
+        }
     }
 }

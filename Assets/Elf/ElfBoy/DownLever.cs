@@ -42,11 +42,11 @@ public class DownLever : MonoBehaviour
                     Invoke("anim_play", 1f);
                     isMove = true;
                 }
-                else
-                {
-                    isMove = false;
-                    animator.SetBool("Click", false);
-                }
+                //else
+                //{
+                //    isMove = false;
+                //    animator.SetBool("Click", false);
+                //}
 
                 Debug.Log(hit.collider.gameObject.name);
 

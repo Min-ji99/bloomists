@@ -47,6 +47,7 @@ public class Canvas_UI : MonoBehaviour
 
     Intro intro;
     Seedposition Light;
+    seedOpen SeedOP;
     Plant01 p1;
     //Ice iceball;
     snowtank tank;
@@ -88,7 +89,8 @@ public class Canvas_UI : MonoBehaviour
 
         intro = GameObject.Find("All").GetComponent<Intro>();
         Light = GameObject.Find("S_P").transform.Find("seed").GetComponent<Seedposition>();
-        p1= GameObject.Find("Plant1").GetComponent<Plant01>();
+        SeedOP = GameObject.Find("SeedOpen").transform.Find("seed_open").GetComponent<seedOpen>();
+        p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
         //iceball = GameObject.Find("ICE").GetComponent<Ice>();
         tank= GameObject.Find("03_snowtank").GetComponent<snowtank>();
         p2 = GameObject.Find("Plant2").GetComponent<Plant02>();
@@ -116,10 +118,10 @@ public class Canvas_UI : MonoBehaviour
         if ( Light.standOn == true && IsDestroy2 == false)
             Invoke("PlayStand", 1f);
 
-        if (Light.Music == true && IsDestroy3 == false)
+        if (SeedOP.Music == true && IsDestroy3 == false)
             Invoke("PlayMusic", 1.5f);
 
-        if (Light.appear == true && IsDestroy4 == false)
+        if (SeedOP.appear == true && IsDestroy4 == false)
             Invoke("PlayWater", 1.5f);
 
         if (p1.extraWater == true && IsDestroy5 == false)

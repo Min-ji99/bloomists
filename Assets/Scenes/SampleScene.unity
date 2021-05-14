@@ -276,8 +276,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152690508}
-  m_LocalRotation: {x: -0.32025805, y: -0.18929154, z: 0.06546192, w: -0.9259148}
-  m_LocalPosition: {x: -0.7573801, y: 2.792336, z: -2.6895735}
+  m_LocalRotation: {x: 0.01915737, y: 0.81372565, z: -0.026862586, w: 0.5803121}
+  m_LocalPosition: {x: -2.7360818, y: 0.6677856, z: 0.7368553}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2061,9 +2061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90bd044e8d1b6646b966ae4f7ad3a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightDetect: 0
-  waterDetect: 0
-  potionDetect: 0
 --- !u!4 &1681263095
 Transform:
   m_ObjectHideFlags: 0

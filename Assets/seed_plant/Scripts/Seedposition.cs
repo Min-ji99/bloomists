@@ -23,15 +23,15 @@ public class Seedposition : MonoBehaviour
     public bool state = false;
     public bool bud = false;
     public bool standOn = false;
-    public bool appear = false;
-    public bool isbloomed = false;
+   // public bool appear = false;
+   // public bool isbloomed = false;
     public bool lightDetect = false;
     public bool growth = false;
 
 
-    //꽃 필때 파티클
-    public ParticleSystem bloom;
-    public AudioSource blooming;
+    ////꽃 필때 파티클
+    //public ParticleSystem bloom;
+    //public AudioSource blooming;
 
 
     //lp판
@@ -39,7 +39,7 @@ public class Seedposition : MonoBehaviour
     public GameObject MStart;
     public AudioSource Lp;
     public bool Music = false;
-    public bool path = false;
+
 
     stand_light light;
     rotate ro;
@@ -172,7 +172,7 @@ public class Seedposition : MonoBehaviour
         seed.SetActive(false);
         standOn = true; //캔버스 뜨도록
 
-        //if (sensor.lightDetect)
+        //if (sensor.lightDetect)       //빛 감지하면
         //{
             lightDetect = true;
        // }
