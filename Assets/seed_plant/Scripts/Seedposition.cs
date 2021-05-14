@@ -6,11 +6,12 @@ using System.Collections;
 
 public class Seedposition : MonoBehaviour
 {
-    public PathCreator pathCreator;
-    public EndOfPathInstruction endOfPathInstruction;
-    public float speed = 5;
-    float distanceTravelled;
-    public bool path_stand = false;
+    //
+    //public PathCreator pathCreator;
+    //public EndOfPathInstruction endOfPathInstruction;
+    //public float speed = 5;
+    //float distanceTravelled;
+    //public bool path_stand = false;
 
     public GameObject seed;
     
@@ -60,11 +61,12 @@ public class Seedposition : MonoBehaviour
         sensor = GameObject.Find("ArdManager").GetComponent<Sensor>();
 
 
-        if (pathCreator != null)
-        {
-            // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
-            pathCreator.pathUpdated += OnPathChanged;
-        }
+        //if (pathCreator != null)
+        //{
+        //    // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
+        //    pathCreator.pathUpdated += OnPathChanged;
+        //}
+
     }
 
     // Update is called once per frame
@@ -78,28 +80,26 @@ public class Seedposition : MonoBehaviour
         MDist = Vector3.Distance(seed.transform.position, MStart.transform.position);
         Play();
 
-        if(path_stand == false)
-        {
-            if (pathCreator != null)
-            {
-                distanceTravelled += speed * Time.deltaTime;
-                transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
-                //transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
-            }
-        }
+        //if(path_stand == false)
+        //{
+        //    if (pathCreator != null)
+        //    {
+        //        distanceTravelled += speed * Time.deltaTime;
+        //        transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
+        //        //transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
+        //    }
+        //}
 
         //if(transform.position = new Vector3(7.00277f, -1.610846f, -0.8221116f))
         //{
         //    Destroy(stand_path);
         //    //stand_path.SetActive(false);
         //}
+        //
 
     }
 
-    void OnPathChanged()
-    {
-        distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(transform.position);
-    }
+
 
     void LateUpdate()
     {

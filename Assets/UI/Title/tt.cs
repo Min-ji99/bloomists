@@ -24,7 +24,7 @@ public class tt : MonoBehaviour
         Invoke("tt1", 1.5f);
         Invoke("tt2", 2.5f);
         Invoke("tt3", 3.5f);
-        Invoke("TitleSize", 6f);
+        Invoke("TitleSize", 7f);
     }
 
     void tt1()
