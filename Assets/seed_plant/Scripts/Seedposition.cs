@@ -163,63 +163,63 @@ public class Seedposition : MonoBehaviour
     void Play()
     {
 
-
-    if (Dist < 0.2945f)   // step01에 가까워지면
-    {
-
-        state = true; // rotateplane에 도착하면 roller 정지상태 켜줌
-                      //Destroy(seed);
-        seed.SetActive(false);
-        standOn = true; //캔버스 뜨도록
-
-        //if (sensor.lightDetect)       //빛 감지하면
-        //{
-            lightDetect = true;
-       // }
-
-    }
-
-    if (lightDetect)
+        Debug.Log("Dist : " + Dist);
+        if (Dist < 0.1f)   // step01에 가까워지면
         {
-           // Invoke("GoPlant", 1.0f); //1초뒤에 새싹 자라게
-           // Invoke("particle", 0.0f); //파티클
+
+            state = true; // rotateplane에 도착하면 roller 정지상태 켜줌
+                          //Destroy(seed);
+            seed.SetActive(false);
+            standOn = true; //캔버스 뜨도록
+
+            //if (sensor.lightDetect)       //빛 감지하면
+            //{
+                lightDetect = true;
+           // }
+
         }
-        //if (ro.isMove == true)  //roller 정지 상태 아니라면
-        //{
+
+        if (lightDetect)
+            {
+               // Invoke("GoPlant", 1.0f); //1초뒤에 새싹 자라게
+               // Invoke("particle", 0.0f); //파티클
+            }
+            //if (ro.isMove == true)  //roller 정지 상태 아니라면
+            //{
            
-        //    if (Dist2 < 0.244f)  //step02 에 다가오면
-        //    {
+            //    if (Dist2 < 0.244f)  //step02 에 다가오면
+            //    {
 
        
-        //        ro.isMove = false; //roller 동작상태 꺼줌
-        //        appear = true; //step02에 도착하면 roller 정지상태 켜줌
+            //        ro.isMove = false; //roller 동작상태 꺼줌
+            //        appear = true; //step02에 도착하면 roller 정지상태 켜줌
 
-        //        if (p1.extraWater == true) // 추가적인 물 받게되면
-        //        {
+            //        if (p1.extraWater == true) // 추가적인 물 받게되면
+            //        {
 
-        //            growth = true;
-        //        }
-        //        if (p1.WaterDetect == true)
-        //        {
-        //            Destroy(seed, 1.5f); //씨앗 오브젝트 사라짐
-        //        }
+            //            growth = true;
+            //        }
+            //        if (p1.WaterDetect == true)
+            //        {
+            //            Destroy(seed, 1.5f); //씨앗 오브젝트 사라짐
+            //        }
 
-        //    }
+            //    }
 
-        //}
+            //}
 
-        //if(MDist < 0.45f)
-        //{
+            //if(MDist < 0.45f)
+            //{
             
-        //    if (Music == false)
-        //    {
-        //        Lp.Play();
-        //        Music = true;
-        //    }
-        //}
+            //    if (Music == false)
+            //    {
+            //        Lp.Play();
+            //        Music = true;
+            //    }
+            //}
         
 
-    }
+        }
 
 
     //void GoPlant()
