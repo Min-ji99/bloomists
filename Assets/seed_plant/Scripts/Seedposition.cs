@@ -181,8 +181,8 @@ public class Seedposition : MonoBehaviour
 
     if (lightDetect)
         {
-            Invoke("GoPlant", 1.0f); //1초뒤에 새싹 자라게
-            Invoke("particle", 0.0f); //파티클
+           // Invoke("GoPlant", 1.0f); //1초뒤에 새싹 자라게
+           // Invoke("particle", 0.0f); //파티클
         }
         //if (ro.isMove == true)  //roller 정지 상태 아니라면
         //{

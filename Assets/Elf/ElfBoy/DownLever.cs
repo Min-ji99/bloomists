@@ -39,7 +39,8 @@ public class DownLever : MonoBehaviour
             {
                 if (isMove == false)
                 {
-                    Invoke("anim_play", 1f);
+                    animator.SetBool("Click", true);
+                    //Invoke("anim_play", 1f);
                     isMove = true;
                 }
                 //else

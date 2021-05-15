@@ -33,10 +33,10 @@ public class last_end : MonoBehaviour
     {
         if (getfade == false)
         {
-            Invoke("BackGround", 2f);
-            Invoke("circle", 3f);
-            Invoke("appear", 3.5f);
-            Invoke("Fadeslow", 4.0f);
+            Invoke("BackGround", 3.5f);
+            Invoke("circle", 4.5f);
+            Invoke("appear", 5f);
+            Invoke("Fadeslow", 5.5f);
         }
     }
 

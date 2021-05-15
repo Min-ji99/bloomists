@@ -11,6 +11,7 @@ public class seedOpen : MonoBehaviour
 
     Seedposition seedPos;
     Plant01 p1;
+    way_to_water wayPointWater;
 
     private Animator animator;
     public bool lightDetect = false;
@@ -22,10 +23,11 @@ public class seedOpen : MonoBehaviour
     private float Dist2;
     private float MDist;
 
-    public PathCreator pathCreator;
-    public EndOfPathInstruction endOfPathInstruction;
-    public float speed = 5;
-    float distanceTravelled;
+    //패쓰
+    //public PathCreator pathCreator;
+    //public EndOfPathInstruction endOfPathInstruction;
+    //public float speed = 5;
+    //float distanceTravelled;
 
     //꽃 필때 파티클
     public ParticleSystem bloom;
@@ -39,18 +41,18 @@ public class seedOpen : MonoBehaviour
 
     void Start()
     {
-
+        wayPointWater = GameObject.Find("SeedOpen").transform.Find("seed_open").GetComponent<way_to_water>();
         ro = GameObject.Find("01").transform.Find("01_rotateplane").GetComponent<rotate>();
         seedPos = GameObject.Find("S_P").transform.Find("seed").GetComponent<Seedposition>();
         p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
 
         animator = GameObject.Find("SeedOpen").transform.Find("seed_open").GetComponent<Animator>();
 
-        if (pathCreator != null)
-        {
-            // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
-            pathCreator.pathUpdated += OnPathChanged;
-        }
+        //if (pathCreator != null)
+        //{
+        //    // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
+        //    pathCreator.pathUpdated += OnPathChanged;
+        //}
     }
 
     // Update is called once per frame
@@ -58,10 +60,10 @@ public class seedOpen : MonoBehaviour
     {
         animator.SetBool("Go", false);
 
-        Dist2 = Vector3.Distance(seed.transform.position, water.transform.position);
-        MDist = Vector3.Distance(seed.transform.position, MStart.transform.position);
+        //Dist2 = Vector3.Distance(seed.transform.position, water.transform.position);
+        //MDist = Vector3.Distance(seed.transform.position, MStart.transform.position);
         //Debug.Log("Dist2 : " + Dist2);
-        Debug.Log("MDist : " + MDist);
+        //Debug.Log("MDist : " + MDist);
 
         //if (seedPos.state)
         //{
@@ -69,21 +71,21 @@ public class seedOpen : MonoBehaviour
         //    GameObject.Find("S_P").transform.Find("seed_open").gameObject.SetActive(true);   //씨앗 나타나게
         //}
         Play();
+        //Debug.Log(wayPointWater.seedend);
 
-        
-        if (pathCreator != null && ro.isMove)
-        {
-            distanceTravelled += speed * Time.deltaTime;
-            transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
-            //transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
-        }
+        //if (pathCreator != null && ro.isMove)
+        //{
+        //    distanceTravelled += speed * Time.deltaTime;
+        //    transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
+        //    //transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
+        //}
 
     }
 
-    void OnPathChanged()
-    {
-        distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(transform.position);
-    }
+    //void OnPathChanged()
+    //{
+    //    distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(transform.position);
+    //}
 
     void Play()
     {
@@ -101,13 +103,15 @@ public class seedOpen : MonoBehaviour
             PlayEffect();
 
             Invoke("OpenSeed", 2f);
-            Invoke("PlayLP", 8f);
+            Invoke("PlayLP", 15f);
 
 
         }
        
-        if (ro.isMove == true && Music && Dist2 < 0.2169f)  //roller 동작상태이고 , step02 에 다가오면
+        if (ro.isMove == true && wayPointWater.seedend)  //roller 동작상태이고 
         {
+            Debug.Log(wayPointWater.seedend);
+
             ro.isMove = false; //roller 동작상태 꺼줌
             appear = true; //step02에 도착하면 roller 정지상태 켜줌
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class rotate : MonoBehaviour
 {
     public bool isMove = false;
+    public bool seedNext = false;
 
     
     private Animator animator;
@@ -31,19 +32,22 @@ public class rotate : MonoBehaviour
     {
         if (Sp.SeedOpened == true)   //<Seedposition>에서 새싹이 자라면 
         {
-            Invoke("Play", 0.8f);   //2초뒤에
+            Invoke("Play", 2f);   //2초뒤에
         }
         
     }
     void Play()
     {
         animator.SetBool("Click", true);    //기계 돌아가는 애니메이션 재생
-        Invoke("IsMoving", 1.5f);
+        Invoke("IsMoving", 3f);
     }
 
     void IsMoving()
     {
         seedPos.state = false;
         isMove = true;  // roller 동작상태 켜줌
+        seedNext = true;
+
+        //Debug.Log(isMove);
     }
 }
