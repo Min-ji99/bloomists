@@ -46,17 +46,17 @@ public class Canvas_UI : MonoBehaviour
 
 
     Intro intro;
-    Seedposition Light;
-    seedOpen SeedOP;
-    Plant01 p1;
+    public Seedposition Light;
+    public seedOpen SeedOP;
+    public Plant01 p1;
     //Ice iceball;
-    snowtank tank;
-    Plant02 p2;
-    Flower01 f1;
-    Flower2 f2;
-    Fruit01 f01;
-    Fruit02 f02;
-    final_machine Fmachine;
+    public snowtank tank;
+    public Plant02 p2;
+    public Flower01 f1;
+    public Flower2 f2;
+    public Fruit01 f01;
+    public Fruit02 f02;
+    public final_machine Fmachine;
 
     color1 col1;
     color2 col2;
@@ -88,19 +88,19 @@ public class Canvas_UI : MonoBehaviour
         final_comment05.gameObject.SetActive(false);
 
         intro = GameObject.Find("All").GetComponent<Intro>();
-        Light = GameObject.Find("S_P").transform.Find("seed").GetComponent<Seedposition>();
-        SeedOP = GameObject.Find("SeedOpen").transform.Find("seed_open").GetComponent<seedOpen>();
-        p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
+        //Light = GameObject.Find("S_P").transform.Find("seed").GetComponent<Seedposition>();
+        //SeedOP = GameObject.Find("seed_open").GetComponent<seedOpen>();
+        //p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
         //iceball = GameObject.Find("ICE").GetComponent<Ice>();
-        tank= GameObject.Find("03_snowtank").GetComponent<snowtank>();
-        p2 = GameObject.Find("Plant2").GetComponent<Plant02>();
+        //tank= GameObject.Find("03_snowtank").GetComponent<snowtank>();
+        //p2 = GameObject.Find("Plant2").GetComponent<Plant02>();
 
-        f1 = GameObject.Find("Flower1").GetComponent<Flower01>();
-        f2 = GameObject.Find("Flower2").GetComponent<Flower2>();
-        f01 = GameObject.Find("Fruit1").GetComponent<Fruit01>();
-        f02 = GameObject.Find("Fruit2").GetComponent<Fruit02>();
+        //f1 = GameObject.Find("Flower1").GetComponent<Flower01>();
+        //f2 = GameObject.Find("Flower2").GetComponent<Flower2>();
+        //f01 = GameObject.Find("Fruit1").GetComponent<Fruit01>();
+        //f02 = GameObject.Find("Fruit2").GetComponent<Fruit02>();
 
-        Fmachine= GameObject.Find("final_final").GetComponent<final_machine>();
+        //Fmachine= GameObject.Find("final_final").GetComponent<final_machine>();
 
         col1 = GameObject.Find("Canvas_UI").transform.Find("10-1").GetComponent<color1>();
         col2 = GameObject.Find("Canvas_UI").transform.Find("10-2").GetComponent<color2>();

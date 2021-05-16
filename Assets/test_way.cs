@@ -39,19 +39,27 @@ public class test_way : MonoBehaviour
             CheckDistanceToWaypoint(distance);
 
             transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, movementStep);
-        }
 
+        }
 
 
     }
 
     void CheckDistanceToWaypoint(float currentDistance)
     {
-        if(currentDistance <= minDistance)
+        if(currentDistance <= minDistance && targetWayPointIndex < lastWaypointIndex)
         {
             targetWayPointIndex++;
             UpdateTargetWaypoint();
         }
+        else if (targetWayPointIndex > lastWaypointIndex)
+        {
+            Debug.Log("end");
+            seedend = true;
+
+
+        }
+
         //if (currentDistance <= minDistance && elfMove == true)
         //{
         //    targetWayPointIndex++;
@@ -84,8 +92,8 @@ public class test_way : MonoBehaviour
 
         targetWaypoint = waypoints[targetWayPointIndex];
 
-        if (targetWayPointIndex > lastWaypointIndex)
-            seedend = true;
+        //if (targetWayPointIndex > lastWaypointIndex)
+        //    seedend = true;
     }
 
 }

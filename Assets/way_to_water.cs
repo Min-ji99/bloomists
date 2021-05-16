@@ -17,11 +17,11 @@ public class way_to_water : MonoBehaviour
 
     public bool seedend = false;
 
-    rotate ro;
+    //rotate ro;
 
     void Start()
     {
-        ro = GameObject.Find("01").transform.Find("01_rotateplane").GetComponent<rotate>();
+        //ro = GameObject.Find("01").transform.Find("01_rotateplane").GetComponent<rotate>();
 
        //Debug.Log(ro.isMove);
 
@@ -31,7 +31,7 @@ public class way_to_water : MonoBehaviour
 
     void Update()
     {
-        if (seedend == false && ro.seedNext)
+        if (seedend == false )
         {
 
             float movementStep = movementSpeed * Time.deltaTime;
@@ -54,7 +54,7 @@ public class way_to_water : MonoBehaviour
 
     void CheckDistanceToWaypoint(float currentDistance)
     {
-        if (currentDistance <= minDistance && targetWayPointIndex <= lastWaypointIndex)
+        if (currentDistance <= minDistance && targetWayPointIndex < lastWaypointIndex)
         {
             targetWayPointIndex++;
             UpdateTargetWaypoint();
@@ -64,7 +64,7 @@ public class way_to_water : MonoBehaviour
         else if(targetWayPointIndex > lastWaypointIndex)
         {
             seedend = true;
-            ro.seedNext = false;
+            //ro.seedNext = false;
 
         }
 

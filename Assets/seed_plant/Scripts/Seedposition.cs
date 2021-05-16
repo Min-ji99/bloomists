@@ -47,6 +47,7 @@ public class Seedposition : MonoBehaviour
     watertank tank;
     Plant01 p1;
     Sensor sensor;
+    test_way way;
 
     void Start()
     {
@@ -58,8 +59,8 @@ public class Seedposition : MonoBehaviour
         AudioSource Lp = GetComponent<AudioSource>();
         AudioSource blooming = GetComponent<AudioSource>();
         p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
-        sensor = GameObject.Find("ArdManager").GetComponent<Sensor>();
-
+        //sensor = GameObject.Find("ArdManager").GetComponent<Sensor>();
+        way = GameObject.Find("S_P").transform.Find("seed").GetComponent<test_way>();
 
         //if (pathCreator != null)
         //{
@@ -78,8 +79,7 @@ public class Seedposition : MonoBehaviour
         Dist = Vector3.Distance(seed.transform.position, Stand.transform.position);
         Dist2 = Vector3.Distance(seed.transform.position, water.transform.position);
         MDist = Vector3.Distance(seed.transform.position, MStart.transform.position);
-        Play();
-
+        //Play();
         //if(path_stand == false)
         //{
         //    if (pathCreator != null)
@@ -108,63 +108,12 @@ public class Seedposition : MonoBehaviour
         //Debug.Log("MDist : " + MDist);
 
     }
-
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    Debug.Log("collision");
-    //    if (collision.collider.name == "WideBelt2r_1")
-    //    {
-    //        path = true;
-    //        Debug.Log("path: " + path);
-    //    }
-
-    //    if (collision.collider.name == "Wide Roller_s1")
-    //    {
-    //        state = true;
-    //        path_stand = true;
-
-    //        //stand_path.SetActive(false);
-    //        //if (sensor.lightDetect)   //★주석지워줘야함
-    //        //{
-    //        lightDetect = true;
-    //        //}
-    //    }
-
-    //    else if (collision.collider.name == "WideBelt3r_m")
-    //    {
-    //        if (Music == false)
-    //        {
-    //            Lp.Play();
-    //            Music = true;
-    //        }
-    //    }
-
-    //    else if (collision.collider.name == "Wide Roller_s2")
-    //    {
-    //        if (ro.isMove == true)  //roller 동작상태라면
-    //        {
-    //            ro.isMove = false; //roller 동작상태 꺼줌
-    //            appear = true; //step02에 도착하면 roller 정지상태 켜줌
-
-    //            if (p1.extraWater == true) // 추가적인 물 받게되면
-    //            {
-    //                growth = true;
-    //            }
-
-    //            if (p1.WaterDetect == true)
-    //            {
-    //                Debug.Log("사라졋");
-    //                Destroy(seed, 1.5f); //씨앗 오브젝트 사라짐
-    //            }
-    //        }
-    //    }
-
-    //}
-    void Play()
+    void OnTriggerEnter(Collider collision)
     {
 
-        Debug.Log("Dist : " + Dist);
-        if (Dist < 0.1f)   // step01에 가까워지면
+        Debug.Log(collision.gameObject.name);
+
+        if (collision.gameObject.tag == "roller")
         {
 
             state = true; // rotateplane에 도착하면 roller 정지상태 켜줌
@@ -174,10 +123,86 @@ public class Seedposition : MonoBehaviour
 
             //if (sensor.lightDetect)       //빛 감지하면
             //{
-                lightDetect = true;
-           // }
-
+            lightDetect = true;
+            // }
         }
+    }
+    /*
+    void OnCollisionEnter(Collision collision)
+    {
+        //    Debug.Log("collision");
+        //    if (collision.collider.name == "WideBelt2r_1")
+        //    {
+        //        path = true;
+        //        Debug.Log("path: " + path);
+        //    }
+        if(collision.collider.name == "WideBelt2r_1")
+        {
+            Debug.Log("collision");
+        }
+        if (collision.collider.name == "Wide Roller_s1")
+        {
+            Debug.Log("collision");
+            state = true; // rotateplane에 도착하면 roller 정지상태 켜줌
+                          //Destroy(seed);
+            seed.SetActive(false);
+            standOn = true; //캔버스 뜨도록
+
+            //if (sensor.lightDetect)       //빛 감지하면
+            //{
+            lightDetect = true;
+            // }
+        }
+
+        //    else if (collision.collider.name == "WideBelt3r_m")
+        //    {
+        //        if (Music == false)
+        //        {
+        //            Lp.Play();
+        //            Music = true;
+        //        }
+        //    }
+
+        //    else if (collision.collider.name == "Wide Roller_s2")
+        //    {
+        //        if (ro.isMove == true)  //roller 동작상태라면
+        //        {
+        //            ro.isMove = false; //roller 동작상태 꺼줌
+        //            appear = true; //step02에 도착하면 roller 정지상태 켜줌
+
+        //            if (p1.extraWater == true) // 추가적인 물 받게되면
+        //            {
+        //                growth = true;
+        //            }
+
+        //            if (p1.WaterDetect == true)
+        //            {
+        //                Debug.Log("사라졋");
+        //                Destroy(seed, 1.5f); //씨앗 오브젝트 사라짐
+        //            }
+        //        }
+        //    }
+
+    }
+    */
+    void Play()
+    {
+
+        //Debug.Log("Dist : " + Dist);
+        //if (Dist <0.1f)   // step01에 가까워지면
+        //{
+
+        //    state = true; // rotateplane에 도착하면 roller 정지상태 켜줌
+        //                  //Destroy(seed);
+        //    seed.SetActive(false);
+        //    standOn = true; //캔버스 뜨도록
+
+        //    //if (sensor.lightDetect)       //빛 감지하면
+        //    //{
+        //        lightDetect = true;
+        //   // }
+
+        //}
 
         if (lightDetect)
             {

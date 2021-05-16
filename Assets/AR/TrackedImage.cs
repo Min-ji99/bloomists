@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.ARFoundation;
 
-//[RequireComponent(typeof(ARTrackedImageManager))]
+[RequireComponent(typeof(ARTrackedImageManager))]
 public class TrackedImage : MonoBehaviour
 {
     /*
@@ -86,17 +86,17 @@ public class TrackedImage : MonoBehaviour
 
     private void UpdateImage(ARTrackedImage trackedImage)
     {
-        //AssignGameObjecct(trackedImage.referenceImage.name, trackedImage.transform.position, trackedImage.transform.rotation);
-        AssignGameObjecct(trackedImage.referenceImage.name, trackedImage.transform.position);
+        AssignGameObjecct(trackedImage.referenceImage.name, trackedImage.transform.position, trackedImage.transform.rotation);
+        //AssignGameObjecct(trackedImage.referenceImage.name, trackedImage.transform.position);
     }
     
     void AssignGameObjecct(string name, Vector3 newPosition)
     {
         if (arObjectToPlace != null)
         {
-            arObjects[name].SetActive(true);
+            //arObjects[name].SetActive(true);
             //arObjects[name].transform.position = newPosition - distance;
-            arObjects[name].transform.localScale = scaleFactor;
+            //arObjects[name].transform.localScale = scaleFactor;
 
             if (name != "seedFactory 1")
             {

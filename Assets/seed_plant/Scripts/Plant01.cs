@@ -41,7 +41,7 @@ public class Plant01 : MonoBehaviour
         open= GameObject.Find("SeedOpen").GetComponent<Open>();
         SeedOP = GameObject.Find("SeedOpen").transform.Find("seed_open").GetComponent<seedOpen>();
 
-        sensor = GameObject.Find("ArdManager").GetComponent<Sensor>();
+        //sensor = GameObject.Find("ArdManager").GetComponent<Sensor>();
 
 
     }

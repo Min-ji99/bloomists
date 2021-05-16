@@ -38,6 +38,7 @@ public class seedOpen : MonoBehaviour
     public GameObject MStart;
 
     rotate ro;  // 1단계 회전판
+    watertank tank;
 
     void Start()
     {
@@ -45,6 +46,7 @@ public class seedOpen : MonoBehaviour
         ro = GameObject.Find("01").transform.Find("01_rotateplane").GetComponent<rotate>();
         seedPos = GameObject.Find("S_P").transform.Find("seed").GetComponent<Seedposition>();
         p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
+        tank = GameObject.Find("02").transform.Find("02_tank").GetComponent<watertank>();
 
         animator = GameObject.Find("SeedOpen").transform.Find("seed_open").GetComponent<Animator>();
 
@@ -103,30 +105,30 @@ public class seedOpen : MonoBehaviour
             PlayEffect();
 
             Invoke("OpenSeed", 2f);
-            Invoke("PlayLP", 15f);
+            //Invoke("PlayLP", 15f);
 
 
         }
        
-        if (ro.isMove == true && wayPointWater.seedend)  //roller 동작상태이고 
-        {
-            Debug.Log(wayPointWater.seedend);
+        //if (ro.isMove == true && wayPointWater.seedend)  //roller 동작상태이고 
+        //{
+        //    Debug.Log(wayPointWater.seedend);
 
-            ro.isMove = false; //roller 동작상태 꺼줌
-            appear = true; //step02에 도착하면 roller 정지상태 켜줌
+        //    ro.isMove = false; //roller 동작상태 꺼줌
+        //    appear = true; //step02에 도착하면 roller 정지상태 켜줌
 
-            if (p1.extraWater == true) // 추가적인 물 받게되면
-            {
+        //    if (p1.extraWater == true) // 추가적인 물 받게되면
+        //    {
 
-                growth = true;
-            }
+        //        growth = true;
+        //    }
 
-            //if (p1.WaterDetect == true)
-            //{
-            //    Debug.Log("Destroy");
-            //    Destroy(seed, 1.5f); //씨앗 오브젝트 사라짐
-            //}
-        }
+        //    //if (p1.WaterDetect == true)
+        //    //{
+        //    //    Debug.Log("Destroy");
+        //    //    Destroy(seed, 1.5f); //씨앗 오브젝트 사라짐
+        //    //}
+        //}
         
         
 
@@ -135,6 +137,7 @@ public class seedOpen : MonoBehaviour
     void OpenSeed()
     {
         SeedOpened = true;
+        seedPos.state = false;
     }
 
     void PlayEffect()
@@ -147,13 +150,78 @@ public class seedOpen : MonoBehaviour
             blooming.PlayOneShot(blooming.clip);
         }
     }
-
-    void PlayLP()
+    void OnTriggerEnter(Collider collision)
     {
-        if (Music == false)
+
+        Debug.Log(collision.gameObject.name);
+
+        if (collision.gameObject.tag == "music")
         {
-            Lp.Play();
-            Music = true;
+            if (Music == false)
+            {
+                Lp.Play();
+                Music = true;
+            }
+        }
+        if(collision.gameObject.tag == "roller")
+        {
+            if (SeedOpened == true)  //roller 동작상태라면
+            {
+                SeedOpened = false; //roller 동작상태 꺼줌
+                appear = true; //step02에 도착하면 roller 정지상태 켜줌
+
+                //if (p1.extraWater == true) // 추가적인 물 받게되면
+                //{
+                //    growth = true;
+                //}
+
+                //if (tank.watering == true && p1.WaterDetect == true)
+                //{
+                //    Debug.Log("사라졋");
+                //    Destroy(seed, 1.5f); //씨앗 오브젝트 사라짐
+                //}
+            }
         }
     }
+    //void PlayLP()
+    //{
+    //    if (Music == false)
+    //    {
+    //        Lp.Play();
+    //        Music = true;
+    //    }
+    //}
+    /*void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        if (collision.collider.name == "WideBelt3r_m")
+        {
+            if (Music == false)
+            {
+                Lp.Play();
+                Music = true;
+            }
+        }
+
+        else if (collision.collider.name == "Wide Roller_s2")
+        {
+            if (SeedOpened == true)  //roller 동작상태라면
+            {
+                SeedOpened = false; //roller 동작상태 꺼줌
+                appear = true; //step02에 도착하면 roller 정지상태 켜줌
+
+                //if (p1.extraWater == true) // 추가적인 물 받게되면
+                //{
+                //    growth = true;
+                //}
+
+                //if (tank.watering == true && p1.WaterDetect == true)
+                //{
+                //    Debug.Log("사라졋");
+                //    Destroy(seed, 1.5f); //씨앗 오브젝트 사라짐
+                //}
+            }
+        }
+    }*/
+
 }
