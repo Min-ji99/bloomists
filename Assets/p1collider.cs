@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class p1collider : MonoBehaviour
 {
@@ -11,9 +12,10 @@ public class p1collider : MonoBehaviour
         p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
-        if (collision.collider.name == "Wide Roller_s3")
+        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.tag == "roller3")
         {
             Destroy(gameObject);
             p1.disappear = true;

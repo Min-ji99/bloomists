@@ -113,7 +113,7 @@ public class Seedposition : MonoBehaviour
 
         Debug.Log(collision.gameObject.name);
 
-        if (collision.gameObject.tag == "roller")
+        if (collision.CompareTag("roller"))
         {
 
             state = true; // rotateplane에 도착하면 roller 정지상태 켜줌

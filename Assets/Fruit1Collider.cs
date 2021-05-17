@@ -5,16 +5,22 @@ using UnityEngine;
 public class Fruit1Collider : MonoBehaviour
 {
     Fruit01 f01;
+    public Rigidbody rb;
+    test_way way;
 
     void Start()
     {
         f01 = GameObject.Find("Fruit1").GetComponent<Fruit01>();
+        rb = GetComponent<Rigidbody>();
+        way = GetComponent<test_way>();
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
-        if (collision.collider.name == "Wide Roller (2)_f")
+        if (collision.gameObject.tag == "roller5")
         {
+            rb.isKinematic = false;
+            way.enabled = false;
             f01.state = false;  //roller 동작상태 꺼줌
             f01.fruit1reach = true;  //roller 정지상태 켜줌
         }

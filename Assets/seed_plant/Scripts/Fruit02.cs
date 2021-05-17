@@ -16,7 +16,7 @@ public class Fruit02 : MonoBehaviour
     public bool potionDetect = false;
 
     Plant02 p2;
-    color4 col4;
+    public color4 col4;
     Sensor sensor;
 
     public ParticleSystem blooming;
@@ -26,7 +26,7 @@ public class Fruit02 : MonoBehaviour
     {
         Plant.gameObject.SetActive(false);
         p2 = GameObject.Find("Plant2").GetComponent<Plant02>();
-        col4 = GameObject.Find("10-4").GetComponent<color4>();
+        //col4 = GameObject.Find("10-4").GetComponent<color4>();
         //sensor = GameObject.Find("ArdManager").GetComponent<Sensor>();    ★주석없애기
 
     }

@@ -15,7 +15,7 @@ public class Fruit01 : MonoBehaviour
     private bool soundOn = false;
     public bool potionDetect = false;
     Plant02 p2;
-    color3 col3;
+    public color3 col3;
     Sensor sensor;
 
 
@@ -27,7 +27,7 @@ public class Fruit01 : MonoBehaviour
     {
         Plant.gameObject.SetActive(false);
         p2 = GameObject.Find("Plant2").GetComponent<Plant02>();
-        col3 = GameObject.Find("10-3").GetComponent<color3>();
+        //col3 = GameObject.Find("10-3").GetComponent<color3>();
         // sensor = GameObject.Find("ArdManager").GetComponent<Sensor>();    ★주석없애기
     }
 

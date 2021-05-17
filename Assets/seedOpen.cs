@@ -163,24 +163,21 @@ public class seedOpen : MonoBehaviour
                 Music = true;
             }
         }
-        if(collision.gameObject.tag == "roller")
+        if (collision.gameObject.tag == "roller2")
         {
-            if (SeedOpened == true)  //roller 동작상태라면
-            {
-                SeedOpened = false; //roller 동작상태 꺼줌
-                appear = true; //step02에 도착하면 roller 정지상태 켜줌
+            SeedOpened = false; //roller 동작상태 꺼줌
+            appear = true; //step02에 도착하면 roller 정지상태 켜줌
 
-                //if (p1.extraWater == true) // 추가적인 물 받게되면
-                //{
-                //    growth = true;
-                //}
+            //if (p1.extraWater == true) // 추가적인 물 받게되면
+            //{
+            //    growth = true;
+            //}
 
-                //if (tank.watering == true && p1.WaterDetect == true)
-                //{
-                //    Debug.Log("사라졋");
-                //    Destroy(seed, 1.5f); //씨앗 오브젝트 사라짐
-                //}
-            }
+            //if (tank.watering == true && p1.WaterDetect == true)
+            //{
+            //    Debug.Log("사라졋");
+            //    Destroy(seed, 1.5f); //씨앗 오브젝트 사라짐
+            //}
         }
     }
     //void PlayLP()

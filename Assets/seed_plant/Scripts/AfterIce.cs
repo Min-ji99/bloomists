@@ -7,7 +7,7 @@ public class AfterIce : MonoBehaviour
     
     private Animator animator;
 
-    public bool state_p2=false;
+    public bool iceBreaking=false;
     public bool bloom = false;
     private bool particleOn = false;
     private bool soundOn = false;
@@ -16,6 +16,7 @@ public class AfterIce : MonoBehaviour
     RemoveIce rIce;
     Plant01 p1;
     Plant02 p2;
+    test_way way;
 
     public ParticleSystem blooming;
     public AudioSource bloomingSound;
@@ -27,18 +28,24 @@ public class AfterIce : MonoBehaviour
         rIce = GameObject.Find("ICE").transform.Find("03_ice").GetComponent<RemoveIce>();
         p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
         p2 = GameObject.Find("Plant2").GetComponent<Plant02>();
-
+        way = GetComponent<test_way>();
+        way.enabled = false;
     }
     // Update is called once per frame 
     void Update()
     {
         animator.SetBool("Click", false);
         touchClick();
+        if (iceBreaking)
+        {
+            way.enabled = true; //waypoint 실행
+        }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
-        if (collision.collider.name == "Wide Roller (2)_s4")    //plant02 자라난 뒤 step04로 다가가면
+        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.tag == "roller4")    //plant02 자라난 뒤 step04로 다가가면
         {
             p2.reach = true;    //roller 정지상태 켜줌
         }
@@ -54,7 +61,6 @@ public class AfterIce : MonoBehaviour
             bloomingSound.Play();
             soundOn = true;
             animator.SetBool("Click", true);    //plant02 자라남
-            state_p2 = true;
             Invoke("Bloom", 2.0f);  //2초 뒤면
             Invoke("Particle", 0.0f); //파티클
 
@@ -68,6 +74,7 @@ public class AfterIce : MonoBehaviour
             blooming.Play();
             Destroy(blooming, 2f);
             particleOn = true;
+            iceBreaking = true;
         }
     }
 

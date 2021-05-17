@@ -111,12 +111,12 @@
     <Compile Include="Assets\Canvas Flow\Examples\Shared\Scripts\LoadExample.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\1. Game Example - Floaty Cube\Canvas Controllers\FCMenuCanvasController.cs" />
     <Compile Include="Assets\UI\testUI.cs" />
-    <Compile Include="Assets\test_way.cs" />
+    <Compile Include="Assets\waypoint\test_way.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Scripts\WSCube.cs" />
     <Compile Include="Assets\Deco\book\BookControl.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\GeneratePathExample.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\RoadMeshCreator.cs" />
-    <Compile Include="Assets\way_to_water.cs" />
+    <Compile Include="Assets\waypoint\way_to_water.cs" />
     <Compile Include="Assets\AR\TrackedImage.cs" />
     <Compile Include="Assets\Canvas Flow\Examples\3. World Space UI Example\Scripts\WSPassDataFromWorldToUI.cs" />
     <Compile Include="Assets\Canvas Flow\Storyboard Hooks\StoryboardHookUnityEngineUIButton.cs" />

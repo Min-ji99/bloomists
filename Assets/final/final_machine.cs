@@ -9,18 +9,22 @@ public class final_machine : MonoBehaviour
     private Animator animator;
     public bool isclosed = false;
     public ParticleSystem final_particle;
+    Flower01 f1;
 
     // Use this for initialization 
     void Start()
     {
         animator = GetComponent<Animator>();
+        f1 = GameObject.Find("Flower1").GetComponent<Flower01>();
 
     }
     // Update is called once per frame 
     void Update()
     {
         animator.SetBool("final", false);
-        touchClick();
+        //Debug.Log("f1 : " + f1.stop);
+        if(f1.stop = true) //trigger함수 작동했을 때
+            touchClick();
     }
     // 터치 시 오브젝트 확인 함수 
     void touchClick()
