@@ -26,7 +26,6 @@ public class Seedposition : MonoBehaviour
     public bool standOn = false;
    // public bool appear = false;
    // public bool isbloomed = false;
-    public bool lightDetect = false;
     public bool growth = false;
 
 
@@ -46,7 +45,7 @@ public class Seedposition : MonoBehaviour
     rotate ro;
     watertank tank;
     Plant01 p1;
-    Sensor sensor;
+    public Sensor sensor;
     test_way way;
 
     void Start()
@@ -62,12 +61,6 @@ public class Seedposition : MonoBehaviour
         //sensor = GameObject.Find("ArdManager").GetComponent<Sensor>();
         way = GameObject.Find("S_P").transform.Find("seed").GetComponent<test_way>();
 
-        //if (pathCreator != null)
-        //{
-        //    // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
-        //    pathCreator.pathUpdated += OnPathChanged;
-        //}
-
     }
 
     // Update is called once per frame
@@ -80,23 +73,12 @@ public class Seedposition : MonoBehaviour
         Dist2 = Vector3.Distance(seed.transform.position, water.transform.position);
         MDist = Vector3.Distance(seed.transform.position, MStart.transform.position);
         //Play();
-        //if(path_stand == false)
-        //{
-        //    if (pathCreator != null)
-        //    {
-        //        distanceTravelled += speed * Time.deltaTime;
-        //        transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
-        //        //transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
-        //    }
-        //}
 
         //if(transform.position = new Vector3(7.00277f, -1.610846f, -0.8221116f))
         //{
         //    Destroy(stand_path);
         //    //stand_path.SetActive(false);
         //}
-        //
-
     }
 
 
@@ -121,10 +103,6 @@ public class Seedposition : MonoBehaviour
             seed.SetActive(false);
             standOn = true; //캔버스 뜨도록
 
-            //if (sensor.lightDetect)       //빛 감지하면
-            //{
-            lightDetect = true;
-            // }
         }
     }
     /*
@@ -204,11 +182,11 @@ public class Seedposition : MonoBehaviour
 
         //}
 
-        if (lightDetect)
-            {
+        //if (lightDetect)
+            //{
                // Invoke("GoPlant", 1.0f); //1초뒤에 새싹 자라게
                // Invoke("particle", 0.0f); //파티클
-            }
+            //}
             //if (ro.isMove == true)  //roller 정지 상태 아니라면
             //{
            

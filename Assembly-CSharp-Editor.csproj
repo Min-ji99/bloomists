@@ -282,6 +282,9 @@
     <Reference Include="CanvasFlowEditor">
       <HintPath>Assets\Canvas Flow\Executables\Editor\CanvasFlowEditor.dll</HintPath>
     </Reference>
+    <Reference Include="ArduinoBluetoothAPI">
+      <HintPath>Assets\Plugins\ArduinoBluetoothAPI.dll</HintPath>
+    </Reference>
     <Reference Include="Psd2UnityPro">
       <HintPath>Assets\Psd2UnityPro\Editor\Psd2UnityPro.dll</HintPath>
     </Reference>

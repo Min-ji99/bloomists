@@ -48,6 +48,8 @@ public class TrackedImage : MonoBehaviour
     public GameObject arCamera;
     private Vector3 trackedCameraPosition;
 
+    public bool ar=false;
+
     private void Awake()
     {
         trackedImageManager = FindObjectOfType<ARTrackedImageManager>();
@@ -88,6 +90,7 @@ public class TrackedImage : MonoBehaviour
     {
         AssignGameObjecct(trackedImage.referenceImage.name, trackedImage.transform.position, trackedImage.transform.rotation);
         //AssignGameObjecct(trackedImage.referenceImage.name, trackedImage.transform.position);
+        ar = true;
     }
     
     void AssignGameObjecct(string name, Vector3 newPosition)
@@ -106,6 +109,7 @@ public class TrackedImage : MonoBehaviour
             else
             {
                 trackedCameraPosition = arCamera.transform.position;
+
                 arObjects[name].SetActive(true);
                 arObjects[name].transform.position = newPosition;
                 arObjects[name].transform.localScale = scaleFactor;

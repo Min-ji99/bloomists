@@ -11,7 +11,7 @@ public class GirlWalk : MonoBehaviour
     private float minDistance = 0.05f;
     private int lastWaypointIndex;
 
-    private float movementSpeed = 0.1f;
+    private float movementSpeed = 0.05f;
     private float rotationSpeed = 1f;
 
     private bool elfMove = true;

@@ -11,7 +11,8 @@ public class seedOpen : MonoBehaviour
 
     Seedposition seedPos;
     Plant01 p1;
-    way_to_water wayPointWater;
+    test_way way;
+    public Sensor sensor;
 
     private Animator animator;
     public bool lightDetect = false;
@@ -42,7 +43,9 @@ public class seedOpen : MonoBehaviour
 
     void Start()
     {
-        wayPointWater = GameObject.Find("SeedOpen").transform.Find("seed_open").GetComponent<way_to_water>();
+        way = GetComponent<test_way>();
+        way.enabled = false;
+
         ro = GameObject.Find("01").transform.Find("01_rotateplane").GetComponent<rotate>();
         seedPos = GameObject.Find("S_P").transform.Find("seed").GetComponent<Seedposition>();
         p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
@@ -92,10 +95,10 @@ public class seedOpen : MonoBehaviour
     void Play()
     {
 
-        //if (sensor.lightDetect)   //★주석없애야함
-        //{
-        lightDetect = true;
-        // }
+        if (sensor.lightDetect)   //★주석없애야함
+        {
+            lightDetect = true;
+        }
 
         if (lightDetect) 
         {
@@ -138,6 +141,8 @@ public class seedOpen : MonoBehaviour
     {
         SeedOpened = true;
         seedPos.state = false;
+
+        way.enabled = true;
     }
 
     void PlayEffect()

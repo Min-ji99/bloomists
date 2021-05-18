@@ -36,10 +36,10 @@ public class AfterIce : MonoBehaviour
     {
         animator.SetBool("Click", false);
         touchClick();
-        if (iceBreaking)
-        {
-            way.enabled = true; //waypoint 실행
-        }
+        //if (iceBreaking)
+        //{
+        //    way.enabled = true; //waypoint 실행
+        //}
     }
 
     void OnTriggerEnter(Collider collision)
@@ -80,6 +80,11 @@ public class AfterIce : MonoBehaviour
 
     void Bloom()
     {
+        if (iceBreaking)
+        {
+            way.enabled = true; //waypoint 실행
+        }
+
         p1.appear = false;  //roller 정지상태 꺼줌
         bloom = true;   //roller 동작상태 켜줌
     }

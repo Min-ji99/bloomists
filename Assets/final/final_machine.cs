@@ -9,7 +9,9 @@ public class final_machine : MonoBehaviour
     private Animator animator;
     public bool isclosed = false;
     public ParticleSystem final_particle;
+    public ParticleSystem final_light;
     Flower01 f1;
+    public Canvas_UI canvas;
 
     // Use this for initialization 
     void Start()
@@ -23,7 +25,7 @@ public class final_machine : MonoBehaviour
     {
         animator.SetBool("final", false);
         //Debug.Log("f1 : " + f1.stop);
-        if(f1.stop = true) //trigger함수 작동했을 때
+        if(canvas.IsDestroy13)
             touchClick();
     }
     // 터치 시 오브젝트 확인 함수 
@@ -70,5 +72,6 @@ public class final_machine : MonoBehaviour
     void bloom()
     {
         final_particle.Play();
+        final_light.Play();
     }
 }

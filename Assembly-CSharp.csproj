@@ -97,6 +97,7 @@
     <Compile Include="Assets\Sensor.cs" />
     <Compile Include="Assets\step04\PotionTank.cs" />
     <Compile Include="Assets\UI\color1.cs" />
+    <Compile Include="Assets\guide\guideline.cs" />
     <Compile Include="Assets\start\Scripts\Lever.cs" />
     <Compile Include="Assets\seed_plant\Scripts\Fruit02.cs" />
     <Compile Include="Assets\Flower1Collider.cs" />
@@ -354,6 +355,9 @@
     </Reference>
     <Reference Include="CanvasFlow">
       <HintPath>Assets\Canvas Flow\Executables\CanvasFlow.dll</HintPath>
+    </Reference>
+    <Reference Include="ArduinoBluetoothAPI">
+      <HintPath>Assets\Plugins\ArduinoBluetoothAPI.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.5\net35\unity-custom\nunit.framework.dll</HintPath>

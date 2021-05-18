@@ -6,18 +6,19 @@ public class Flower2Collider : MonoBehaviour
 {
     Flower2 f2;
     public Rigidbody rb;
-    test_way way;
+    public test_way way;
 
     void Start()
     {
         f2 = GameObject.Find("Flower2").GetComponent<Flower2>();
-        rb = GetComponent<Rigidbody>();
-        way = GetComponent<test_way>();
+        //rb = GetComponent<Rigidbody>();
+        //way = GetComponent<test_way>();
 
     }
 
     void OnTriggerEnter(Collider collision)
     {
+        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "roller5")
         {
             rb.isKinematic = false;

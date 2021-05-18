@@ -6,10 +6,21 @@ using System.Collections;
 public class p1collider : MonoBehaviour
 {
     Plant01 p1;
+    test_way way;
 
     void Start()
     {
         p1 = GameObject.Find("Plant1").GetComponent<Plant01>();
+        way = GetComponent<test_way>();
+        way.enabled = false;
+    }
+
+    void Update()
+    {
+        if (p1.bloom)
+        {
+            way.enabled = true;
+        }
     }
 
     void OnTriggerEnter(Collider collision)
@@ -24,4 +35,6 @@ public class p1collider : MonoBehaviour
         }
 
     }
+
+
 }

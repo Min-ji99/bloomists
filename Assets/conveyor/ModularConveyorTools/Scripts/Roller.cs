@@ -54,7 +54,7 @@ public class Roller : MonoBehaviour {
         else if (aI.bloom == true || seed.SeedOpened == true || p1.bloom == true || f1.state == true || f2.state == true || f01.state == true || f02.state == true)
         {
             //Debug.Log("p2.reach:" + p2.reach);
-            tangentSpeed = 1;
+            tangentSpeed = 0;
             
 			//동작
         }

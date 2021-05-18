@@ -24,7 +24,7 @@ public class Plant01 : MonoBehaviour
     Open open;
     seedOpen SeedOP;
     watertank tank;
-    Sensor sensor;
+    public Sensor sensor;
 
     public ParticleSystem blooming;
     public AudioSource bloomingSound;
@@ -55,10 +55,10 @@ public class Plant01 : MonoBehaviour
 
             if (state == false) //false일동안 step02
             {
-                //if (sensor.waterDetect)   //★주석없애야함
-                //{
-                WaterDetect = true;
-                //}
+                if (sensor.waterDetect)   //★주석없애야함
+                {
+                    WaterDetect = true;
+                }
                 PlantAppear();
             }
         }
@@ -76,8 +76,12 @@ public class Plant01 : MonoBehaviour
         if (tank.watering == true) //물 애니메이션 재생되고
         {
             extraWater = true;      //(임시)추가로 물
-            if (WaterDetect)
+            if (WaterDetect && extraWater)
+            {
+
                 Invoke("Play", 1.5f);
+            }
+
         }
 
         //if (Dist < 0.245f) // step03 다가가면
@@ -111,6 +115,7 @@ public class Plant01 : MonoBehaviour
 
     void GoPlant()
     {
+        
         SeedOP.appear = false; //roller 정지상태 꺼줌
         bloom = true; //roller 동작상태 켜줌
 

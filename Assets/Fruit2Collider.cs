@@ -6,17 +6,18 @@ public class Fruit2Collider : MonoBehaviour
 {
     Fruit02 f02;
     public Rigidbody rb;
-    test_way way;
+    public test_way way;
 
     void Start()
     {
         f02 = GameObject.Find("Fruit2").GetComponent<Fruit02>();
-        rb = GetComponent<Rigidbody>();
-        way = GetComponent<test_way>();
+        //rb = GetComponent<Rigidbody>();
+        //way = GetComponent<test_way>();
     }
 
     void OnTriggerEnter(Collider collision)
     {
+        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "roller5")
         {
             rb.isKinematic = false;

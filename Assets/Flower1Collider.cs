@@ -6,13 +6,13 @@ public class Flower1Collider : MonoBehaviour
 {
     Flower01 f1;
     public Rigidbody rb;
-    test_way way;
+    public test_way way;
 
     void Start()
     {
         f1 = GameObject.Find("Flower1").GetComponent<Flower01>();
-        rb = GetComponent<Rigidbody>();
-        way = GetComponent<test_way>();
+        //rb = GetComponent<Rigidbody>();
+        //way = GetComponent<test_way>();
     }
 
     void OnTriggerEnter(Collider collision)

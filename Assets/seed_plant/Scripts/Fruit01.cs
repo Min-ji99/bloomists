@@ -14,9 +14,11 @@ public class Fruit01 : MonoBehaviour
     private bool isbloomed = false;
     private bool soundOn = false;
     public bool potionDetect = false;
+
     Plant02 p2;
     public color3 col3;
-    Sensor sensor;
+   // public test_way way;
+    public Sensor sensor;
 
 
     public ParticleSystem blooming;
@@ -27,6 +29,8 @@ public class Fruit01 : MonoBehaviour
     {
         Plant.gameObject.SetActive(false);
         p2 = GameObject.Find("Plant2").GetComponent<Plant02>();
+        //way = GetComponent<test_way>();
+        //way.enabled = false;
         //col3 = GameObject.Find("10-3").GetComponent<color3>();
         // sensor = GameObject.Find("ArdManager").GetComponent<Sensor>();    ★주석없애기
     }
@@ -35,10 +39,10 @@ public class Fruit01 : MonoBehaviour
     {
         fruit1Dist = Vector3.Distance(Plant.transform.position, final.transform.position);
         PlantAppear();
-        //if (sensor.potionDetect)   ★주석없애기
-        //{
-        potionDetect = true;
-        //}
+        if (sensor.potionDetect)   //★주석없애기
+        {
+            potionDetect = true;
+        }
     }
 
     void LateUpdate()
@@ -80,6 +84,7 @@ public class Fruit01 : MonoBehaviour
 
     void Next()
     {
+        //way.enabled = true;
         p2.reach = false;   //roller 정지상태 꺼줌
         state = true;       //roller 동작상태 켜줌
 

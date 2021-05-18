@@ -12,7 +12,7 @@ public class last_end : MonoBehaviour
 
     //title fade
     public UnityEngine.UI.Image fade;
-    float fades = 0.0f;
+    //float fades = 0.0f;
     float time = 0;
 
     Canvas_UI fianlCo;
@@ -36,8 +36,7 @@ public class last_end : MonoBehaviour
             Invoke("BackGround", 3.5f);
             Invoke("circle", 4.5f);
             Invoke("appear", 5f);
-            Invoke("Fadeslow", 5.5f);
-        }
+            Invoke("Fadeslow", 5f);        }
     }
 
     void BackGround()
@@ -77,18 +76,24 @@ public class last_end : MonoBehaviour
     void Fadeslow()
     {
         getfade = true;
-        fade.gameObject.SetActive(true);
-        StartCoroutine(FadeCoroutine());
+        Invoke("titleAppear", 1f);
+        //fade.gameObject.SetActive(true);
+        //StartCoroutine(FadeCoroutine());
     }
-
+    void titleAppear()
+    {
+        fade.gameObject.SetActive(true);
+    }
+    /*
     IEnumerator FadeCoroutine()
     {
         float fadeCount = 0;    //처음 알파값
         while(fadeCount < 1.0f) //알파 최대값, 1.0까지 반복
         {
-            fadeCount += 0.01f;
+            fadeCount += 0.1f;
+            Debug.Log("last  : " + fadeCount);
             yield return new WaitForSeconds(0.001f);
             fade.color = new Color(1, 1, 1, fadeCount);
         }
-    }
+    }*/
 }

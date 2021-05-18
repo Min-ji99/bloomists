@@ -12,6 +12,7 @@ public class Plant02 : MonoBehaviour
 
     Plant01 p1;
     PotionTank pt;
+    public Sensor sensor; 
 
     color1 col1;
     color2 col2;
@@ -54,11 +55,15 @@ public class Plant02 : MonoBehaviour
 
     
         }
-       
-        if (col1.answer1 == true || col2.answer2 == true || col3.answer3 == true || col4.answer4 == true) {    //물약기계 움직였다면
 
-            Invoke("Disappear", 4.0f);  //4초 뒤에 사라졋!!~!~
+        //if (col1.answer1 == true || col2.answer2 == true || col3.answer3 == true || col4.answer4 == true) {    //물약기계 움직였다면
 
+        //    Invoke("Disappear", 4.0f);  //4초 뒤에 사라졋!!~!~
+
+        //}
+        if (sensor.potionDetect)
+        {
+            Invoke("Disappear", 4.0f);
         }
     }
 

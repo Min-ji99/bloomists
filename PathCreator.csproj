@@ -275,6 +275,9 @@
     <Reference Include="CanvasFlowEditor">
       <HintPath>Assets\Canvas Flow\Executables\Editor\CanvasFlowEditor.dll</HintPath>
     </Reference>
+    <Reference Include="ArduinoBluetoothAPI">
+      <HintPath>Assets\Plugins\ArduinoBluetoothAPI.dll</HintPath>
+    </Reference>
     <Reference Include="Psd2UnityPro">
       <HintPath>Assets\Psd2UnityPro\Editor\Psd2UnityPro.dll</HintPath>
     </Reference>
@@ -632,11 +635,11 @@
     <Reference Include="System.Xml.XPath.XDocument">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.17f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>
