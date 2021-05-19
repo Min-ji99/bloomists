@@ -37,10 +37,11 @@ public class Flower01 : MonoBehaviour
 
     void Update()
     {
-        flower1Dist = Vector3.Distance(Plant.transform.position, final.transform.position);
-        PlantAppear();
         if (sensor.potionDetect)  //★주석없애기
             potionDetect = true;
+        flower1Dist = Vector3.Distance(Plant.transform.position, final.transform.position);
+        PlantAppear();
+
     }
 
     void LateUpdate()

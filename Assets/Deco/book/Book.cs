@@ -11,7 +11,7 @@ public class Book : MonoBehaviour
     private Animator animator;
     public bool state = false;
     public bool stateFactory = false;
-
+    public bool startAR = false;
 
 
     //브금
@@ -48,11 +48,14 @@ public class Book : MonoBehaviour
             {
                 if (hit.collider.gameObject.name == "Book_cover")
                 {
+
+
                     if (isMove == false)
                     {
                         isMove = true;
+                        startAR = true;
                         animator.SetBool("Click", true);
-                        
+
 
                         if (bookOn == false)
                         {

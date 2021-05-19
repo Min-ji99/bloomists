@@ -11,6 +11,9 @@ public class tt : MonoBehaviour
     public GameObject t3;
     public GameObject all;
 
+    public AudioSource introSound;
+    public bool touch = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +24,17 @@ public class tt : MonoBehaviour
     void Update()
     {
         //title
+
+    }
+
+    public void SetAct()
+    {
+        touch = true;
         Invoke("tt1", 1.5f);
         Invoke("tt2", 2.5f);
         Invoke("tt3", 3.5f);
         Invoke("TitleSize", 7f);
+        Invoke("Sound", 0f);
     }
 
     void tt1()
@@ -48,6 +58,11 @@ public class tt : MonoBehaviour
     void TitleSize()
     {
         all.SetActive(true);
-        Destroy(all, 8f);
+        Destroy(all, 7f);
+    }
+
+    void Sound()
+    {
+        introSound.Play();
     }
 }

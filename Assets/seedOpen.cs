@@ -18,7 +18,7 @@ public class seedOpen : MonoBehaviour
     public bool lightDetect = false;
     public bool SeedOpened = false;
     public bool appear = false;
-    public bool growth = false;
+    public bool stop = false;
     public bool isbloomed = false;
 
     private float Dist2;
@@ -172,7 +172,7 @@ public class seedOpen : MonoBehaviour
         {
             SeedOpened = false; //roller 동작상태 꺼줌
             appear = true; //step02에 도착하면 roller 정지상태 켜줌
-
+            stop = true;
             //if (p1.extraWater == true) // 추가적인 물 받게되면
             //{
             //    growth = true;

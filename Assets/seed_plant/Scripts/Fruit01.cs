@@ -37,12 +37,13 @@ public class Fruit01 : MonoBehaviour
 
     void Update()
     {
-        fruit1Dist = Vector3.Distance(Plant.transform.position, final.transform.position);
-        PlantAppear();
         if (sensor.potionDetect)   //★주석없애기
         {
             potionDetect = true;
         }
+        fruit1Dist = Vector3.Distance(Plant.transform.position, final.transform.position);
+        PlantAppear();
+
     }
 
     void LateUpdate()

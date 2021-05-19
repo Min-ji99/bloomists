@@ -35,7 +35,7 @@ public class Canvas_UI : MonoBehaviour
     private bool IsDestroy5 = false;
     private bool IsDestroy6 = false;
     private bool IsDestroy7 = false;
-    private bool IsDestroy8 = false;
+    public bool IsDestroy8 = false;
     private bool IsDestroy9 = false;
     private bool IsDestroy10 = false;
     private bool IsDestroy11 = false;

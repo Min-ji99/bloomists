@@ -7,9 +7,11 @@ using System;
 
 public class Sensor : MonoBehaviour
 {
+    public Seedposition seedPos;
+    public watertank tank;
+    public Canvas_UI canvas;
+
     BluetoothHelper bluetoothHelper;
-    //SerialPort sp = new SerialPort("COM4", 9600);
-    //string stream;
 
     public bool lightDetect = false;
     public bool waterDetect = false;
@@ -47,44 +49,13 @@ public class Sensor : MonoBehaviour
             //Toggle_isDevicePaired.isOn = false;
             Debug.Log(ex.Message);
         }
-        //sp.Open();
-        //sp.ReadTimeout = 1;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*if (bluetoothHelper.Available)
-        {
-            Debug.Log("receive");
-            received_message = bluetoothHelper.Read();
-            Debug.Log(received_message);
-        }*/
-        //if (sp.IsOpen)
-        //{
-        //    try
-        //    {
-        //        stream = sp.ReadLine();
-        //        sp.ReadTimeout = 100;
-        //        if (stream.Equals("Light Detect"))
-        //        {
-        //            lightDetect = true;
-        //            Debug.Log("Light 감지" + lightDetect);
 
-        //        }
-        //        else if (stream.Equals("potion Object close"))
-        //        {
-        //            potionDetect = true;
-        //            Debug.Log("Potion 감지" + potionDetect);
-        //        }
-        //        else if (stream.Equals("Water Object close"))
-        //        {
-        //            waterDetect = true;
-        //            Debug.Log("Water 감지" + waterDetect);
-        //        }
-        //    }
-        //    catch (System.Exception) { }
-        //}
     }
     //Asynchronous method to receive messages
     void OnMessageReceived()
@@ -95,19 +66,29 @@ public class Sensor : MonoBehaviour
 
         if (received_message.Contains("Light Detect"))
         {
-            lightDetect = true;
-            Debug.Log("Light 감지" + lightDetect);
+            if (seedPos.state)
+            {
+                lightDetect = true;
+                Debug.Log("Light 감지" + lightDetect);
+            }
 
         }
         else if (received_message.Contains("potion Object close"))
         {
-            potionDetect = true;
-            Debug.Log("Potion 감지" + potionDetect);
+            if (canvas.IsDestroy8)
+            {
+                potionDetect = true;
+                Debug.Log("Potion 감지" + potionDetect);
+            }
+
         }
         else if (received_message.Contains("Water Object close"))
         {
-            waterDetect = true;
-            Debug.Log("Water 감지" + waterDetect);
+            if (tank.watering)
+            {
+                waterDetect = true;
+                Debug.Log("Water 감지" + waterDetect);
+            }
         }
     }
     void OnConnected()

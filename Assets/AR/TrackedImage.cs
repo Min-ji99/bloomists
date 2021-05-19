@@ -35,7 +35,7 @@ public class TrackedImage : MonoBehaviour
     }
     */
     //움직임에 따라 이동
-    
+
     [SerializeField]
     private GameObject[] arObjectToPlace;
 
@@ -47,9 +47,10 @@ public class TrackedImage : MonoBehaviour
     private Dictionary<string, GameObject> arObjects = new Dictionary<string, GameObject>();
     public GameObject arCamera;
     private Vector3 trackedCameraPosition;
-
-    public bool ar=false;
-
+    private GameObject factory;
+    public bool ar=false; //guide 없애주려고
+    private int count=0;
+     
     private void Awake()
     {
         trackedImageManager = FindObjectOfType<ARTrackedImageManager>();
@@ -57,6 +58,7 @@ public class TrackedImage : MonoBehaviour
         foreach (GameObject arObject in arObjectToPlace)
         {
             GameObject newARObject = Instantiate(arObject, Vector3.zero, Quaternion.identity);
+            factory = newARObject;
             newARObject.name = arObject.name;
             arObjects.Add(arObject.name, newARObject);
         }
@@ -88,41 +90,16 @@ public class TrackedImage : MonoBehaviour
 
     private void UpdateImage(ARTrackedImage trackedImage)
     {
-        AssignGameObjecct(trackedImage.referenceImage.name, trackedImage.transform.position, trackedImage.transform.rotation);
+        if(count <= 10)
+        {
+            AssignGameObjecct(trackedImage.referenceImage.name, trackedImage.transform.position, trackedImage.transform.rotation);
+            ar = true;
+        }
         //AssignGameObjecct(trackedImage.referenceImage.name, trackedImage.transform.position);
-        ar = true;
+
+
     }
     
-    void AssignGameObjecct(string name, Vector3 newPosition)
-    {
-        if (arObjectToPlace != null)
-        {
-            //arObjects[name].SetActive(true);
-            //arObjects[name].transform.position = newPosition - distance;
-            //arObjects[name].transform.localScale = scaleFactor;
-
-            if (name != "seedFactory 1")
-            {
-                Vector3 LimitedPosition = arCamera.transform.position;
-                arObjects[name].transform.position -= LimitedPosition - trackedCameraPosition;
-            }
-            else
-            {
-                trackedCameraPosition = arCamera.transform.position;
-
-                arObjects[name].SetActive(true);
-                arObjects[name].transform.position = newPosition;
-                arObjects[name].transform.localScale = scaleFactor;
-            }
-            foreach (GameObject go in arObjects.Values)
-            {
-                if (go.name != name)
-                {
-                    go.SetActive(false);
-                }
-            }
-        }
-    }
     
     void AssignGameObjecct(string name, Vector3 newPosition, Quaternion newRotation)
     {
@@ -132,14 +109,21 @@ public class TrackedImage : MonoBehaviour
             if (name!= "seedFactory 1")
             {
                 Vector3 LimitedPosition = arCamera.transform.position;
-                arObjects[name].transform.position -= LimitedPosition - trackedCameraPosition;
+                arObjects[name].transform.position -= (LimitedPosition - trackedCameraPosition)*0.1f;
             }
             else
             {
                 trackedCameraPosition = arCamera.transform.position;
                 arObjects[name].SetActive(true);
                 arObjects[name].transform.position = newPosition;
-                arObjects[name].transform.rotation = newRotation;
+                if(count == 0)
+                {
+                    arObjects[name].transform.rotation = factory.transform.rotation;
+                    Debug.Log("count : " + count);
+                }
+                    
+                count++;
+                
                 arObjects[name].transform.localScale = scaleFactor;
             }
     

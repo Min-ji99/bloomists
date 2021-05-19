@@ -6,28 +6,28 @@ using UnityEngine.UI;
 public class Fade : MonoBehaviour
 {
     public UnityEngine.UI.Image fade;
+    public Canvas canvas;
+    public tt title;
+
     float fades = 1.0f;
     float time = 0;
-    public bool soundOn = false;
-
-    public AudioSource introSound;
 
     
 
     void Start()
     {
+        canvas.gameObject.SetActive(false);
     }
 
     void Update()
     {
-        if (soundOn == false)
+        if (title.touch)
         {
-            introSound.Play();
-            soundOn = true;
+            Invoke("Fadeslow", 7.5f);
+            Invoke("guide", 8.5f);
         }
-
         // Fadeslow();
-        Invoke("Fadeslow", 7.5f);
+
     }
 
     void Fadeslow()
@@ -47,7 +47,10 @@ public class Fade : MonoBehaviour
             time = 0;
         }
     }
-
+    void guide()
+    {
+        canvas.gameObject.SetActive(true);
+    }
 
 
 }

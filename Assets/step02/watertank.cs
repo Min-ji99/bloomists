@@ -14,7 +14,7 @@ public class watertank : MonoBehaviour
     public AudioSource shower;
     public AudioSource tank;
     public bool tankOn = false;
-
+    public seedOpen SP;
 
 
     // Use this for initialization 
@@ -28,7 +28,11 @@ public class watertank : MonoBehaviour
     void Update()
     {
         animator.SetBool("water", false);   //애니메이션 작동하지마
-        touchClick();
+        if (SP.stop == true)
+        {
+            touchClick();
+        }
+
     }
     // 터치 시 오브젝트 확인 함수 
     void touchClick()
